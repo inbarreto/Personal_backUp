@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="Personal.Controles.CustomMessegeBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"    
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+
+    <Grid x:Name="LayoutRoot" Margin="0">
+        <Grid.Background>
+            <SolidColorBrush Color="{StaticResource PhoneBackgroundColor}" Opacity=".5"/>
+        </Grid.Background>
+
+        <Grid x:Name="MessagePanel" Background="{StaticResource PhoneChromeBrush}"
+          VerticalAlignment="Top" HorizontalAlignment="Stretch"
+          >
+            <StackPanel Margin="12,12,12,18">
+                <TextBlock x:Name="HeaderTextBlock" TextWrapping="Wrap"
+                       Style="{StaticResource PhoneTextLargeStyle}"
+                       FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                       HorizontalAlignment="Left" Text="Por favor ingresa tu número de telefono" FontSize="20" />
+                <TextBox x:Name="txtNumeroTelefono" TextWrapping="Wrap"                            
+                            FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                            HorizontalAlignment="Left"  Width="400px"></TextBox>
+                <TextBlock x:Name="MessageTextBlock" TextWrapping="Wrap"
+                       Style="{StaticResource PhoneTextNormalStyle}"
+                       FontSize="{StaticResource PhoneFontSizeMedium}" Text="muchas gracias"
+                       Margin="12,24,12,24"
+                       HorizontalAlignment="Left"/>
+                <Grid HorizontalAlignment="Stretch" Margin="0,6,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="YesButton"  Content="Aceptar"/>
+                    <Button x:Name="NoButton"  Grid.Column="1" Content="Cancelar" />
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>
