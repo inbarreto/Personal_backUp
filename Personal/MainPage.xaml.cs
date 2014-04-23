@@ -9,6 +9,8 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Personal.Resources;
 using System.Threading;
+using Newtonsoft.Json;
+
 
 namespace Personal
 {
@@ -19,7 +21,7 @@ namespace Personal
         {
             InitializeComponent();
            
-
+            
           
             //NavigationService.Navigate(new Uri("/Pantallas/Login.xaml", UriKind.RelativeOrAbsolute));
             //NavigationService.Navigate(new Uri("Home.xaml",UriKind.Relative));
@@ -31,6 +33,7 @@ namespace Personal
         {
             Thread.Sleep(1000);
             NavigationService.Navigate(new Uri("/Pantallas/Home.xaml", UriKind.RelativeOrAbsolute));
+            
         }
 
         // Sample code for building a localized ApplicationBar

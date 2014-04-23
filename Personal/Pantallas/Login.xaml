@@ -42,7 +42,7 @@
                 <TextBlock  Foreground="White" FontSize="36"    TextAlignment="Center"  FontWeight="Bold" Height="55"  Text="video" x:Name="txtPersonalvideo" Margin="254,195,106,505" VerticalAlignment="Center" />
             <Grid >
                 <TextBox x:Name="txtNroLinea" HorizontalAlignment="Left" Height="72" Margin="15,307,0,0" TextWrapping="Wrap" Text="ej.:1533537726" VerticalAlignment="Top" 
-             Style="{StaticResource txtBoxLogin}" Tap="txtNroLinea_Tap" />
+             Style="{StaticResource txtBoxLogin}" Tap="txtNroLinea_Tap" GotFocus="txtNroLinea_GotFocus" />
 
             </Grid>
 

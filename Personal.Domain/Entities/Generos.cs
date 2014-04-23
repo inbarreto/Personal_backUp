@@ -10,7 +10,8 @@ namespace Personal.Domain.Entities
     {
             private int id;
             private string genero;
-
+            public int Hijo { get; set; }
+            public string NameCriteria { get; set; }
 
             public int Id
             {

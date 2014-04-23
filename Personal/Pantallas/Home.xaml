@@ -12,37 +12,138 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
+    <phone:PhoneApplicationPage.Resources>
+        <Style TargetType="TextBlock" x:Key="textosBlancos" >
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="Width" Value="240"></Setter>
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="Margin" Value="0,5,0,0"></Setter>
+        </Style>
+        <Style TargetType="Grid" x:Key="FondoVioleta">
+            <Setter Property="Background" Value="#7E517A"></Setter>
+        </Style>
+        <Style TargetType="phone:PivotItem" x:Key="colorTitle">
+            <Setter Property="Background" Value="Transparent"></Setter>
 
+        </Style>
+
+
+    </phone:PhoneApplicationPage.Resources>
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="53*"/>
-            <ColumnDefinition Width="67*"/>
-        </Grid.ColumnDefinitions>
-        <phone:Pivot Title="personal" Grid.ColumnSpan="2"  >
-            <phone:PivotItem Header="personal videos" Foreground="#FFB28AAD" Background="White">
-                <Grid>
+    <Grid x:Name="LayoutRoot" Background="White">
+      
+        <phone:Pivot Title=""  Background="white" Foreground="#7E517A">
+            <phone:PivotItem Header="personal" Background="White" Margin="10,28,14,0" >
+                <Grid >
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="140"/>
+                        <RowDefinition Height="140"/>
+                        <RowDefinition Height="140"/> 
+                        <RowDefinition Height="140"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Image x:Name="imgVer" Source="/Imagenes/ver-inactivo.png" Width="90" Height="79" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" Tap="imgVer_Tap" LostFocus="imgVer_LostFocus" GotFocus="imgVer_GotFocus" 
+                           ></Image>
+                    <Image Source="/Imagenes/mas.png" Width="30" Height="30" Grid.Column="2" VerticalAlignment="top" Grid.Row="1"></Image>
+                    <Image Source="/Imagenes/fav.png" Width="30" Height="30" Grid.Column="2" VerticalAlignment="Center" Grid.Row="1"></Image>
+                   
+
+                    <Line Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0"  X1="0" Y1="21" X2="500" Y2="21"
+                          VerticalAlignment="Bottom" Stroke="#F4F4F4" 
+                          StrokeThickness="15" Margin="3" Height="15"/>
+
+                    <Image x:Name="imgVer2" Source="/Imagenes/ver-inactivo.png" Width="90" Height="79" Grid.Column="1" VerticalAlignment="Center"
+                           HorizontalAlignment="Left" Grid.Row="2" Tap="imgVer_Tap" LostFocus="imgVer_LostFocus" GotFocus="imgVer_GotFocus" 
+                           ></Image>
+                    <Image Source="/Imagenes/mas.png" Width="30" Height="30" Grid.Column="2" VerticalAlignment="top" Grid.Row="2"></Image>
+                    <Image Source="/Imagenes/fav.png" Width="30" Height="30" Grid.Column="2" VerticalAlignment="Center" Grid.Row="2"></Image>
+
+
+                    <Line Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="2"  X1="0" Y1="21" X2="500" Y2="21"
+                          VerticalAlignment="Bottom" Stroke="#F4F4F4" 
+                          StrokeThickness="15" Margin="3" Height="15"/>
+
+                    <MediaElement
+                        Width="240" Height="140" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"
+                        Source="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" AutoPlay="True" ></MediaElement>
+                    <Image x:Name="imgVer3" Source="/Imagenes/ver-inactivo.png" Width="90" Height="79" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" 
+                           Grid.Row="3" Tap="imgVer_Tap" LostFocus="imgVer_LostFocus" GotFocus="imgVer_GotFocus" 
+                           ></Image>
+                    <Image Source="/Imagenes/mas.png" Width="30" Height="30" Grid.Column="2" VerticalAlignment="top" Grid.Row="3"></Image>
+                    <Image Source="/Imagenes/fav.png" Width="30" Height="30" Grid.Column="2" VerticalAlignment="Center" Grid.Row="3"></Image>
+
+
+                    <Line Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="3"  X1="0" Y1="21" X2="500" Y2="21"
+                          VerticalAlignment="Bottom" Stroke="#F4F4F4" 
+                          StrokeThickness="15" Margin="3" Height="15"/>
+                    <Line Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1"  X1="0" Y1="21" X2="500" Y2="21"
+                          VerticalAlignment="Bottom" Stroke="#F4F4F4" 
+                          StrokeThickness="15" Margin="3" Height="15"/>
+
 
                 </Grid>
 
             </phone:PivotItem>
-            <phone:PivotItem Header="Generos" >
+            <phone:PivotItem Header="generos" Style="{StaticResource colorTitle}" >
                 <ListBox x:Name="lboxgeneros" Margin="0,0,0,0">
                     <ListBox.ItemTemplate >
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
-                                <TextBlock x:Name="txtGenero" Text="{Binding Genero}" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="0,12" FontSize="36">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                <TextBlock x:Name="txtGenero" Text="{Binding Genero}" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="0,3" FontSize="36">
                                 </TextBlock>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-
             </phone:PivotItem>
-            <phone:PivotItem Header="Buscar">
+            <phone:PivotItem Header="buscar" Background="Transparent">
                 <Grid>
-
+                    <TextBox x:Name="txtBuscar" HorizontalAlignment="Left" Foreground="#FFB28AAD"  Height="70" TextWrapping="Wrap" Text="Buscar" VerticalAlignment="Top" 
+             Style="{StaticResource txtBoxLogin}" >
+                        <TextBox.Background >
+                            <ImageBrush  ImageSource="/Imagenes/lupa.png" AlignmentX="Right" Stretch="Uniform" ></ImageBrush>
+                           
+                        </TextBox.Background>
+                    </TextBox>
                 </Grid>
+            </phone:PivotItem>
+            <phone:PivotItem Header="login" Margin="-10,0,-10,0">
+                <Grid x:Name="ContentPanel" Background="#7E517A" >
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="160"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Name="lblNumeroLinea" Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" Text="número de linea" Style="{StaticResource textosBlancos}"   VerticalAlignment="Top"/>
+                    <TextBlock  Width="300" Foreground="White" FontSize="36"  Grid.ColumnSpan="2" TextAlignment="Center"  FontWeight="Normal" Height="55" x:Name="txtPersonal"> personal <Run FontWeight="Bold">video</Run></TextBlock>
+
+                    <TextBox x:Name="txtNroLinea"  Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Height="72" TextWrapping="Wrap" Text="ej.:1533537726" VerticalAlignment="Bottom"  Grid.ColumnSpan="2"
+             Style="{StaticResource txtBoxLogin}" Tap="txtNroLinea_Tap" GotFocus="txtNroLinea_GotFocus" TextChanged="txtNroLinea_TextChanged" />
+
+
+
+
+                    <TextBlock  VerticalAlignment="Top" TextWrapping="Wrap" Grid.Row="2" Text="clave personal"  Style="{StaticResource textosBlancos}" />
+                    <TextBox x:Name="txtClavePersonal" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Height="72"  VerticalAlignment="Bottom" TextWrapping="Wrap" Text="codigo" Style="{StaticResource txtBoxLogin}" Tap="txtClavePersonal_Tap" GotFocus="txtClavePersonal_GotFocus" Background="#FFB28AAD"
+                             Grid.ColumnSpan="2"/>
+                    <Button x:Name="btnAceptar" Grid.Column="0" Grid.Row="3" Content="aceptar" HorizontalAlignment="Left"  VerticalAlignment="Bottom" RenderTransformOrigin="-1.421,-0.079" Background="#7e517a" BorderBrush="White" Foreground="White" Width="216"/>
+                    <TextBlock Grid.Row="5" Grid.Column="0" VerticalAlignment="Bottom" TextWrapping="Wrap" Text="clave provisoria por sms" Style="{StaticResource textosBlancos}"   TextDecorations="Underline" Tap="TextBlock_Tap" />
+                </Grid>
+
 
             </phone:PivotItem>
         </phone:Pivot>

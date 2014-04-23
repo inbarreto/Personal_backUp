@@ -10,6 +10,7 @@ using Microsoft.Phone.Shell;
 using Microsoft.Expression.Drawing;
 using System.Windows.Controls.Primitives;
 using System.ComponentModel;
+using System.Windows.Media;
 
 
 namespace Personal.Pantallas
@@ -48,6 +49,12 @@ namespace Personal.Pantallas
         private void txtNroLinea_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             txtNroLinea.Text = string.Empty;
+        }
+
+        private void txtNroLinea_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtNroLinea.Foreground = new SolidColorBrush(Colors.White);
+            txtNroLinea.Background = new SolidColorBrush(Colors.Black);
         }
     }
 }

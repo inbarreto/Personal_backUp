@@ -84,6 +84,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Entities\Generos.cs" />
+    <Compile Include="Entities\Information.cs" />
+    <Compile Include="Entities\Pelicula.cs" />
+    <Compile Include="Entities\Thumbnail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
