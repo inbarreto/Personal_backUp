@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="Personal.Controles.PeliculasPorGenero"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="480" d:DesignWidth="480">
+    
+    <UserControl.Resources>
+
+        <ResourceDictionary Source="../Styles/StylePeliculasPorGeneroGenero.xaml"></ResourceDictionary>
+            
+        
+    </UserControl.Resources>
+    
+    
+    <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
+
+        <Grid Background="White">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>                
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            
+            <ListBox x:Name="listaPeliculas"  Grid.Column="0" Grid.Row="1">
+              
+                    
+       
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid >                            
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="175"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="235" />
+                            </Grid.RowDefinitions>
+                            <Image x:Name="imgPelicula" Source="{Binding fanart.small}" Style="{StaticResource pelicula}" Margin="20,15" HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0"></Image>
+                            <Canvas Style="{StaticResource canvas}" Grid.Column="1">
+
+                                <TextBlock x:Name="txtTitle" Text="{Binding title}" FontFamily="Portable User Interface" Foreground="#5B5B5B"  FontSize="28" Width="320" Grid.Column="1" Canvas.Left="14" Canvas.Top="40">
+                                </TextBlock>
+
+                                <Image x:Name="imgVer" Source="../Imagenes/ver-inactivo.png" Style="{StaticResource imagenVer}" Grid.Column="1" Grid.Row="0" Canvas.Top="120" Canvas.Left="14" Tap="imgVer_Tap"></Image>
+                                <Image x:Name="imgFavorito" Source="../Imagenes/fav.png" Style="{StaticResource imagenesFav}"     Canvas.Top="95"  Grid.Column="1"  Canvas.Left="230" Tap="imgFavorito_Tap"></Image>
+                                <Image x:Name="imgMas"  Source="../Imagenes/mas.png"   Style="{StaticResource imagenesFav}"   Canvas.Top="150" Canvas.Left="230" Grid.Column="1" Tap="imgMas_Tap"></Image>
+                            </Canvas>
+                            <Line  X1="20" Y1="0" X2="444" Y2="0" Grid.ColumnSpan="2" Grid.Row="0" 
+                          VerticalAlignment="Bottom" Stroke="#F4F4F4" 
+                          StrokeThickness="4" Height="4"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+
+
+        </Grid>
+
+
+
+    </Grid>
+</UserControl>

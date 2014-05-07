@@ -24,6 +24,10 @@
     <ValidateXaml>true</ValidateXaml>
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,6 +49,7 @@
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -95,17 +100,21 @@
     <Compile Include="Controles\CustomMessegeBox.xaml.cs">
       <DependentUpon>CustomMessegeBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\FichaTecnica.xaml.cs">
+    <Compile Include="Controles\PeliculasPorGenero.xaml.cs">
+      <DependentUpon>PeliculasPorGenero.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PeliculaModel.cs" />
+    <Compile Include="Views\FichaTecnica.xaml.cs">
       <DependentUpon>FichaTecnica.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\Home.xaml.cs">
+    <Compile Include="Views\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
     <Compile Include="LocalizedStrings.cs" />
-    <Compile Include="MainPage.xaml.cs">
+    <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\Login.xaml.cs">
+    <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,6 +122,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PeliculasGenero.xaml.cs">
+      <DependentUpon>PeliculasGenero.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -124,19 +136,36 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pantallas\FichaTecnica.xaml">
+    <Page Include="Controles\PeliculasPorGenero.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pantallas\Home.xaml">
+    <Page Include="Styles\botonPlay.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\StylePeliculasPorGeneroGenero.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\StylePeliculasPorGeneroHome.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FichaTecnica.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainPage.xaml">
+    <Page Include="Views\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pantallas\Login.xaml">
+    <Page Include="Views\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PeliculasGenero.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,7 +180,9 @@
     <None Include="packages.config" />
     <None Include="Personal_2014_03_21_13_57_35.sap" />
     <None Include="Personal_2014_03_21_13_58_06.sap" />
-    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\AppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
     </None>
@@ -178,17 +209,28 @@
     </Content>
     <Content Include="Font\AdobeFnt11.lst" />
     <Content Include="Font\AdobeFnt13.lst" />
+    <Content Include="Imagenes\atp.png" />
     <Content Include="Imagenes\fav-activo-46.png" />
     <Content Include="Imagenes\fav-hover.png" />
     <Content Include="Imagenes\fav.png" />
     <Content Include="Imagenes\link-inactivo.png" />
     <Content Include="Imagenes\lupa.png" />
     <Content Include="Imagenes\mas.png" />
+    <Content Include="Imagenes\placa.png" />
+    <Content Include="Imagenes\sound.png" />
+    <Content Include="Imagenes\sub.png" />
+    <Content Include="Imagenes\timer.png" />
     <Content Include="Imagenes\ver ahora-hover.png" />
     <Content Include="Imagenes\ver ahora-inactivo.png" />
     <Content Include="Imagenes\ver-activo.png" />
     <Content Include="Imagenes\ver-hover.png" />
     <Content Include="Imagenes\ver-inactivo.png" />
+    <Content Include="README_FIRST.txt" />
+    <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.es-AR.resx" />
@@ -199,6 +241,9 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Expression.Drawing, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit">
+      <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.2\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -209,6 +254,7 @@
       <Name>Personal.Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

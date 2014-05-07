@@ -14,7 +14,7 @@ namespace Personal.Domain.Entities
         public string original_title { get; set; }
         public DateTime year { get; set; }
         public int duration { get; set; }
-        public int classification { get; set; }
+        public string classification { get; set; }
         public int available_in_hd { get; set; }
         public int available_for_mobiles { get; set; }
         public int rate { get; set; }
@@ -53,7 +53,7 @@ namespace Personal.Domain.Entities
                 original_title="Black Dog";
                 year = Convert.ToDateTime("1998-01-01");
                 duration =89;
-                classification =13;
+                classification ="ATP";
                 available_in_hd =0;
                 available_for_mobiles =1;
                 rate  =0;
@@ -86,6 +86,11 @@ namespace Personal.Domain.Entities
         
         }
 
+
+        public Pelicula()
+        {
+            fanart = new Thumbnail();
+        }
 
     }
 }

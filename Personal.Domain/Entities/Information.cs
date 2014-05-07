@@ -13,6 +13,8 @@ namespace Personal.Domain.Entities
         public string value { get; set; }
 
 
+        
+
         public Information(string name , string valor)
             {
                 field_name = name;

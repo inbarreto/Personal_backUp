@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
+  <Languages xmlns="">
+    <Language code="es-AR" />
+  </Languages>
   <App xmlns="" ProductID="{ad4b9ab6-2631-4aa6-9927-b9b8fb6fb536}" Title="personal video" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Personal author" Description="Sample description" Publisher="Personal" PublisherID="{b184bddc-094b-4e0f-9810-3e5777933cbd}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
@@ -11,7 +14,7 @@
       <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
     </Capabilities>
     <Tasks>
-      <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
+      <DefaultTask Name="_default" NavigationPage="/Views/MainPage.xaml" />
     </Tasks>
     <Tokens>
       <PrimaryToken TokenID="PersonalToken" TaskName="_default">

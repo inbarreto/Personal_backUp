@@ -1,6 +1,6 @@
-﻿<xapCache source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Bin\Release\Personal_Release_AnyCPU.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="22/04/2014 11:53:32 p.m.">
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\obj\Release\Personal.dll" archivePath="Personal.dll" lastWriteTime="22/04/2014 11:53:28 p.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\obj\Release\es-AR\Personal.resources.dll" archivePath="es-AR\Personal.resources.dll" lastWriteTime="22/04/2014 11:53:28 p.m." />
+﻿<xapCache source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Bin\Release\Personal_Release_AnyCPU.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="29/04/2014 10:45:30 p.m.">
+  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\obj\Release\Personal.dll" archivePath="Personal.dll" lastWriteTime="29/04/2014 10:45:27 p.m." />
+  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\obj\Release\es-AR\Personal.resources.dll" archivePath="es-AR\Personal.resources.dll" lastWriteTime="29/04/2014 10:45:27 p.m." />
   <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Assets\AlignmentGrid.png" archivePath="Assets\AlignmentGrid.png" lastWriteTime="31/03/2014 11:28:05 a.m." />
   <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Assets\Tiles\FlipCycleTileLarge.png" archivePath="Assets\Tiles\FlipCycleTileLarge.png" lastWriteTime="31/03/2014 11:28:05 a.m." />
   <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Assets\Tiles\FlipCycleTileSmall.png" archivePath="Assets\Tiles\FlipCycleTileSmall.png" lastWriteTime="31/03/2014 11:28:05 a.m." />
@@ -24,7 +24,7 @@
   <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Bin\Release\Assets\Tiles\FlipCycleTileMedium.png" archivePath="Assets\Tiles\FlipCycleTileMedium.png" lastWriteTime="31/03/2014 11:28:05 a.m." />
   <file source="C:\Program Files (x86)\Microsoft SDKs\Expression\Blend\Windows Phone\v8.0\Libraries\Microsoft.Expression.Drawing.dll" archivePath="Microsoft.Expression.Drawing.dll" lastWriteTime="25/09/2012 01:41:02 a.m." />
   <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\packages\Newtonsoft.Json.6.0.2\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll" archivePath="Newtonsoft.Json.dll" lastWriteTime="13/04/2014 06:09:07 p.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal.Domain\Bin\Release\Personal.Domain.dll" archivePath="Personal.Domain.dll" lastWriteTime="15/04/2014 08:23:59 p.m." />
+  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal.Domain\Bin\Release\Personal.Domain.dll" archivePath="Personal.Domain.dll" lastWriteTime="29/04/2014 10:39:38 p.m." />
   <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\packages\Newtonsoft.Json.6.0.2\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.xml" archivePath="Newtonsoft.Json.xml" lastWriteTime="13/04/2014 06:09:07 p.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Bin\Release\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="15/04/2014 12:13:24 a.m." />
+  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Bin\Release\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="28/04/2014 11:03:02 p.m." />
 </xapCache>

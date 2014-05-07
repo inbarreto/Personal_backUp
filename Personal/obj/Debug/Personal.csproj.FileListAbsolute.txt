@@ -10,7 +10,6 @@ c:\users\ignacio\documents\visual studio 2012\Projects\Personal\Personal\Bin\Deb
 c:\users\ignacio\documents\visual studio 2012\Projects\Personal\Personal\Bin\Debug\Properties\WMAppManifest.xml
 c:\users\ignacio\documents\visual studio 2012\Projects\Personal\Personal\Bin\Debug\Personal_Debug_AnyCPU.xap
 c:\users\ignacio\documents\visual studio 2012\Projects\Personal\Personal\obj\Debug\App.g.cs
-c:\users\ignacio\documents\visual studio 2012\Projects\Personal\Personal\obj\Debug\MainPage.g.cs
 c:\users\ignacio\documents\visual studio 2012\Projects\Personal\Personal\obj\Debug\Personal.g.resources
 c:\users\ignacio\documents\visual studio 2012\Projects\Personal\Personal\obj\Debug\Personal.Resources.AppResources.resources
 c:\users\ignacio\documents\visual studio 2012\Projects\Personal\Personal\obj\Debug\Personal.csproj.GenerateResource.Cache
@@ -25,10 +24,17 @@ C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal - 22.03.14\Perso
 C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal - 22.03.14\Personal\obj\Debug\Personal.Resources.AppResources.resources
 C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal - 22.03.14\Personal\obj\Debug\Personal.csproj.GenerateResource.Cache
 C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal - 22.03.14\Personal\obj\Debug\Personal.dll
-C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\obj\Debug\Pantallas\Home.g.cs
-C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\obj\Debug\Pantallas\Login.g.cs
 C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Bin\Debug\Microsoft.Expression.Drawing.dll
 C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\obj\Debug\Personal.csprojResolveAssemblyReference.cache
 C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\obj\Debug\Controles\CustomMessegeBox.g.cs
 C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Bin\Debug\Personal.Domain.dll
 C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Bin\Debug\Personal.Domain.pdb
+C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Bin\Debug\es-AR\Personal.resources.dll
+C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Bin\Debug\Newtonsoft.Json.dll
+C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Bin\Debug\Newtonsoft.Json.xml
+C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\obj\Debug\Personal.Resources.AppResources.es-AR.resources
+C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\obj\Debug\es-AR\Personal.resources.dll
+C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\obj\Debug\Views\FichaTecnica.g.cs
+C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\obj\Debug\Views\Home.g.cs
+C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\obj\Debug\Views\Login.g.cs
+C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\obj\Debug\Views\MainPage.g.cs

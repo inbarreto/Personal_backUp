@@ -25,10 +25,11 @@ namespace Personal.Domain.Entities
                 set { this.genero = value; }
             }
 
-            public Generos(int intID, string strGenero)
+            public Generos(int intID, string strGenero,string named_criteria)
             {
                 Genero = strGenero;
                 Id = intID;
+                NameCriteria = named_criteria;
             }
 
     }

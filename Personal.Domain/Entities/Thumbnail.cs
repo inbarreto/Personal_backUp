@@ -22,7 +22,7 @@ namespace Personal.Domain.Entities
             large = @"http://streamer.qubit.tv/contents/b858cfe5-daa0-47d2-88b0-8e496b3150eb_BlackDog/thumbnails/large.jpg";
             movil = @"http://streamer.qubit.tv/contents/b858cfe5-daa0-47d2-88b0-8e496b3150eb_BlackDog/thumbnails/mobile.jpg";
             hd = @"http://streamer.qubit.tv/contents/b858cfe5-daa0-47d2-88b0-8e496b3150eb_BlackDog/thumbnails/medium.jpg";
-            fanart = new string[] { @"http://streamer.qubit.tv/contents/b858cfe5-daa0-47d2-88b0-8e496b3150eb_BlackDog/thumbnails/tv.jpg", @"http://streamer.qubit.tv/contents/b858cfe5-daa0-47d2-88b0-8e496b3150eb_BlackDog/thumbnails/tv.jpg", @"http://streamer.qubit.tv/contents/b858cfe5-daa0-47d2-88b0-8e496b3150eb_BlackDog/thumbnails/tv.jpg" };
+            fanart = new string[] { @"http://streamer.qubit.tv/contents/b858cfe5-daa0-47d2-88b0-8e496b3150eb_BlackDog/thumbnails/fanart_1.jpg", @"http://streamer.qubit.tv/contents/b858cfe5-daa0-47d2-88b0-8e496b3150eb_BlackDog/thumbnails/tv.jpg", @"http://streamer.qubit.tv/contents/b858cfe5-daa0-47d2-88b0-8e496b3150eb_BlackDog/thumbnails/tv.jpg" };
             crt = string.Empty;
 
         }
