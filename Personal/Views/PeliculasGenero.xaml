@@ -1,0 +1,79 @@
+﻿<phone:PhoneApplicationPage xmlns:Controles="clr-namespace:Personal.Controles" 
+    x:Class="Personal.Views.PeliculasGenero"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="contenedor" Background="White">
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="120"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="txtGenero" Grid.Row="0" Text="{Binding genero}" Style="{StaticResource TituloGenero}" Margin="30,10"></TextBlock>
+        <Controles:PeliculasPorGenero Grid.Row="1" x:Name="controlPeliculasPorGenero"/>
+    </Grid>
+    
+    
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <!--<Grid Background="White">
+    <Grid.ColumnDefinitions >
+        
+        <ColumnDefinition Width="1*"/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+            <RowDefinition Height="120" />
+                <RowDefinition Height="1*"/>
+    </Grid.RowDefinitions>
+        <TextBlock x:Name="txtGenero" Text="{Binding genero}" Style="{StaticResource TituloGenero}" Margin="30,10"></TextBlock>
+        <ListBox x:Name="listaPeliculas"  Grid.Column="0" Grid.Row="1">
+            <ListBox.ItemTemplate>                
+                <DataTemplate>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="175"/>                            
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="235" />
+                        </Grid.RowDefinitions>
+                        <Image x:Name="imgPelicula" Source="{Binding fanart.small}"  Width="136" Height="187" Margin="0,15" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="0"></Image>
+                    <Canvas Height="235" Grid.Column="1">
+
+                        <TextBlock x:Name="txtTitle" Text="{Binding title}" FontFamily="Portable User Interface" Foreground="#5B5B5B"  FontSize="28" Width="320" Grid.Column="1" Canvas.Left="14" Canvas.Top="40">
+                        </TextBlock>
+                        
+                        <Image x:Name="imgVer" Source="../Imagenes/ver-inactivo.png" Width="92" Height="81" Grid.Column="1" Grid.Row="0" Canvas.Top="120" Canvas.Left="14" Tap="imgVer_Tap"></Image>
+                        <Image Source="../Imagenes/fav.png" Width="45" Height="45" Canvas.Top="95"  Grid.Column="1"  Canvas.Left="235"></Image>
+                            <Image Source="../Imagenes/mas.png" Width="45" Height="45" Canvas.Top="150" Canvas.Left="235" Grid.Column="1"></Image>
+
+                         
+                        
+                        
+                        </Canvas>
+                        <Line  X1="0" Y1="0" X2="300" Y2="0" Grid.ColumnSpan="2" Grid.Row="0"
+                          VerticalAlignment="Bottom" Stroke="#F4F4F4" 
+                          StrokeThickness="4" Margin="2" Height="4"/>
+                    </Grid>
+                </DataTemplate>            
+            </ListBox.ItemTemplate>
+        </ListBox>
+      
+
+
+    </Grid>-->
+    
+    
+
+</phone:PhoneApplicationPage>

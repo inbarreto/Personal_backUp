@@ -1,0 +1,117 @@
+%!Adobe-FontList 1.11
+%Locale:0x2c0a
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:SegoeWP-Black
+FamilyName:Segoe WP
+StyleName:Black
+FullName:Segoe WP Black
+MenuName:Segoe WP Black
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Ignacio\Documents\Personal\Documentos\Font\SegoeWP-Black.ttf
+DataFormat:sfntData
+FileLength:75084
+FileModTime:1396278222
+WeightClass:800
+WidthClass:5
+AngleClass:0
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:SegoeWP-Bold
+FamilyName:Segoe WP
+StyleName:Bold
+FullName:Segoe WP Bold
+MenuName:Segoe WP
+StyleBits:2
+WritingScript:Roman
+OutlineFileName:C:\Users\Ignacio\Documents\Personal\Documentos\Font\SegoeWP-Bold.ttf
+DataFormat:sfntData
+FileLength:66688
+FileModTime:1396278222
+WeightClass:700
+WidthClass:5
+AngleClass:0
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:SegoeWP-Light
+FamilyName:Segoe WP
+StyleName:Light
+FullName:Segoe WP Light
+MenuName:Segoe WP Light
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Ignacio\Documents\Personal\Documentos\Font\SegoeWP-Light.ttf
+DataFormat:sfntData
+FileLength:66184
+FileModTime:1396278222
+WeightClass:200
+WidthClass:5
+AngleClass:0
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:SegoeWP-Semibold
+FamilyName:Segoe WP
+StyleName:Semibold
+FullName:Segoe WP Semibold
+MenuName:Segoe WP Semibold
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Ignacio\Documents\Personal\Documentos\Font\SegoeWP-Semibold.ttf
+DataFormat:sfntData
+FileLength:76468
+FileModTime:1396278222
+WeightClass:600
+WidthClass:5
+AngleClass:0
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:SegoeWP-SemiLight
+FamilyName:Segoe WP
+StyleName:SemiLight
+FullName:Segoe WP SemiLight
+MenuName:Segoe WP SemiLight
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Ignacio\Documents\Personal\Documentos\Font\SegoeWP-Semilight.ttf
+DataFormat:sfntData
+FileLength:66616
+FileModTime:1396278222
+WeightClass:300
+WidthClass:5
+AngleClass:0
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:SegoeWP
+FamilyName:Segoe WP
+StyleName:Regular
+FullName:Segoe WP
+MenuName:Segoe WP
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Ignacio\Documents\Personal\Documentos\Font\SegoeWP.ttf
+DataFormat:sfntData
+FileLength:62388
+FileModTime:1396278222
+WeightClass:400
+WidthClass:5
+AngleClass:0
+%EndFont
+
