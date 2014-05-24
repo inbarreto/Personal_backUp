@@ -147,6 +147,7 @@ namespace Personal.Model
                 for (int i=0;i<valoresinfo.Count();i++)
                 {
                     pelicula.information.Add(new Information((string)valoresinfo[i]["field_name"], (string)valoresinfo[i]["value"]));
+
                 }                 
                  return pelicula;
 	        }
