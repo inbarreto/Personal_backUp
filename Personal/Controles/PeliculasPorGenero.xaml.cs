@@ -44,6 +44,7 @@ namespace Personal.Controles
                  string post_data = JsonConvert.SerializeObject(pelisJson);                 
                  CargaPeliculasPost(post_data, "http://www.qubit.tv/business.php/json/search");
                  
+                
                  
 
             }
@@ -66,11 +67,13 @@ namespace Personal.Controles
                 {
                     if (item.title.Length > 22)
                         item.title = item.title.Substring(0,19) + "...";
+                    item.ranking = ((item.ranking / 2) / 10) ;
+                    
                 }
                 lista.Remove(peli);
                 listaPeliculas.ItemsSource = lista;
 
-
+                
                 return peli;
             }
             catch (Exception)
@@ -87,11 +90,14 @@ namespace Personal.Controles
             try
             {
                 JToken element = ExtraigoElementJson(jsonPeliculas);
-                
-
+                PeliculaListas peli = new PeliculaListas();
+               // listadoDePeliculas = new List<Pelicula>();
                 for (int i = 0; i < cantidadPeliculas; i++)
                 {
-                    listadoDePeliculas.Add(PeliculaModel.CompletaPeliculaConJson(element[i]));
+                    peli = PeliculaModel.CompletaPeliculaConJson(element[i]);
+                    peli.ranking = ((peli.ranking) / 2) / 10;
+                    listadoDePeliculas.Add(peli);
+                    
                 }
                 return listadoDePeliculas;
             }
