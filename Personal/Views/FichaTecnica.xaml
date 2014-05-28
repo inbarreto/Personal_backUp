@@ -19,12 +19,12 @@
             <Setter Property="Foreground" Value="#7E517A"></Setter>
             <Setter Property="Width" Value="Auto"></Setter>
             <Setter Property="Margin" Value="0,0,5,0" ></Setter>
-            <Setter Property="FontSize" Value="16"></Setter>
+            <Setter Property="FontSize" Value="27"></Setter>
            <Setter Property="FontFamily" Value="/Font/SegoeWP-Semibold.ttf#SegeoWP-Semibold"></Setter>
         </Style>                
         <Style TargetType="TextBlock" x:Key="TextosTitulo" BasedOn="{StaticResource Textos}">            
             <Setter Property="Margin" Value="5,0,5,0"></Setter>
-            <Setter Property="FontSize" Value="18"></Setter>
+            <Setter Property="FontSize" Value="27"></Setter>
             <Setter Property="FontFamily" Value="/Font/SegoeWP-Bold.ttf#SegoeWP-Bold"></Setter>
         </Style>       
         <Style TargetType="TextBlock" x:Key="NombrePelicula" BasedOn="{StaticResource Textos}">
@@ -47,124 +47,102 @@
 
 
 
-    <ScrollViewer Height="769" Grid.Row="1" AllowDrop="False" VerticalScrollBarVisibility="Auto">
-        <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid  x:Name="datosPelicula" Background="white">
-        
-            <Grid.RowDefinitions>
-            <RowDefinition Height="420" />
-            
-            <RowDefinition Height="1*"/>            
-        </Grid.RowDefinitions>
-       
-            <StackPanel Grid.Row="0">
+    <ScrollViewer>
+        <StackPanel x:Name="datosPelicula" Background="White">
             <TextBlock x:Name="txtNombre" 
-                       Text="{Binding original_title}" 
-                       Style="{StaticResource NombrePelicula}" Margin="20,10,20,40" TextWrapping="Wrap">
-                
+                       Text="{Binding title}"  FontFamily="Portable User Interface"
+                       Style="{StaticResource NombrePelicula}" Margin="25,40,15,30" TextWrapping="Wrap" FontWeight="Bold" FontSize="36">
+
             </TextBlock>
-            <!--<MediaElement
-                        Width="auto" Height="180"  
-                        Source="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" AutoPlay="True" ></MediaElement>-->
             <Image x:Name="imagenPeli" 
                    Width="Auto" 
                    Source="{Binding fanart.fanart[0]}"
                    Height="250" 
                    Stretch="None"
-                   Margin="25,0">                
+                   Margin="25,0">
             </Image>
-            <Grid Margin="20,25,0,20">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="310"></ColumnDefinition>
-                    <ColumnDefinition Width="1*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Canvas Grid.Column="1" Grid.Row="0" >
-                    <Image Source="/Imagenes/fav.png" x:Name="imgFavorito" Height="50" Width="50" Margin="2,0" Canvas.Left="80"></Image>
-                    <Image Source="/Imagenes/link-inactivo.png" x:Name="imgCompartir" Height="50" Width="50"  Margin="2,0" Canvas.Left="25"></Image>
-                </Canvas>
-                <Canvas Grid.Column="0" Grid.Row="0" >
-                    <Image Source="/Imagenes/placa.png" x:Name="imgPlaca" Style="{StaticResource IconosEstilos}" Margin="2,10"  ></Image>
-                    <Image Source="/Imagenes/ATP.png" x:Name="imgATP" Style="{StaticResource IconosEstilos}" Margin="30,10" ></Image>
-                    <Image Source="/Imagenes/sub.png" x:Name="imgSubtitulo" Style="{StaticResource IconosEstilos}"  Margin="70,10" ></Image>
-                    <Image Source="/Imagenes/sound.png" x:Name="imgLenguaje" Style="{StaticResource Iconos2}"  Margin="110,10" ></Image>
-                    <Image Source="/Imagenes/timer.png" x:Name="imgDuracion" Style="{StaticResource Iconos2}"  Margin="150,10" ></Image>
-                </Canvas>
-                
-            </Grid>
+            <StackPanel Orientation="Horizontal" Margin="25,25,0,20">
+
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Imagenes/placa.png" x:Name="imgPlaca" Style="{StaticResource IconosEstilos}" Margin="0,0,20,0" ></Image>
+                    <Image Source="/Imagenes/ATP.png" x:Name="imgATP" Style="{StaticResource IconosEstilos}" Margin="0,0,20,0" ></Image>
+                    <Image Source="/Imagenes/sub.png" x:Name="imgSubtitulo" Style="{StaticResource IconosEstilos}" Margin="0,0,20,0" ></Image>
+                    <Image Source="/Imagenes/sound.png" x:Name="imgLenguaje" Style="{StaticResource Iconos2}" Margin="0,0,20,0" ></Image>
+                    <Image Source="/Imagenes/timer.png" x:Name="imgDuracion" Style="{StaticResource Iconos2}" Margin="0,0,20,0" ></Image>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Image Source="/Imagenes/fav.png" x:Name="imgFavorito" Margin="70,0,10,0" ></Image>
+                    <Image Source="/Imagenes/link-inactivo.png" x:Name="imgCompartir" Margin="0,0,0,0" ></Image>
+                </StackPanel>
+
             </StackPanel>
-        <StackPanel Grid.Row="1">
-            <Canvas Height="120">
-                
-                <TextBlock Text="Director:" 
+            <StackPanel Orientation="Horizontal" Margin="20,0">
+                <TextBlock Text="Director:" FontSize="27"
                            Style="{StaticResource TextosTitulo}" 
                            >
-                    
+
                 </TextBlock>
-                <TextBlock x:Name="datoDirector"
+                <TextBlock x:Name="datoDirector" FontSize="27"
                            Style="{StaticResource Textos}"
-                           Canvas.Left="80"
+                           Canvas.Left="90"
                            Width="Auto"
                            Height="Auto"
                            TextWrapping="Wrap"
                            ></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="20,0">
                 <TextBlock Text="Estrellas:" 
                            Style="{StaticResource TextosTitulo}" 
                            Canvas.Top="25" 
-                           >                        
+                           >
                 </TextBlock>
                 <TextBlock x:Name="txtEstrellas"
                            Style="{StaticResource Textos}" 
                            Canvas.Top="25"
-                           Canvas.Left="80"
-                           
+                           Canvas.Left="90"
+                           TextWrapping="Wrap"
                            >
                 </TextBlock>
-                <TextBlock x:Name="estrellasListas"                           
+                <TextBlock x:Name="estrellasListas"  
                            Style="{StaticResource Textos}" 
-                           Text="{Binding estrellas}"
+                           Text="{Binding estrellas}" TextWrapping="Wrap"
                             Canvas.Top="25"
-                           Canvas.Left="130"
-                           >                    
+                           Canvas.Left="140"
+                           >
                 </TextBlock>
-                <TextBlock Text="Genero:"                            
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="20,0">
+                <TextBlock Text="Genero:"    
                            Style="{StaticResource TextosTitulo}"                            
                            Canvas.Top="50"
                            >
-                    
-                </TextBlock>                
-                            <TextBlock x:Name="catego" 
+
+                </TextBlock>
+                <TextBlock x:Name="catego"
                            Style="{StaticResource Textos}"
                            Canvas.Top="50"
-                           Canvas.Left="80">
-                            </TextBlock>                                                    
-                <TextBlock Canvas.Top="75"
+                           Canvas.Left="90">
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="20,0,0,20">
+                <TextBlock Canvas.Top="75" 
                            Text="Origen:"                          
                            Style="{StaticResource TextosTitulo}"                            
-                           ></TextBlock>                                               
+                           ></TextBlock>
                 <TextBlock Text="{Binding countries}"  
                            Style="{StaticResource Textos}" 
                            Canvas.Top="75" 
-                           Canvas.Left="80"
+                           Canvas.Left="90" 
                            
                            ></TextBlock>
-                
-            </Canvas>
-            
-
-
-                <TextBlock x:Name="descripcion" Style="{StaticResource DescripcionPelicula}"
-                       Text="{Binding descripcion}" Width="Auto" Height="280"
-                       Grid.Row="1" TextWrapping="Wrap" Margin="5,5,5,0"
+            </StackPanel>
+            <TextBlock x:Name="descripcion" Style="{StaticResource DescripcionPelicula}"
+                       Text="{Binding descripcion}" Width="Auto" Height="Auto"
+                       Grid.Row="1" TextWrapping="Wrap" Margin="25,5,25,20" FontSize="27"
                     VerticalAlignment="Top"
                    ></TextBlock>
-                
-            
-            <Image x:Name="imgVerAhora" Source="/Imagenes/ver ahora-inactivo.png" Grid.Row="1" Height="60" Margin="5,5,5,10" VerticalAlignment="Bottom" Tap="imgVerAhora_Tap" />
+            <Image x:Name="imgVerAhora" Source="/Imagenes/ver ahora-inactivo.png" Grid.Row="1" Height="60" Margin="25,5,20,20" VerticalAlignment="Bottom" Tap="imgVerAhora_Tap" />
         </StackPanel>
-    
-    </Grid>
     </ScrollViewer>
 </phone:PhoneApplicationPage>

@@ -32,20 +32,13 @@ namespace Personal.Views
         Pelicula peliculaCargada = new Pelicula();                        
         void FichaTecnica_Loaded(object sender, RoutedEventArgs e)
         {
-                       
-            
-            if (PhoneApplicationService.Current.State.ContainsKey("idPelicula"))
-                peliculaID = PhoneApplicationService.Current.State["idPelicula"].ToString();
 
-            if (PhoneApplicationService.Current.State.ContainsKey("Usuario"))
-                usuario= (Usuario)PhoneApplicationService.Current.State["Usuario"];
-
+            peliculaID = (string)StateModel.ObtieneKey("idPelicula");
+            usuario = (Usuario)StateModel.ObtieneKey("Usuario");            
             PeliculaJson peliculaJson = new PeliculaJson();
             peliculaJson.element_id = peliculaID;
-           
-            
-            string postJsonPelicula = JsonConvert.SerializeObject(peliculaJson);
-            
+                       
+            string postJsonPelicula = JsonConvert.SerializeObject(peliculaJson);            
             string urlPelicula = "http://www.qubit.tv/business.php/json/Element";
             CargaDatosPeliculaPost(postJsonPelicula, urlPelicula);
         }
@@ -84,14 +77,14 @@ namespace Personal.Views
 
         private void imgVerAhora_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            if (usuario.session_id == null)
+            if (usuario == null || usuario.session_id == null)
             {
                 MessageBox.Show("Primero tenés que iniciar sesion.", "error", MessageBoxButton.OK);
                 return;
             }
             else
             {
-                MessageBox.Show(string.Format("Estás por ver {0}" + Environment.NewLine + "calificación {1}" + Environment.NewLine + "costo $ {2}"+ Environment.NewLine , peliculaCargada.title, peliculaCargada.classification, peliculaCargada.price_sd), "error", MessageBoxButton.OK);
+                MessageBox.Show(string.Format("Estás por ver {0}" + Environment.NewLine + "calificación {1}" + Environment.NewLine + "costo $ {2}"+ Environment.NewLine , peliculaCargada.title, peliculaCargada.classification, peliculaCargada.price_sd), "", MessageBoxButton.OK);
             }
 
             BitmapImage imag = new System.Windows.Media.Imaging.BitmapImage(new Uri(@"/Imagenes/ver ahora-hover.png", UriKind.RelativeOrAbsolute));

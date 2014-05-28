@@ -25,12 +25,10 @@ namespace Personal.Views
         void PeliculasGenero_Loaded(object sender, RoutedEventArgs e)
         {
             try
-            {
-            
-                string genero = (string)PhoneApplicationService.Current.State["named_criteria"];
+            {            
+                string genero = StateModel.ObtieneKey("named_criteria").ToString();
 
-                txtGenero.Text = (string)PhoneApplicationService.Current.State["genero"];                                           
-                
+                txtGenero.Text = StateModel.ObtieneKey("genero").ToString();                                                           
             }
             catch (Exception )
             {                

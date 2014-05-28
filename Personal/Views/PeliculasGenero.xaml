@@ -22,7 +22,9 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <TextBlock x:Name="txtGenero" Grid.Row="0" Text="{Binding genero}" Style="{StaticResource TituloGenero}" Margin="30,10"></TextBlock>
-        <Controles:PeliculasPorGenero Grid.Row="1" x:Name="controlPeliculasPorGenero"/>
+        <ScrollViewer Grid.Row="1" Margin="10,0" >
+            <Controles:PeliculasPorGenero x:Name="controlPeliculasPorGenero"/>
+        </ScrollViewer>        
     </Grid>
     
     
