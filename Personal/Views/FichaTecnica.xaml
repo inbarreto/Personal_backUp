@@ -19,12 +19,12 @@
             <Setter Property="Foreground" Value="#7E517A"></Setter>
             <Setter Property="Width" Value="Auto"></Setter>
             <Setter Property="Margin" Value="0,0,5,0" ></Setter>
-            <Setter Property="FontSize" Value="27"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
            <Setter Property="FontFamily" Value="/Font/SegoeWP-Semibold.ttf#SegeoWP-Semibold"></Setter>
         </Style>                
         <Style TargetType="TextBlock" x:Key="TextosTitulo" BasedOn="{StaticResource Textos}">            
             <Setter Property="Margin" Value="5,0,5,0"></Setter>
-            <Setter Property="FontSize" Value="27"></Setter>
+            <Setter Property="FontSize" Value="18"></Setter>
             <Setter Property="FontFamily" Value="/Font/SegoeWP-Bold.ttf#SegoeWP-Bold"></Setter>
         </Style>       
         <Style TargetType="TextBlock" x:Key="NombrePelicula" BasedOn="{StaticResource Textos}">
@@ -44,9 +44,6 @@
         </Style>
 
     </phone:PhoneApplicationPage.Resources>
-
-
-
     <ScrollViewer>
         <StackPanel x:Name="datosPelicula" Background="White">
             <TextBlock x:Name="txtNombre" 
@@ -92,19 +89,19 @@
                            ></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="20,0">
-                <TextBlock Text="Estrellas:" 
+            <TextBlock Text="Estrellas:" FontSize="27"
                            Style="{StaticResource TextosTitulo}" 
                            Canvas.Top="25" 
                            >
                 </TextBlock>
-                <TextBlock x:Name="txtEstrellas"
+            <TextBlock x:Name="txtEstrellas" FontSize="27"
                            Style="{StaticResource Textos}" 
                            Canvas.Top="25"
                            Canvas.Left="90"
-                           TextWrapping="Wrap"
+                           
                            >
                 </TextBlock>
-                <TextBlock x:Name="estrellasListas"  
+            <TextBlock x:Name="estrellasListas"  FontSize="27"                         
                            Style="{StaticResource Textos}" 
                            Text="{Binding estrellas}" TextWrapping="Wrap"
                             Canvas.Top="25"
@@ -113,27 +110,27 @@
                 </TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="20,0">
-                <TextBlock Text="Genero:"    
+            <TextBlock Text="Genero:"    FontSize="27"                        
                            Style="{StaticResource TextosTitulo}"                            
                            Canvas.Top="50"
                            >
 
                 </TextBlock>
-                <TextBlock x:Name="catego"
+            <TextBlock x:Name="catego" FontSize="27"
                            Style="{StaticResource Textos}"
                            Canvas.Top="50"
                            Canvas.Left="90">
                 </TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="20,0,0,20">
-                <TextBlock Canvas.Top="75" 
+        <TextBlock Canvas.Top="75" FontSize="27"
                            Text="Origen:"                          
                            Style="{StaticResource TextosTitulo}"                            
                            ></TextBlock>
                 <TextBlock Text="{Binding countries}"  
                            Style="{StaticResource Textos}" 
                            Canvas.Top="75" 
-                           Canvas.Left="90" 
+                           Canvas.Left="90" FontSize="27"
                            
                            ></TextBlock>
             </StackPanel>
@@ -142,7 +139,10 @@
                        Grid.Row="1" TextWrapping="Wrap" Margin="25,5,25,20" FontSize="27"
                     VerticalAlignment="Top"
                    ></TextBlock>
+
+
             <Image x:Name="imgVerAhora" Source="/Imagenes/ver ahora-inactivo.png" Grid.Row="1" Height="60" Margin="25,5,20,20" VerticalAlignment="Bottom" Tap="imgVerAhora_Tap" />
         </StackPanel>
     </ScrollViewer>
+    
 </phone:PhoneApplicationPage>

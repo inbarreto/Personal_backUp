@@ -10,9 +10,11 @@
     d:DesignHeight="480" d:DesignWidth="480">
     
     <UserControl.Resources>
-        <ResourceDictionary Source="../Styles/StylePeliculasPorGeneroGenero.xaml"></ResourceDictionary>                   
-    </UserControl.Resources>
 
+        <ResourceDictionary Source="../Styles/StylePeliculasPorGeneroGenero.xaml"></ResourceDictionary>                   
+
+        
+    </UserControl.Resources>        
     <ListBox x:Name="listaPeliculas" Height="auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
         <ListBox.ItemTemplate>
             <DataTemplate>
@@ -22,7 +24,7 @@
 
                         <TextBlock x:Name="txtTitle" Text="{Binding title}" FontFamily="Portable User Interface" Width="300" Foreground="#5B5B5B"  FontSize="28" Canvas.Left="14" Canvas.Top="40"  TextWrapping="Wrap" Tap="TextBlockIrAFicha_Tap" Tag="{Binding id}">
                         </TextBlock>
-                        <Controles:RatingControl  x:Name="ratingEstrellas"  Canvas.Left="10" Canvas.Top="70"   />
+                        <Controles:RatingControl x:Name="ratingControl" Canvas.Top="70" Canvas.Left="10"></Controles:RatingControl>
                         <Image x:Name="imgVer" Source="../Imagenes/ver-inactivo.png" Style="{StaticResource imagenVer}"  Canvas.Top="120" Canvas.Left="14" Tap="imgVer_Tap" Tag="{Binding id}"></Image>
                         <Image x:Name="imgFavorito" Source="../Imagenes/fav.png" Style="{StaticResource imagenesFav}"     Canvas.Top="95"  Canvas.Left="230" Tap="imgFavorito_Tap"></Image>
                         <Image x:Name="imgMas"  Source="../Imagenes/mas.png"   Style="{StaticResource imagenesFav}"   Canvas.Top="150" Canvas.Left="230" Tap="ImagenIrAFicha_Tap" Tag="{Binding id}" ></Image>
@@ -35,6 +37,4 @@
         </ListBox.ItemTemplate>
     </ListBox>
 
-
 </UserControl>
-

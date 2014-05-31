@@ -9,7 +9,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Personal.Domain.Entities;
-
+using System.Windows.Controls.Primitives;
 using System.Windows.Media.Imaging;
 using Newtonsoft.Json.Linq;
 using Personal.Model;
@@ -39,46 +39,22 @@ namespace Personal
             try
             {
                 //string postDataMenu = "{\"device\":\"windows_8\",\"name\":\"\"}";
-                MenuJson postMenu = new MenuJson();
-                string postDataMenu = JsonConvert.SerializeObject(postMenu);
-                string urlMenu = "http://www.qubit.tv/business.php/json/menus";
                                                 
                 string genero = "genero_comedia";
                 
-                StateModel.CargaKey("named_criteria",genero);                
+                StateModel.CargaKey("named_criteria", genero);
                 PeliculasPorGeneroJson peliPrincipal = new PeliculasPorGeneroJson();
                 peliPrincipal.named_criteria = genero;
                 string post_dataPeliculas = JsonConvert.SerializeObject(peliPrincipal);
-
+                peliPrincipal.named_criteria = "genero_comedia";                
+                MenuJson postMenu = new MenuJson();
+                string postDataMenu = JsonConvert.SerializeObject(postMenu);
+                string urlMenu = "http://www.qubit.tv/business.php/json/menus";
                 CargaMenusPost(postDataMenu, urlMenu, post_dataPeliculas, "http://www.qubit.tv/business.php/json/search");
 
                 peliculasHome.CargaPeliculasPost(post_dataPeliculas, "http://www.qubit.tv/business.php/json/search");
 
-                PeliculasPorGeneroJson muyAlquiladasData = new PeliculasPorGeneroJson();
-                muyAlquiladasData.named_criteria = "genero_accion";
-                string post_muyAlquiladas = JsonConvert.SerializeObject(muyAlquiladasData);
 
-                muyAlquiladas.CargaPeliculasPost(post_muyAlquiladas, "http://www.qubit.tv/business.php/json/search");
-
-                PeliculasPorGeneroJson estrenosData = new PeliculasPorGeneroJson();
-                estrenosData.named_criteria = "genero_suspenso";
-                string post_estrenos = JsonConvert.SerializeObject(estrenosData);
-
-                estrenos.CargaPeliculasPost(post_estrenos, "http://www.qubit.tv/business.php/json/search");
-
-                PeliculasPorGeneroJson todoElCatalogoData = new PeliculasPorGeneroJson();
-                todoElCatalogoData.named_criteria = "genero_romantico";
-                string post_todoElcatalogo = JsonConvert.SerializeObject(todoElCatalogoData);
-
-                todoElCatalogo.CargaPeliculasPost(post_todoElcatalogo, "http://www.qubit.tv/business.php/json/search");
-
-                PeliculasPorGeneroJson recomendadoData = new PeliculasPorGeneroJson();
-                recomendadoData.named_criteria = "genero_terror";
-                string post_recomendado = JsonConvert.SerializeObject(recomendadoData);
-
-                recomendado.CargaPeliculasPost(post_recomendado, "http://www.qubit.tv/business.php/json/search");
-
-                
             }
             catch (Exception )
             {
@@ -101,9 +77,49 @@ namespace Personal
         }
 
 
-       
+        public void CargaUsuarioPost(string postdataLogin, string urlLogin)
+        {
+            
+            JsonRequest usuarioRequest = new JsonRequest();
+            usuarioRequest.Completed += new EventHandler(handleResponseLogin);
+            usuarioRequest.beginRequest(postdataLogin, urlLogin);
+        }
 
+        public void handleResponseLogin(object sender, EventArgs args)
+        {
+            JsonRequest responseObject = sender as JsonRequest;
+            string response = responseObject.ResponseTxt;
+            CargaUsuario(response);
+            
+
+            //parse it
+        }
+
+        private void CargaUsuario(string jsonString)
+        {
+            try
+            {
+                Usuario usuarioObjeto = new Usuario();
        
+               usuarioObjeto = JsonModel.ConvierteJsonAUsuario(jsonString);
+               if (usuarioObjeto.username != null)
+               {
+                   if (!PhoneApplicationService.Current.State.ContainsKey("Usuario"))
+                       PhoneApplicationService.Current.State.Add("Usuario", usuarioObjeto);
+                   else
+                       PhoneApplicationService.Current.State["Usuario"] = usuarioObjeto;
+                   MessageBox.Show("Se ha logeado correctamente", "Estado Login", MessageBoxButton.OK);
+               }
+               else
+                   MessageBox.Show("Usuario o contraseña incorrectos", "Estado Login", MessageBoxButton.OK);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+       
+        }
         public void handleResponsePelicula(object sender, EventArgs args)
         {
             JsonRequest responseObject = sender as JsonRequest;
@@ -185,7 +201,24 @@ namespace Personal
 
         }
 
+        /*private void txtClavePersonal_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            try
+            {
+                txtClavePersonal.Text = string.Empty;
+
       
+
+                SolidColorBrush scb = ObtieneColorHexa("#FFB28AAD");
+        //applying the brush to the background of the existing Button btn:
+            txtClavePersonal.Foreground = scb;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }*/
 
         private static System.Windows.Media.SolidColorBrush ObtieneColorHexa(string colorHexa)
         {
@@ -198,9 +231,16 @@ namespace Personal
             return scb;
         }
 
+        /*private void txtNroLinea_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            txtNroLinea.Text = string.Empty;
+            SolidColorBrush scb = ObtieneColorHexa("#FFB28AAD");            
+            txtNroLinea.Foreground = scb;
        
 
+        }*/
         
+       
        
         private void txtGenero_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
@@ -215,19 +255,44 @@ namespace Personal
 
                string gen = genero.NameCriteria;
 
-               StateModel.CargaKey("genero", genero.Genero);
-               StateModel.CargaKey("named_criteria", genero.NameCriteria);
+               if (PhoneApplicationService.Current.State.ContainsKey("genero"))
+                   PhoneApplicationService.Current.State["genero"] = genero.Genero;
+               else
+                   PhoneApplicationService.Current.State.Add("genero", genero.Genero);
+
+               if (PhoneApplicationService.Current.State.ContainsKey("named_criteria"))
+                   PhoneApplicationService.Current.State["named_criteria"] = gen;
+               else
+                    PhoneApplicationService.Current.State.Add("named_criteria", genero.NameCriteria);
                
                NavigationService.Navigate(new Uri("/Views/PeliculasGenero.xaml", UriKind.Relative));
                 
             }
             catch (Exception ex)
             {                
+                
+                throw ex;
+            } 
+        }
+
+        private void txtLogin_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+
+            try
+            {
+
+                NavigationService.Navigate(new Uri("/Views/Login.xaml", UriKind.Relative));
+
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             } 
         }
 
       
+
 
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -240,19 +305,58 @@ namespace Personal
 
         }
 
-        
-
-        private void txtLogin_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        private void pivotHome_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            PivotItem pivot = (sender as Pivot).SelectedItem as PivotItem;
+            switch (pivot.Name)
+            {
+                case "pivItemRecomendado":
+                    PeliculasPorGeneroJson recomendadoData = new PeliculasPorGeneroJson();
+                    recomendadoData.named_criteria = "genero_terror";
+                    string post_recomendado = JsonConvert.SerializeObject(recomendadoData);
+                    recomendado.CargaPeliculasPost(post_recomendado, "http://www.qubit.tv/business.php/json/search");
+                    break;
 
+                case "pivItemAlquiladas":
+                    PeliculasPorGeneroJson muyAlquiladasData = new PeliculasPorGeneroJson();
+                    muyAlquiladasData.named_criteria = "genero_accion";
+                    string post_muyAlquiladas = JsonConvert.SerializeObject(muyAlquiladasData);
+                    muyAlquiladas.CargaPeliculasPost(post_muyAlquiladas, "http://www.qubit.tv/business.php/json/search");
+                    break;
+                case "pivItemEstrenos":
+                    PeliculasPorGeneroJson estrenosData = new PeliculasPorGeneroJson();
+                    estrenosData.named_criteria = "genero_suspenso";
+                    string post_estrenos = JsonConvert.SerializeObject(estrenosData);
+                    estrenos.CargaPeliculasPost(post_estrenos, "http://www.qubit.tv/business.php/json/search");
+                    break;
+                case "pivItemTodoCatalogo":
+                    PeliculasPorGeneroJson todoElCatalogoData = new PeliculasPorGeneroJson();
+                    todoElCatalogoData.named_criteria = "genero_romantico";
+                    string post_todoElcatalogo = JsonConvert.SerializeObject(todoElCatalogoData);
+                    todoElCatalogo.CargaPeliculasPost(post_todoElcatalogo, "http://www.qubit.tv/business.php/json/search");
+                    break;
+        
+            }
+        }
+
+        private void txtBuscar_Evento(object sender, RoutedEventArgs e)
+        {
             try
             {
-                NavigationService.Navigate(new Uri("/Views/Login.xaml", UriKind.Relative));
+                string textoBusqueda = txtBuscar.Text;
+                string session =  StateModel.ObtieneKey("Usuario") != null ? StateModel.ObtieneKey("Usuario").ToString() : string.Empty;
+                controlBuscarPeliculas.VaciaListaPeliculas();
+                BuscarJson buscarJson = new BuscarJson(session, textoBusqueda);
+                string postBuscarPeliculas = JsonConvert.SerializeObject(buscarJson);
+                controlBuscarPeliculas.CargaPeliculasPost(postBuscarPeliculas, "http://www.qubit.tv/business.php/json/search");                    
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                
+                throw;
             }
+
+
         }
        
 

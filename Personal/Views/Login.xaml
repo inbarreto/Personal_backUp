@@ -48,7 +48,7 @@
 
 
             <TextBlock TextWrapping="Wrap" Text="clave personal"  Margin="30,73,0,0" HorizontalAlignment="Left" Style="{StaticResource textosBlancos}"/>
-            <TextBox x:Name="txtClavePersonal" HorizontalAlignment="Left" Height="72" Margin="14,418,0,0" TextWrapping="Wrap" Text="123456" VerticalAlignment="Top" Style="{StaticResource txtBoxLogin}" Tap="txtClavePersonal_Tap" />
+            <TextBox x:Name="txtClavePersonal" HorizontalAlignment="Left" Height="72" Margin="14,418,0,0" TextWrapping="Wrap" Text="123456"  VerticalAlignment="Top" Style="{StaticResource txtBoxLogin}" Tap="txtClavePersonal_Tap" />
                 <Button x:Name="btnAceptar" Content="aceptar" HorizontalAlignment="Left" Margin="15,495,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.421,-0.079" Background="#7e517a" BorderBrush="White" Foreground="White" Width="216" Tap="btnAceptar_Tap"/>
             <TextBlock  TextWrapping="Wrap" Text="clave provisoria por sms" Margin="30,73,0,0" Style="{StaticResource textosBlancos}" HorizontalAlignment="Left" VerticalAlignment="Bottom"  TextDecorations="Underline" Tap="TextBlock_Tap" />
 

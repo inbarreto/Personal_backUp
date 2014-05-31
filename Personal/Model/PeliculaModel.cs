@@ -8,6 +8,10 @@ using System.Windows.Controls;
 using Personal.Domain.Entities;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
+using Microsoft.Phone.Tasks;
+using Personal.JsonAccess.JsonClasses;
+using Newtonsoft.Json;
+using Personal.JsonAccess;
 
 namespace Personal.Model
 {
@@ -72,6 +76,62 @@ namespace Personal.Model
                 throw ;
             }
         }
+
+
+
+        public void CargaPlayConJson(string jsonString)
+        {
+            try
+            {
+                Play play = JsonModel.ConvierteJsonPlay(jsonString);
+
+
+                MediaPlayerLauncher mediaPlayerLauncher = new MediaPlayerLauncher();
+                mediaPlayerLauncher.Media = new Uri(play.direct_url, UriKind.Absolute);
+                mediaPlayerLauncher.Location = MediaLocationType.Data;
+                mediaPlayerLauncher.Controls = MediaPlaybackControls.Pause | MediaPlaybackControls.Stop;
+                mediaPlayerLauncher.Orientation = MediaPlayerOrientation.Landscape;
+
+                mediaPlayerLauncher.Show();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+        }
+
+    
+
+        public Pelicula ObtienePeliculaHome()
+        {
+            Pelicula pelicula = new Pelicula();
+
+            return pelicula;
+        }
+
+
+        public void EjecutaMultimediaPelicula(PlayJson playJson)
+        {
+            string jsonPostPlay = JsonConvert.SerializeObject(playJson);
+            string url = "http://www.qubit.tv/business.php/json/play";
+            JsonRequest loginRequest = new JsonRequest();
+            loginRequest.Completed += new EventHandler(handleResponsePlay);
+            loginRequest.beginRequest(jsonPostPlay, url);
+        }
+        public void handleResponsePlay(object sender, EventArgs args)
+        {
+            JsonRequest responseObject = sender as JsonRequest;
+            string response = responseObject.ResponseTxt;
+            this.CargaPlayConJson(response);
+            //parse it
+        }
+
+      
+
 
     /*    public static PeliculaListas CompletaPeliculaConJson(JToken token,bool esPelicula)
         {

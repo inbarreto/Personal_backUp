@@ -87,6 +87,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="JsonClasses\BuscarJson.cs" />
     <Compile Include="JsonClasses\LoginJson.cs" />
     <Compile Include="JsonClasses\MenuJson.cs" />
     <Compile Include="JsonClasses\PeliculaJson.cs" />

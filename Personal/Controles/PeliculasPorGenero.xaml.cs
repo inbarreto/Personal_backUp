@@ -33,20 +33,7 @@ namespace Personal.Controles
         {
              try
              {
-                 string genero = string.Empty;
                  
-                     genero = (string)StateModel.ObtieneKey("named_criteria");
-                     usuario = (Usuario)StateModel.ObtieneKey("Usuario");
-
-                 PeliculasPorGeneroJson pelisJson = new PeliculasPorGeneroJson();
-
-                 pelisJson.named_criteria = genero;
-                 string post_data = JsonConvert.SerializeObject(pelisJson);                 
-                 CargaPeliculasPost(post_data, "http://www.qubit.tv/business.php/json/search");
-                 
-                
-                 
-
             }
             catch (Exception )
             {                
@@ -62,19 +49,16 @@ namespace Personal.Controles
 
 
                 List<Pelicula> lista = this.ObtenerPrevioPorGenero(json, cantidadPeliculas);
-                Pelicula peli = lista.First<Pelicula>();
+                Pelicula peliculaUnica = lista.First<Pelicula>();
                 foreach (Pelicula item in lista)
                 {
                     if (item.title.Length > 22)
                         item.title = item.title.Substring(0,19) + "...";
-                    item.ranking = ((item.ranking / 2) / 10) ;
-                    
+                    item.ranking = ((item.ranking / 2) / 10);
                 }
-                lista.Remove(peli);
+                lista.Remove(peliculaUnica);
                 listaPeliculas.ItemsSource = lista;
-
-                
-                return peli;
+                return peliculaUnica;
             }
             catch (Exception)
             {
@@ -90,14 +74,12 @@ namespace Personal.Controles
             try
             {
                 JToken element = ExtraigoElementJson(jsonPeliculas);
-                PeliculaListas peli = new PeliculaListas();
-               // listadoDePeliculas = new List<Pelicula>();
+                if (element.Count() < cantidadPeliculas)
+                    cantidadPeliculas = element.Count();
+               listadoDePeliculas = new List<Pelicula>();
                 for (int i = 0; i < cantidadPeliculas; i++)
                 {
-                    peli = PeliculaModel.CompletaPeliculaConJson(element[i]);
-                    peli.ranking = ((peli.ranking) / 2) / 10;
-                    listadoDePeliculas.Add(peli);
-                    
+                    listadoDePeliculas.Add(PeliculaModel.CompletaPeliculaConJson(element[i]));
                 }
                 return listadoDePeliculas;
             }
@@ -106,6 +88,9 @@ namespace Personal.Controles
                 throw ex;
             }
         }
+
+
+
 
         private static JToken ExtraigoElementJson(string jsonPeliculas)
         {
@@ -173,24 +158,6 @@ namespace Personal.Controles
             }            
         }
 
-        private void imgMas_Tap(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            try
-            {
-
-                //(Application.Current.RootVisual as PhoneApplicationFrame).Navigate(new Uri(@"/Views/FichaTecnica.xaml", UriKind.Relative)); 
-                //ListBoxItem fin = new ListBoxItem();
-                //fin.FindName
-                //Image imagen = sender as Image;
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
-            
-        }
-
 
         public void CargaPeliculasPost(string postdata, string url)
         {
@@ -209,8 +176,6 @@ namespace Personal.Controles
         public void CargaPeliculaObjetoConJson(string jsonPelicula)
         {
             
-             
-
           Pelicula peliculaCargada = JsonModel.ConvierteJsonAPelicula(jsonPelicula);
           if (!StateModel.ExisteKey("Usuario"))
           {
@@ -229,8 +194,8 @@ namespace Personal.Controles
               playJson.session_id = ((Usuario)StateModel.ObtieneKey("Usuario")).session_id;
               string jsonPostPlay = JsonConvert.SerializeObject(playJson);
 
-
-              CargaPlayPost(jsonPostPlay, "http://www.qubit.tv/business.php/json/play");
+              PeliculaModel peliculaModel = new PeliculaModel();
+              peliculaModel.EjecutaMultimediaPelicula(playJson);
           }
           else
           {
@@ -258,16 +223,7 @@ namespace Personal.Controles
         {
             try
             {
-                Play play = JsonModel.ConvierteJsonPlay(jsonString);
-
-
-                MediaPlayerLauncher mediaPlayerLauncher = new MediaPlayerLauncher();
-                mediaPlayerLauncher.Media = new Uri(play.direct_url, UriKind.Absolute);
-                mediaPlayerLauncher.Location = MediaLocationType.Data;
-                mediaPlayerLauncher.Controls = MediaPlaybackControls.Pause | MediaPlaybackControls.Stop;
-                mediaPlayerLauncher.Orientation = MediaPlayerOrientation.Landscape;
-
-                mediaPlayerLauncher.Show();
+                //PeliculaModel.CargaPlayConJson(jsonString);
 
             }
             catch (Exception)
@@ -319,7 +275,6 @@ namespace Personal.Controles
             }
             catch (Exception)
             {
-                
                 throw;
             }
             
@@ -329,14 +284,22 @@ namespace Personal.Controles
 
         private static void IrAFicha(string idPelicula)
         {
-            if (PhoneApplicationService.Current.State.ContainsKey("idPelicula"))
-                PhoneApplicationService.Current.State["idPelicula"] = idPelicula;
-            else
-                PhoneApplicationService.Current.State.Add("idPelicula", idPelicula);
-
+            try
+            {
+                StateModel.CargaKey("idPelicula", idPelicula);
             (Application.Current.RootVisual as PhoneApplicationFrame).Navigate(new Uri(@"/Views/FichaTecnica.xaml", UriKind.Relative));
         }
+            catch (Exception ex)
+            {                
+                throw ex;
+            }                
+        }
 
+
+        public void VaciaListaPeliculas()
+        {
+            listaPeliculas.DataContext = null;                    
+        }
 
     }
 }

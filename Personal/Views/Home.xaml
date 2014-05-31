@@ -35,30 +35,34 @@
             <Setter Property="Width" Value="30"></Setter>
             <Setter Property="Height" Value="30"></Setter>
         </Style>
-        
+        <Style TargetType="Image" x:Key="imagenVer">
+            <Setter Property="Width" Value="92"></Setter>
+            <Setter Property="Height" Value="81"></Setter>
+        </Style>
     </phone:PhoneApplicationPage.Resources>
     
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="White">
  
-        <phone:Pivot  x:Name="pivotHome"  Background="white" Foreground="#7E517A" >
-            <phone:PivotItem Header="personal video" Background="White" Margin="10,10,0,0" >
+        <phone:Pivot x:Name="pivotHome" Title=""  Background="white" Foreground="#7E517A" SelectionChanged="pivotHome_SelectionChanged">
+            <phone:PivotItem x:Name="pivItemPersonalVideo" Header="personal video" Background="White" Margin="10,10,0,0" >
 
                 <ScrollViewer>
                     <StackPanel x:Name="grillaPersonalVideo" Orientation="Vertical" Height="auto">
-                        <Image x:Name="imgPeliculaPrincipal" Source="{Binding fanart.fanart[0]}" Stretch="Fill" Margin="10,0,0,0" Width="427" Height="230"/>
+                        <Canvas Height="230">
+                            <Image x:Name="imgPeliculaPrincipal" Source="{Binding fanart.fanart[0]}" Stretch="Fill" Margin="10,0,0,0" Width="427" Height="230" Canvas.ZIndex="0" />
+                            <Image x:Name="imgVer" Source="../Imagenes/ver-inactivo.png" Style="{StaticResource imagenVer}"  Canvas.Top="80" Canvas.ZIndex="1" Canvas.Left="188" Tag="{Binding id}"></Image>
+                        </Canvas>
                         <TextBlock x:Name="txtNombrePelicula" Text="{Binding title}" Foreground="#FF856D84" Margin="20,10,0,0"  HorizontalAlignment="Left" FontSize="36" Canvas.Top="220"/>
-                        <Controles:RatingControl x:Name="ratingControl"  Margin="20,0,0,0" />
+                        <Controles:RatingControl x:Name="ratingControl" Margin="20,0,0,0"></Controles:RatingControl>
                         <Controles:PeliculasPorGenero x:Name="peliculasHome"/>
                     </StackPanel>
                 </ScrollViewer>
 
             </phone:PivotItem>
-            
-            
-        	<phone:PivotItem Header="generos" Style="{StaticResource colorTitle}" >
+            <phone:PivotItem x:Name="pivItemGenero" Header="géneros" Style="{StaticResource colorTitle}" >
                 <ScrollViewer>
-        		<ListBox x:Name="lboxgeneros" Margin="10,2,0,0">
+                    <ListBox x:Name="lboxgeneros" Margin="10,2,0,0" Height="auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
         			<ListBox.ItemTemplate >
         				<DataTemplate>
         					<StackPanel Orientation="Horizontal" Margin="0,0,0,10">
@@ -69,83 +73,63 @@
         		</ListBox>
                 </ScrollViewer>
             </phone:PivotItem>
-        	<phone:PivotItem Header="buscar" Background="Transparent">
+            <phone:PivotItem Header="buscar" Background="Transparent" x:Name="pivItemBuscar">
+                <ScrollViewer>
         		<Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="400"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
         			<TextBox x:Name="txtBuscar" HorizontalAlignment="Left" Foreground="#FFB28AAD"  Height="70" TextWrapping="Wrap" Text="Buscar" VerticalAlignment="Top" 
-        				Style="{StaticResource txtBoxLogin}" >
+        				Style="{StaticResource txtBoxLogin}" LostFocus="txtBuscar_Evento"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Margin="5,0,-7,0" >
         				<TextBox.Background >
-                            <ImageBrush  ImageSource="/Imagenes/lupa.png" AlignmentX="Right" Stretch="Uniform" />
+                                <ImageBrush ImageSource="/Imagenes/lupa.png" AlignmentX="Right" Stretch="Uniform" />
                         </TextBox.Background>
+
         			</TextBox>
+                        <Image x:Name="imgLupa" Source="/Imagenes/lupa.png" Height="50" Grid.Column="1" Grid.Row="0" VerticalAlignment="Top" Margin="0,15,1,0" Tap="txtBuscar_Evento" Grid.ColumnSpan="2"/>
+                        <Controles:PeliculasPorGenero x:Name="controlBuscarPeliculas" Grid.ColumnSpan="2" Grid.Row="1"></Controles:PeliculasPorGenero>
         		</Grid>
+                </ScrollViewer>
         	</phone:PivotItem>
-            <phone:PivotItem Header="recomendado" Background="White" Margin="10,10,0,0" >
+            <phone:PivotItem x:Name="pivItemRecomendado" Header="recomendado" Background="White" Margin="10,10,0,0" >
                 <ScrollViewer>
                     <Controles:PeliculasPorGenero x:Name="recomendado" Height="auto" />
                 </ScrollViewer>
             </phone:PivotItem>
-            <phone:PivotItem Header="muy alquiladas" Background="White" Margin="10,10,0,0" >
+            <phone:PivotItem x:Name="pivItemAlquiladas" Header="muy alquiladas" Background="White" Margin="10,10,0,0" >
                 <ScrollViewer>
                     <Controles:PeliculasPorGenero x:Name="muyAlquiladas" />
                 </ScrollViewer>
             </phone:PivotItem>
-            <phone:PivotItem Header="estrenos" Background="White" Margin="10,10,0,0" >
+            <phone:PivotItem x:Name="pivItemEstrenos" Header="estrenos" Background="White" Margin="10,10,0,0" >
                 <ScrollViewer>
                     <Controles:PeliculasPorGenero x:Name="estrenos" />
                 </ScrollViewer>
             </phone:PivotItem>
-            <phone:PivotItem Header="todo el catalogo" Background="White" Margin="10,10,0,0" >
+            <phone:PivotItem x:Name="pivItemTodoCatalogo" Header="todo el catalogo" Background="White" Margin="10,10,0,0" >
                 <ScrollViewer>
                     <Controles:PeliculasPorGenero x:Name="todoElCatalogo" />
                 </ScrollViewer>
             </phone:PivotItem>
             <phone:PivotItem Header="mi cuenta" Background="White" Margin="10,10,0,0" >
+                <StackPanel>
                 <ListBox>
                     <TextBlock Text="iniciar sesión" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36" Tap="txtLogin_Tap"/>
                     <TextBlock Text="entretenimiento y más" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>
                     <TextBlock Text="más apps" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>
                     <TextBlock Text="términos y condiciones" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>
                 </ListBox>
+                <Popup x:Name="popuLogin">
+                        <Controles:CustomMessegeBox x:Name="mensajeLogin2"></Controles:CustomMessegeBox>
+                </Popup>
+                </StackPanel>
             </phone:PivotItem>
             
-            
-        	<!--<phone:PivotItem Header="login" Margin="-10,0,-10,0" >
-                
-                <Grid x:Name="Contentel" Background="#7E517A" >
-        			<Grid.ColumnDefinitions >
-        				<ColumnDefinition Width="300"/>
-        				<ColumnDefinition Width="1*"/>
-        			</Grid.ColumnDefinitions>
-        			<Grid.RowDefinitions>
-        				<RowDefinition Height="100"/>
-        				<RowDefinition Height="100"/>
-        				<RowDefinition Height="100"/>
-        				<RowDefinition Height="150"/>
-        				<RowDefinition Height="160"/>
-        				<RowDefinition Height="1*"/>
-        			</Grid.RowDefinitions>
-
-        			<TextBlock x:Name="lblNumeroLinea" Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" Text="número de linea" Style="{StaticResource textosBlancos}"   VerticalAlignment="Top"/>
-        			<TextBlock  Width="300" Foreground="White" FontSize="36"  Grid.ColumnSpan="2" TextAlignment="Center"  FontWeight="Normal" Height="55" x:Name="txtPersonal">
-        				<Run Text="personal "/>
-        				<Run FontWeight="Bold" Text="video"/>
-                    </TextBlock>
-
-                    <TextBox x:Name="txtNroLinea"  Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" Height="72" TextWrapping="Wrap" Text="ozcoidi@hotmail.com" VerticalAlignment="Bottom"  Grid.ColumnSpan="2"
-        				Style="{StaticResource txtBoxLogin}" Tap="txtNroLinea_Tap" />
-
-
-
-
-        			<TextBlock  VerticalAlignment="Top" TextWrapping="Wrap" Grid.Row="2" Text="clave personal"  Style="{StaticResource textosBlancos}" />
-                    <TextBox x:Name="txtClavePersonal" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" Height="72"  VerticalAlignment="Bottom" TextWrapping="Wrap"  Text="123456" Style="{StaticResource txtBoxLogin}" Tap="txtClavePersonal_Tap" 
-        				Grid.ColumnSpan="2"/>
-        			<Button x:Name="btnAceptar" Grid.Column="0" Grid.Row="3" Content="aceptar" HorizontalAlignment="Left"  VerticalAlignment="Bottom" RenderTransformOrigin="-1.421,-0.079" Background="#7e517a" BorderBrush="White" Foreground="White" Width="216" Tap="btnAceptar_Tap"/>
-        			<TextBlock Grid.Row="5" Grid.Column="0" VerticalAlignment="Bottom" TextWrapping="Wrap" Text="clave provisoria por sms" Style="{StaticResource textosBlancos}"   TextDecorations="Underline" Tap="TextBlock_Tap" />
-        		</Grid>
-
-
-        	</phone:PivotItem>-->
         </phone:Pivot>
 
     </Grid>

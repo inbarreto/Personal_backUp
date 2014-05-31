@@ -104,6 +104,9 @@
     <Compile Include="Controles\PeliculasPorGenero.xaml.cs">
       <DependentUpon>PeliculasPorGenero.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controles\RatingControl.xaml.cs">
+      <DependentUpon>RatingControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\JsonModel.cs" />
     <Compile Include="Model\PeliculaModel.cs" />
     <Compile Include="Model\StateModel.cs" />
@@ -140,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controles\PeliculasPorGenero.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controles\RatingControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -217,6 +224,8 @@
     <Content Include="Imagenes\lupa.png" />
     <Content Include="Imagenes\mas.png" />
     <Content Include="Imagenes\placa.png" />
+    <Content Include="Imagenes\Rating\estrella_activa.png" />
+    <Content Include="Imagenes\Rating\estrella_inactiva.png" />
     <Content Include="Imagenes\sound.png" />
     <Content Include="Imagenes\sub.png" />
     <Content Include="Imagenes\timer.png" />
@@ -242,6 +251,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.Expression.Drawing, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Expression.Interactions" />
+    <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
       <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>

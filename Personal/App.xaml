@@ -5,7 +5,6 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone">
 
-    
     <!--Application Resources-->
     <Application.Resources>
 
@@ -22,7 +21,7 @@
             <Setter Property="Background" Value="#FFB28AAD"></Setter>
             <Setter Property="BorderBrush" Value="#FFB28AAD"></Setter>
             <Setter Property="Foreground" Value="White" ></Setter>
-            <Setter Property="Width" Value="456" ></Setter> 
+            <Setter Property="Width" Value="458" ></Setter> 
             <Setter Property="Margin" Value="5,0,0,0"></Setter>
         </Style>
 

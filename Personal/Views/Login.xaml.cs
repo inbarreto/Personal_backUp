@@ -11,11 +11,11 @@ using Microsoft.Expression.Drawing;
 using System.Windows.Controls.Primitives;
 using System.ComponentModel;
 using System.Windows.Media;
-using Personal.JsonAccess.JsonClasses;
-using Newtonsoft.Json;
-using Personal.Domain.Entities;
 using Personal.Model;
+using Personal.Domain.Entities;
 using Personal.JsonAccess;
+using Newtonsoft.Json;
+using Personal.JsonAccess.JsonClasses;
 
 
 namespace Personal.Views
@@ -29,13 +29,13 @@ namespace Personal.Views
 
         private void TextBlock_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            MessageBoxResult mensaje = MessageBox.Show("número de linea o clave incorrecta", "error", MessageBoxButton.OK);            
-            
+            MessageBoxResult mensaje = MessageBox.Show("número de linea o clave incorrecta", "error", MessageBoxButton.OK);
+
 
             //Controles.CustomMessegeBox cm = new Controles.CustomMessegeBox();
             //Popup customMessege = new Popup();
             //Personal.Controles.CustomMessegeBox CM = new Controles.CustomMessegeBox();
-                        
+
         }
 
         private void txtClavePersonal_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -63,10 +63,10 @@ namespace Personal.Views
                 txtNroLinea.Foreground = scb;
             }
             catch (Exception ex)
-            {                
+            {
                 throw ex;
             }
-            
+
         }
 
         private void txtNroLinea_GotFocus(object sender, RoutedEventArgs e)
@@ -128,12 +128,12 @@ namespace Personal.Views
                 usuarioObjeto = JsonModel.ConvierteJsonAUsuario(jsonString);
                 if (usuarioObjeto.username != null)
                 {
-                    StateModel.CargaKey("Usuario", usuarioObjeto);                    
+                    StateModel.CargaKey("Usuario", usuarioObjeto);
                     MessageBox.Show("Se ha logeado correctamente", "Estado Login", MessageBoxButton.OK);
                 }
                 else
                     MessageBox.Show("Usuario o contraseña incorrectos", "Estado Login", MessageBoxButton.OK);
-                NavigationService.Navigate(new Uri("/Views/Home.xaml", UriKind.Relative));                
+                NavigationService.Navigate(new Uri("/Views/Home.xaml", UriKind.Relative));
             }
             catch (Exception)
             {
@@ -142,7 +142,7 @@ namespace Personal.Views
             }
 
         }
-     
+
 
         private static System.Windows.Media.SolidColorBrush ObtieneColorHexa(string colorHexa)
         {
@@ -156,7 +156,5 @@ namespace Personal.Views
         }
 
        
-
-
-    }
+    }      
 }
