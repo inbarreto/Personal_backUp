@@ -16,6 +16,7 @@ using Newtonsoft.Json;
 using Microsoft.Phone.Tasks;
 using System.Windows.Media.Imaging;
 using System.Net.NetworkInformation;
+using System.Windows.Media;
 
 namespace Personal.Controles
 {
@@ -31,15 +32,15 @@ namespace Personal.Controles
         Usuario usuario = new Usuario();
         void PeliculasGenero_Loaded(object sender, RoutedEventArgs e)
         {
-             try
-             {
-                 
+            try
+            {
+
             }
-            catch (Exception )
-            {                
-                throw ;
+            catch (Exception)
+            {
+                throw;
             }
-            
+
         }
 
         public Pelicula CargaListaPeliculas(string json, int cantidadPeliculas)
@@ -53,11 +54,11 @@ namespace Personal.Controles
                 foreach (Pelicula item in lista)
                 {
                     if (item.title.Length > 22)
-                        item.title = item.title.Substring(0,19) + "...";
-                    item.ranking = ((item.ranking / 2) / 10);
+                        item.title = item.title.Substring(0, 19) + "...";
                 }
                 lista.Remove(peliculaUnica);
                 listaPeliculas.ItemsSource = lista;
+                
                 return peliculaUnica;
             }
             catch (Exception)
@@ -69,14 +70,14 @@ namespace Personal.Controles
         /// Carga las peliculas en una lista
         /// </summary>
         /// <param name="named_criteria">genero de pelis</param>
-        public List<Pelicula> ObtenerPrevioPorGenero(string jsonPeliculas,int cantidadPeliculas)
+        public List<Pelicula> ObtenerPrevioPorGenero(string jsonPeliculas, int cantidadPeliculas)
         {
             try
             {
                 JToken element = ExtraigoElementJson(jsonPeliculas);
                 if (element.Count() < cantidadPeliculas)
                     cantidadPeliculas = element.Count();
-               listadoDePeliculas = new List<Pelicula>();
+                listadoDePeliculas = new List<Pelicula>();
                 for (int i = 0; i < cantidadPeliculas; i++)
                 {
                     listadoDePeliculas.Add(PeliculaModel.CompletaPeliculaConJson(element[i]));
@@ -108,7 +109,7 @@ namespace Personal.Controles
             img.Source = PeliculaModel.BotonVer(true);
 
             StateModel.CargaKey("idPelicula", idPelicula);
-           
+
             this.VerPelicula(img, idPelicula);
             img.Source = PeliculaModel.BotonVer(false);
         }
@@ -131,8 +132,8 @@ namespace Personal.Controles
         }
 
 
-     
-        public Pelicula ObtienePeliculaHome() 
+
+        public Pelicula ObtienePeliculaHome()
         {
             Pelicula pelicula = new Pelicula();
 
@@ -143,19 +144,30 @@ namespace Personal.Controles
         {
             try
             {
-                TextBlock texto = e.OriginalSource as TextBlock;
+                Image imgFavoritos = sender as Image;
+                Pelicula pelicula = listadoDePeliculas.Find(x => x.id == imgFavoritos.Tag);
+                BitmapImage imag;
+                if (pelicula != null)
+                {
+                    if (pelicula.favorite)
+                        pelicula.favorite = false;
+                    else
+                        pelicula.favorite = true;
 
-                string valor = texto.Text;
 
-                Pelicula pelicula = listadoDePeliculas.Find(x => x.title == texto.Text);
-                Image imagen = sender as Image;
+                    if (pelicula.favorite)
+                        imag = new System.Windows.Media.Imaging.BitmapImage(new Uri(@"/Imagenes/fav-activo.png", UriKind.RelativeOrAbsolute));
+                    else
+                        imag = new System.Windows.Media.Imaging.BitmapImage(new Uri(@"/Imagenes/fav-inactivo.png", UriKind.RelativeOrAbsolute));
+                    imgFavoritos.Source = imag;
+                }
 
             }
             catch (Exception)
             {
-                
+
                 throw;
-            }            
+            }
         }
 
 
@@ -168,41 +180,38 @@ namespace Personal.Controles
         public void handleResponsePeliculasLista(object sender, EventArgs args)
         {
             JsonRequest responseObject = sender as JsonRequest;
-            string response = responseObject.ResponseTxt;            
+            string response = responseObject.ResponseTxt;
             CargaListaPeliculas(response, 6);
             //parse it
         }
 
         public void CargaPeliculaObjetoConJson(string jsonPelicula)
         {
-            
-          Pelicula peliculaCargada = JsonModel.ConvierteJsonAPelicula(jsonPelicula);
-          if (!StateModel.ExisteKey("Usuario"))
-          {
-              MessageBox.Show("Primero tenés que iniciar sesion.", "error", MessageBoxButton.OK);
-              return;
-          }
-          else
-          {
-              MessageBox.Show(string.Format("Estás por ver {0}" + Environment.NewLine + "calificación {1}" + Environment.NewLine + "costo $ {2}" + Environment.NewLine, peliculaCargada.title, peliculaCargada.classification, peliculaCargada.price_sd), "", MessageBoxButton.OK);
-          }
-          bool hayRed = NetworkInterface.GetIsNetworkAvailable();
-          if (hayRed)
-          {
-              PlayJson playJson = new PlayJson();
-              playJson.content_id = peliculaCargada.id;
-              playJson.session_id = ((Usuario)StateModel.ObtieneKey("Usuario")).session_id;
-              string jsonPostPlay = JsonConvert.SerializeObject(playJson);
+            Pelicula peliculaCargada = JsonModel.ConvierteJsonAPelicula(jsonPelicula);
+            if (!StateModel.ExisteKey("Usuario"))
+            {
+                MessageBox.Show("Primero tenés que iniciar sesion.", "error", MessageBoxButton.OK);
+                return;
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Estás por ver {0}" + Environment.NewLine + "calificación {1}" + Environment.NewLine + "costo $ {2}" + Environment.NewLine, peliculaCargada.title, peliculaCargada.classification, peliculaCargada.price_sd), "", MessageBoxButton.OK);
+            }
+            bool hayRed = NetworkInterface.GetIsNetworkAvailable();
+            if (hayRed)
+            {
+                PlayJson playJson = new PlayJson();
+                playJson.content_id = peliculaCargada.id;
+                playJson.session_id = ((Usuario)StateModel.ObtieneKey("Usuario")).session_id;
+                string jsonPostPlay = JsonConvert.SerializeObject(playJson);
 
-              PeliculaModel peliculaModel = new PeliculaModel();
-              peliculaModel.EjecutaMultimediaPelicula(playJson);
-          }
-          else
-          {
-              MessageBox.Show("Para poder ver la película necesita acceso a internet.");             
-          }
-
-            
+                PeliculaModel peliculaModel = new PeliculaModel();
+                peliculaModel.EjecutaMultimediaPelicula(playJson);
+            }
+            else
+            {
+                MessageBox.Show("Para poder ver la película necesita acceso a internet.");
+            }
         }
 
         public void CargaPlayPost(string postdata, string url)
@@ -223,16 +232,14 @@ namespace Personal.Controles
         {
             try
             {
-                //PeliculaModel.CargaPlayConJson(jsonString);
+                //PeliculaModel peliculaModel = new PeliculaModel();
+                //peliculaModel.EjecutaMultimediaPelicula(jsonString);
 
             }
             catch (Exception)
             {
-
                 throw;
             }
-
-
         }
 
 
@@ -256,14 +263,14 @@ namespace Personal.Controles
             {
                 Image datos = sender as Image;
                 string idPelicula = Convert.ToString(datos.Tag);
-                IrAFicha(idPelicula);             
+                IrAFicha(idPelicula);
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
-            
+
         }
         private void TextBlockIrAFicha_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
@@ -271,15 +278,15 @@ namespace Personal.Controles
             {
                 TextBlock datos = sender as TextBlock;
                 string idPelicula = Convert.ToString(datos.Tag);
-                IrAFicha(idPelicula);             
+                IrAFicha(idPelicula);
             }
             catch (Exception)
             {
                 throw;
             }
-            
+
         }
-        
+
 
 
         private static void IrAFicha(string idPelicula)
@@ -287,20 +294,39 @@ namespace Personal.Controles
             try
             {
                 StateModel.CargaKey("idPelicula", idPelicula);
-            (Application.Current.RootVisual as PhoneApplicationFrame).Navigate(new Uri(@"/Views/FichaTecnica.xaml", UriKind.Relative));
-        }
+                (Application.Current.RootVisual as PhoneApplicationFrame).Navigate(new Uri(@"/Views/FichaTecnica.xaml", UriKind.Relative));
+            }
             catch (Exception ex)
-            {                
+            {
                 throw ex;
-            }                
+            }
         }
 
 
         public void VaciaListaPeliculas()
         {
-            listaPeliculas.DataContext = null;                    
+            listaPeliculas.DataContext = null;
         }
+
+        private void imgFavorito_Loaded(object sender, RoutedEventArgs e)
+        {
+            Image imgFavoritos = sender as Image;
+            Pelicula pelicula = listadoDePeliculas.Find(x => x.id == imgFavoritos.Tag);
+            BitmapImage imag;
+
+            if (pelicula != null && pelicula.favorite)            
+                imag = new System.Windows.Media.Imaging.BitmapImage(new Uri(@"/Imagenes/fav-activo.png", UriKind.RelativeOrAbsolute));
+            else
+                imag = new System.Windows.Media.Imaging.BitmapImage(new Uri(@"/Imagenes/fav-inactivo.png", UriKind.RelativeOrAbsolute));
+            
+
+            imgFavoritos.Source = imag;
+
+        }
+
 
     }
 }
+
+
 

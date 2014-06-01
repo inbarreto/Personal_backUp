@@ -19,6 +19,7 @@ using Personal.JsonAccess;
 using Personal.JsonAccess.JsonClasses;
 using Newtonsoft.Json;
 using Personal.Domain.Enums;
+using Microsoft.Phone.Net.NetworkInformation;
 
 namespace Personal
 {   
@@ -31,7 +32,7 @@ namespace Personal
             InitializeComponent();
             this.Loaded += Home_Loaded;
         }
-
+        List<Pelicula> peliculaPrincipal = new List<Pelicula>();
         List<Generos> listaGeneros = new List<Generos>();
         Variables variables = new Variables();
         void Home_Loaded(object sender, RoutedEventArgs e)
@@ -39,32 +40,28 @@ namespace Personal
             try
             {
                 //string postDataMenu = "{\"device\":\"windows_8\",\"name\":\"\"}";
-                                                
+               
                 string genero = "genero_comedia";
-                
+
                 StateModel.CargaKey("named_criteria", genero);
                 PeliculasPorGeneroJson peliPrincipal = new PeliculasPorGeneroJson();
+                
                 peliPrincipal.named_criteria = genero;
-                string post_dataPeliculas = JsonConvert.SerializeObject(peliPrincipal);
+                string post_dataPeliculas = JsonConvert.SerializeObject(peliPrincipal);                
                 peliPrincipal.named_criteria = "genero_comedia";                
-                MenuJson postMenu = new MenuJson();
+                
+                MenuJson postMenu = new MenuJson();                
                 string postDataMenu = JsonConvert.SerializeObject(postMenu);
                 string urlMenu = "http://www.qubit.tv/business.php/json/menus";
-                CargaMenusPost(postDataMenu, urlMenu, post_dataPeliculas, "http://www.qubit.tv/business.php/json/search");
+                CargaMenusPost(postDataMenu, urlMenu, post_dataPeliculas, "http://www.qubit.tv/business.php/json/search"); 
 
-                peliculasHome.CargaPeliculasPost(post_dataPeliculas, "http://www.qubit.tv/business.php/json/search");
-
-
+                peliculasHome.CargaPeliculasPost(post_dataPeliculas, "http://www.qubit.tv/business.php/json/search");                
             }
             catch (Exception )
             {
                 throw ;
             }
-
         }
-
-
-
 
         public void CargaMenusPost(string postdataMenu,string urlMenu,string postdataPelicula, string urlPelicula)
         {           
@@ -78,8 +75,7 @@ namespace Personal
 
 
         public void CargaUsuarioPost(string postdataLogin, string urlLogin)
-        {
-            
+        {            
             JsonRequest usuarioRequest = new JsonRequest();
             usuarioRequest.Completed += new EventHandler(handleResponseLogin);
             usuarioRequest.beginRequest(postdataLogin, urlLogin);
@@ -100,14 +96,11 @@ namespace Personal
             try
             {
                 Usuario usuarioObjeto = new Usuario();
-       
+
                usuarioObjeto = JsonModel.ConvierteJsonAUsuario(jsonString);
                if (usuarioObjeto.username != null)
                {
-                   if (!PhoneApplicationService.Current.State.ContainsKey("Usuario"))
-                       PhoneApplicationService.Current.State.Add("Usuario", usuarioObjeto);
-                   else
-                       PhoneApplicationService.Current.State["Usuario"] = usuarioObjeto;
+                   StateModel.CargaKey("Usuario", usuarioObjeto);                   
                    MessageBox.Show("Se ha logeado correctamente", "Estado Login", MessageBoxButton.OK);
                }
                else
@@ -115,10 +108,10 @@ namespace Personal
             }
             catch (Exception)
             {
-
+                
                 throw;
             }
-       
+        
         }
         public void handleResponsePelicula(object sender, EventArgs args)
         {
@@ -126,10 +119,10 @@ namespace Personal
             string response = responseObject.ResponseTxt;
 
             Pelicula pelicula = new Pelicula();
-            List<Pelicula> pelisList = new List<Pelicula>();
-             pelisList =peliculasHome.ObtenerPrevioPorGenero(response, 1);
-            grillaPersonalVideo.DataContext = pelisList[0];
-            ratingControl.EstrellasActivas(pelisList[0].ranking);
+            
+            peliculaPrincipal =peliculasHome.ObtenerPrevioPorGenero(response, 1);
+            grillaPersonalVideo.DataContext = peliculaPrincipal[0];
+            ratingControl.EstrellasActivas(peliculaPrincipal[0].ranking);
             //parse it
         }
         public void handleResponseMenus(object sender, EventArgs args)
@@ -140,16 +133,16 @@ namespace Personal
             //parse it
         }
 
-
+        /// <summary>
+        /// Carga el listBox de Generos con el String de Json
+        /// </summary>
+        /// <param name="stringJson"></param>
         private void CargaGeneros(string stringJson)
         {
             try
             {
 
-
-                JObject json = JsonModel.StringToJsonObject(stringJson);                
-                //JObject json = JsonModel.StringToJsonObject(variables.Menu);                
-                //JObject json = JsonModel.StringToJsonObject(valorJson);                
+                JObject json = JsonModel.StringToJsonObject(stringJson);                                
                 JToken response = json["response"];
                 JToken status = json["status"];
                 JToken count = json["count"];
@@ -207,7 +200,7 @@ namespace Personal
             {
                 txtClavePersonal.Text = string.Empty;
 
-      
+
 
                 SolidColorBrush scb = ObtieneColorHexa("#FFB28AAD");
         //applying the brush to the background of the existing Button btn:
@@ -236,11 +229,11 @@ namespace Personal
             txtNroLinea.Text = string.Empty;
             SolidColorBrush scb = ObtieneColorHexa("#FFB28AAD");            
             txtNroLinea.Foreground = scb;
-       
 
+            
         }*/
+
         
-       
        
         private void txtGenero_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
@@ -253,23 +246,14 @@ namespace Personal
 
                Generos genero = listaGeneros.Find(x => x.Genero == valor);
 
-               string gen = genero.NameCriteria;
-
-               if (PhoneApplicationService.Current.State.ContainsKey("genero"))
-                   PhoneApplicationService.Current.State["genero"] = genero.Genero;
-               else
-                   PhoneApplicationService.Current.State.Add("genero", genero.Genero);
-
-               if (PhoneApplicationService.Current.State.ContainsKey("named_criteria"))
-                   PhoneApplicationService.Current.State["named_criteria"] = gen;
-               else
-                    PhoneApplicationService.Current.State.Add("named_criteria", genero.NameCriteria);
+               StateModel.CargaKey("genero", genero.Genero);
+               StateModel.CargaKey("named_criteria", genero.NameCriteria);
                
-               NavigationService.Navigate(new Uri("/Views/PeliculasGenero.xaml", UriKind.Relative));
+                NavigationService.Navigate(new Uri("/Views/PeliculasGenero.xaml", UriKind.Relative));
                 
             }
             catch (Exception ex)
-            {                
+            {
                 
                 throw ex;
             } 
@@ -288,11 +272,11 @@ namespace Personal
             {
 
                 throw ex;
-            } 
+            }
         }
 
-      
 
+      
 
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -335,7 +319,7 @@ namespace Personal
                     string post_todoElcatalogo = JsonConvert.SerializeObject(todoElCatalogoData);
                     todoElCatalogo.CargaPeliculasPost(post_todoElcatalogo, "http://www.qubit.tv/business.php/json/search");
                     break;
-        
+              
             }
         }
 
@@ -354,12 +338,69 @@ namespace Personal
             {
                 
                 throw;
-            }
+            } 
 
 
         }
-       
 
+        private void imgVer_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            try
+            {
+                 Image img = sender as Image;
+            string idPelicula = Convert.ToString(img.Tag);
+            img.Source = PeliculaModel.BotonVer(true);
 
+            StateModel.CargaKey("idPelicula", idPelicula);
+           
+            this.VerPelicula(img, idPelicula);
+            img.Source = PeliculaModel.BotonVer(false);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            } 
+
+        }
+
+        private void VerPelicula(Image imgVerAhora, string idPelicula)
+        {
+            try
+            {
+                PeliculaJson peliculaJson = new PeliculaJson();
+                peliculaJson.element_id = idPelicula;
+                  if (!StateModel.ExisteKey("Usuario"))
+                  {
+                      MessageBox.Show("Primero tenés que iniciar sesion.", "error", MessageBoxButton.OK);
+                      return;
+                }
+                  else
+                  {
+                      MessageBox.Show(string.Format("Estás por ver {0}" + Environment.NewLine + "calificación {1}" + Environment.NewLine + "costo $ {2}" + Environment.NewLine, peliculaPrincipal[0].title, peliculaPrincipal[0].classification, peliculaPrincipal[0].price_sd), "", MessageBoxButton.OK);
+                  }
+                  bool hayRed = NetworkInterface.GetIsNetworkAvailable();
+                  if (hayRed)
+                  {
+                 
+                      string postJsonPelicula = JsonConvert.SerializeObject(peliculaJson);
+                      PlayJson playJson = new PlayJson();
+                      playJson.content_id = peliculaPrincipal[0].id;
+                      playJson.session_id = ((Usuario)StateModel.ObtieneKey("Usuario")).session_id;
+                      string jsonPostPlay = JsonConvert.SerializeObject(playJson);
+
+                      PeliculaModel peliculaModel = new PeliculaModel();
+                      peliculaModel.EjecutaMultimediaPelicula(playJson);
+                  }else
+                  {
+                      MessageBox.Show("Para poder ver la película necesita acceso a internet.");             
+                  }
+
+    }
+            catch (Exception)
+            {                
+                throw;
+            }            
+        }        
     }
 }

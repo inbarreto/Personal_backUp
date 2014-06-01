@@ -217,9 +217,9 @@
     <Content Include="Font\AdobeFnt11.lst" />
     <Content Include="Font\AdobeFnt13.lst" />
     <Content Include="Imagenes\atp.png" />
-    <Content Include="Imagenes\fav-activo-46.png" />
+    <Content Include="Imagenes\fav-activo.png" />
     <Content Include="Imagenes\fav-hover.png" />
-    <Content Include="Imagenes\fav.png" />
+    <Content Include="Imagenes\fav-inactivo.png" />
     <Content Include="Imagenes\link-inactivo.png" />
     <Content Include="Imagenes\lupa.png" />
     <Content Include="Imagenes\mas.png" />

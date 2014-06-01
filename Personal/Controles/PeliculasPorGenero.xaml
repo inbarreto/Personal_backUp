@@ -11,22 +11,21 @@
     
     <UserControl.Resources>
 
-        <ResourceDictionary Source="../Styles/StylePeliculasPorGeneroGenero.xaml"></ResourceDictionary>                   
-
+        <ResourceDictionary Source="../Styles/StylePeliculasPorGeneroGenero.xaml"></ResourceDictionary>
+            
         
     </UserControl.Resources>        
     <ListBox x:Name="listaPeliculas" Height="auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-        <ListBox.ItemTemplate>
-            <DataTemplate>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
                 <StackPanel Orientation="Horizontal">
                     <Image x:Name="imgPelicula" Source="{Binding fanart.small}" Style="{StaticResource pelicula}" Margin="20,15,0,0" HorizontalAlignment="Left" Tap="ImagenIrAFicha_Tap" Tag="{Binding id}" ></Image>
                     <Canvas Style="{StaticResource canvas}" Grid.Column="1">
-
                         <TextBlock x:Name="txtTitle" Text="{Binding title}" FontFamily="Portable User Interface" Width="300" Foreground="#5B5B5B"  FontSize="28" Canvas.Left="14" Canvas.Top="40"  TextWrapping="Wrap" Tap="TextBlockIrAFicha_Tap" Tag="{Binding id}">
                         </TextBlock>
                         <Controles:RatingControl x:Name="ratingControl" Canvas.Top="70" Canvas.Left="10"></Controles:RatingControl>
                         <Image x:Name="imgVer" Source="../Imagenes/ver-inactivo.png" Style="{StaticResource imagenVer}"  Canvas.Top="120" Canvas.Left="14" Tap="imgVer_Tap" Tag="{Binding id}"></Image>
-                        <Image x:Name="imgFavorito" Source="../Imagenes/fav.png" Style="{StaticResource imagenesFav}"     Canvas.Top="95"  Canvas.Left="230" Tap="imgFavorito_Tap"></Image>
+                        <Image x:Name="imgFavorito" Source="../Imagenes/fav.png" Style="{StaticResource imagenesFav}"     Canvas.Top="95"  Canvas.Left="230" Tap="imgFavorito_Tap" Loaded="imgFavorito_Loaded" Tag="{Binding id}"></Image>
                         <Image x:Name="imgMas"  Source="../Imagenes/mas.png"   Style="{StaticResource imagenesFav}"   Canvas.Top="150" Canvas.Left="230" Tap="ImagenIrAFicha_Tap" Tag="{Binding id}" ></Image>
                     </Canvas>
                     <Line  X1="20" Y1="0" X2="444" Y2="0" Grid.ColumnSpan="2" 
@@ -34,7 +33,6 @@
                           StrokeThickness="4" Height="4"/>
                 </StackPanel>
             </DataTemplate>
-        </ListBox.ItemTemplate>
-    </ListBox>
-
+                </ListBox.ItemTemplate>
+            </ListBox>
 </UserControl>
