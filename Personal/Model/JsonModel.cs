@@ -122,8 +122,8 @@ namespace Personal.Model
                  pelicula.fanart.large = (string)thumbnail["large"];
                  pelicula.fanart.movil = (string)thumbnail["movil"];
                  pelicula.fanart.hd = (string)thumbnail["hd"];
-                 pelicula.descripcion = (string)tokenResponse["description"];                 
-                 pelicula.descripcion = (string)tokenResponse["description"];
+                 pelicula.descripcion = (string)tokenResponse["short_description"];                 
+                 pelicula.descripcion = (string)tokenResponse["short_description"];
                  foreach (string item in thumbnail["fanart"])
                  {
                      pelicula.fanart.fanart.Add(item);

@@ -45,7 +45,7 @@ namespace Personal.Controles
                 {
                     BitmapImage imag;
                     imag = new System.Windows.Media.Imaging.BitmapImage(new Uri(@"../Imagenes/Rating/estrella_activa.png", UriKind.RelativeOrAbsolute));
-                    Image imagenEstrella;
+                    Image imagenEstrella =  new Image();
                     for (int i = 1; i <= cantidadEstrellas; i++)
                     {
                         imagenEstrella = this.FindName(String.Format("estrella{0}", i)) as Image;

@@ -34,7 +34,7 @@ namespace Personal.Controles
         {
             try
             {
-
+                
             }
             catch (Exception)
             {
@@ -43,23 +43,21 @@ namespace Personal.Controles
 
         }
 
-        public Pelicula CargaListaPeliculas(string json, int cantidadPeliculas)
+        public void CargaListaPeliculas(string json, int cantidadPeliculas)
         {
             try
             {
-
-
+                
+                // SE MODIFICO SEGUN EL REQUERIMIENTO QUE NO ES UNA PELICULA LA PRIMERA.
                 List<Pelicula> lista = this.ObtenerPrevioPorGenero(json, cantidadPeliculas);
-                Pelicula peliculaUnica = lista.First<Pelicula>();
+                //Pelicula peliculaUnica = lista.First<Pelicula>();
                 foreach (Pelicula item in lista)
                 {
                     if (item.title.Length > 22)
                         item.title = item.title.Substring(0, 19) + "...";
                 }
-                lista.Remove(peliculaUnica);
-                listaPeliculas.ItemsSource = lista;
-                
-                return peliculaUnica;
+                //lista.Remove(peliculaUnica);
+                listaPeliculas.ItemsSource = lista;                            
             }
             catch (Exception)
             {
@@ -144,23 +142,41 @@ namespace Personal.Controles
         {
             try
             {
-                Image imgFavoritos = sender as Image;
-                Pelicula pelicula = listadoDePeliculas.Find(x => x.id == imgFavoritos.Tag);
-                BitmapImage imag;
-                if (pelicula != null)
+                usuario = StateModel.ObtieneKey("Usuario") as Usuario;
+                if (usuario != null)
                 {
-                    if (pelicula.favorite)
-                        pelicula.favorite = false;
-                    else
-                        pelicula.favorite = true;
+
+                    Image imgFavoritos = sender as Image;
+                    Pelicula pelicula = listadoDePeliculas.Find(x => x.id.ToString() == imgFavoritos.Tag.ToString());
+                    BitmapImage imag;
+                    if (pelicula != null)
+                    {
+                        if (pelicula.favorite)
+                            pelicula.favorite = false;
+                        else
+                            pelicula.favorite = true;
 
 
-                    if (pelicula.favorite)
-                        imag = new System.Windows.Media.Imaging.BitmapImage(new Uri(@"/Imagenes/fav-activo.png", UriKind.RelativeOrAbsolute));
-                    else
-                        imag = new System.Windows.Media.Imaging.BitmapImage(new Uri(@"/Imagenes/fav-inactivo.png", UriKind.RelativeOrAbsolute));
-                    imgFavoritos.Source = imag;
+                        if (pelicula.favorite)
+                            imag = new System.Windows.Media.Imaging.BitmapImage(new Uri(@"/Imagenes/fav-activo.png", UriKind.RelativeOrAbsolute));
+                        else
+                            imag = new System.Windows.Media.Imaging.BitmapImage(new Uri(@"/Imagenes/fav-inactivo.png", UriKind.RelativeOrAbsolute));
+                        imgFavoritos.Source = imag;
+
+
+
+                        FavoritosAgregarJson favoritos = new FavoritosAgregarJson();
+                        favoritos.content_id = pelicula.ref_id.ToString();
+                        favoritos.session_id = usuario.session_id;
+                        string jsonFavoritos = JsonConvert.SerializeObject(favoritos);
+
+                        this.CargaFavoritoPost(jsonFavoritos, "http://www.qubit.tv/business.php/json/AddToFavorites");                        
+                    }
                 }
+                else {
+                    MessageBox.Show("Para poder agregar a favoritos debe estar logeado", "error", MessageBoxButton.OK);
+                }
+
 
             }
             catch (Exception)
@@ -227,6 +243,8 @@ namespace Personal.Controles
             this.CargaPlayConJson(response);
             //parse it
         }
+
+        
 
         private void CargaPlayConJson(string jsonString)
         {
@@ -324,7 +342,35 @@ namespace Personal.Controles
 
         }
 
+        public void CargaFavoritoPost(string postdata, string url)
+        {
+            JsonRequest loginRequest = new JsonRequest();
+            loginRequest.Completed += new EventHandler(handleResponseFavorito);
+            loginRequest.beginRequest(postdata, url);
+        }
+        public void handleResponseFavorito(object sender, EventArgs args)
+        {
+            JsonRequest responseObject = sender as JsonRequest;
+            string response = responseObject.ResponseTxt;            
+            //parse it
+        }
 
+        //private void ratingControl_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    RatingControl rating = sender as RatingControl;
+
+        //    int estrellasPelicula = Convert.ToInt32(rating.Tag);
+            
+            
+            
+
+        //}
+
+
+
+
+
+        
     }
 }
 

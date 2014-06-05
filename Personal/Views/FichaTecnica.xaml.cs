@@ -86,7 +86,7 @@ namespace Personal.Views
         {
             if (usuario.session_id == null)
             {
-                MessageBox.Show("Primero tenés que iniciar sesion.", "error", MessageBoxButton.OK);
+                NavigationService.Navigate(new Uri("/Views/Login.xaml", UriKind.Relative));
                 return;
             }
             else

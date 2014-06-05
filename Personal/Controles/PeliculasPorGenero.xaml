@@ -8,12 +8,12 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
-    
+
+
     <UserControl.Resources>
 
         <ResourceDictionary Source="../Styles/StylePeliculasPorGeneroGenero.xaml"></ResourceDictionary>
-            
-        
+
     </UserControl.Resources>        
     <ListBox x:Name="listaPeliculas" Height="auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                 <ListBox.ItemTemplate>
@@ -23,10 +23,10 @@
                     <Canvas Style="{StaticResource canvas}" Grid.Column="1">
                         <TextBlock x:Name="txtTitle" Text="{Binding title}" FontFamily="Portable User Interface" Width="300" Foreground="#5B5B5B"  FontSize="28" Canvas.Left="14" Canvas.Top="40"  TextWrapping="Wrap" Tap="TextBlockIrAFicha_Tap" Tag="{Binding id}">
                         </TextBlock>
-                        <Controles:RatingControl x:Name="ratingControl" Canvas.Top="70" Canvas.Left="10"></Controles:RatingControl>
-                        <Image x:Name="imgVer" Source="../Imagenes/ver-inactivo.png" Style="{StaticResource imagenVer}"  Canvas.Top="120" Canvas.Left="14" Tap="imgVer_Tap" Tag="{Binding id}"></Image>
-                        <Image x:Name="imgFavorito" Source="../Imagenes/fav.png" Style="{StaticResource imagenesFav}"     Canvas.Top="95"  Canvas.Left="230" Tap="imgFavorito_Tap" Loaded="imgFavorito_Loaded" Tag="{Binding id}"></Image>
-                        <Image x:Name="imgMas"  Source="../Imagenes/mas.png"   Style="{StaticResource imagenesFav}"   Canvas.Top="150" Canvas.Left="230" Tap="ImagenIrAFicha_Tap" Tag="{Binding id}" ></Image>
+                        <Controles:RatingControl x:Name="ratingControl" Canvas.Top="70" Canvas.Left="10" Tag="{Binding ranking}"></Controles:RatingControl>
+                        <Image x:Name="imgFavorito" Source="../Imagenes/fav.png" Style="{StaticResource Iconos2}"     Canvas.Top="95"  Canvas.Left="230" Tap="imgFavorito_Tap" Loaded="imgFavorito_Loaded" Tag="{Binding id}"></Image>
+                        <Image x:Name="imgMas"  Source="../Imagenes/mas.png"   Style="{StaticResource Iconos2}"   Canvas.Top="160" Canvas.Left="230" Tap="ImagenIrAFicha_Tap" Tag="{Binding id}" ></Image>
+                        <Image x:Name="imgVer" Source="../Imagenes/ver-inactivo.png" Style="{StaticResource imagenVer}" Canvas.Top="120" Canvas.Left="14" Tap="imgVer_Tap" Tag="{Binding id}"></Image>
                     </Canvas>
                     <Line  X1="20" Y1="0" X2="444" Y2="0" Grid.ColumnSpan="2" 
                           VerticalAlignment="Bottom" Stroke="#F4F4F4" 

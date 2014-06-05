@@ -45,31 +45,36 @@
     <Grid x:Name="LayoutRoot" Background="White">
  
         <phone:Pivot x:Name="pivotHome" Title=""  Background="white" Foreground="#7E517A" SelectionChanged="pivotHome_SelectionChanged">
-            <phone:PivotItem x:Name="pivItemPersonalVideo" Header="personal video" Background="White" Margin="10,10,0,0" >
+            <phone:PivotItem x:Name="pivItemPersonalVideo" Background="White" Margin="10,10,0,0" >
+                <phone:PivotItem.Header>
+                    <Image Source="../Imagenes/personal-video-home.png" Margin="5,25"></Image>
+                </phone:PivotItem.Header>
                 <ScrollViewer>
                     <StackPanel x:Name="grillaPersonalVideo" Orientation="Vertical" Height="auto">
                         <phone:Pivot x:Name="pivotImagenPrincipal" Height="230" Margin="0,0,0,0">
                                 <phone:PivotItem Margin="0,-6,0,0" >
                                 <Canvas>
-                                    <Image x:Name="imgPeliculaPrincipal" Source="{Binding fanart.fanart[0]}" Stretch="Fill" Margin="10,0,0,0" Width="427" Height="230" Canvas.ZIndex="0" />
-                                    <Image x:Name="imgVer" Source="../Imagenes/ver-activo.png" Style="{StaticResource imagenVer}"  Canvas.Top="80" Canvas.ZIndex="1" Canvas.Left="188" Tag="{Binding id}" Tap="imgVer_Tap"></Image>
+                                    <Image x:Name="imgPeliculaPrincipal" Source="..\Imagenes\main_photo.jpg" Stretch="Fill" Margin="15,0,0,0" Width="427" Height="230" Canvas.ZIndex="0" />
+                                    <!--<Image x:Name="imgPeliculaPrincipal" Source="{Binding fanart.fanart[0]}" Stretch="Fill" Margin="15,0,0,0" Width="427" Height="230" Canvas.ZIndex="0" />-->
+                                    <Image x:Name="imgVer" Source="../Imagenes/ver-transparente.png" Style="{StaticResource imagenVer}"  Canvas.Top="80" Canvas.ZIndex="1" Canvas.Left="188" Tag="{Binding id}" Tap="imgVer_Tap"></Image>
                                 </Canvas>
                             </phone:PivotItem>
                             <phone:PivotItem Margin="0,-6,0,0">
                                 <Canvas>
-                                    <Image x:Name="imgPeliculaPrincipal2" Source="{Binding fanart.fanart[1]}" Stretch="Fill" Margin="10,0,0,0" Width="427" Height="230" Canvas.ZIndex="0" />
-                                    <Image x:Name="imgVer2" Source="../Imagenes/ver-activo.png" Style="{StaticResource imagenVer}"  Canvas.Top="80" Canvas.ZIndex="1" Canvas.Left="188" Tag="{Binding id}" Tap="imgVer_Tap"></Image>
+                                    <Image x:Name="imgPeliculaPrincipal2" Source="..\Imagenes\main_photo.jpg" Stretch="Fill" Margin="15,0,0,0" Width="427" Height="230" Canvas.ZIndex="0" />
+                                    <!--<Image x:Name="imgPeliculaPrincipal2" Source="{Binding fanart.fanart[1]}" Stretch="Fill" Margin="15,0,0,0" Width="427" Height="230" Canvas.ZIndex="0" />-->
+                                    <Image x:Name="imgVer2" Source="../Imagenes/ver-transparente.png" Style="{StaticResource imagenVer}"  Canvas.Top="80" Canvas.ZIndex="1" Canvas.Left="188" Tag="{Binding id}" Tap="imgVer_Tap"></Image>
                                 </Canvas>
                             </phone:PivotItem>
-                            <phone:PivotItem Margin="0,-6,0,0">
+                            <!--<phone:PivotItem Margin="0,-6,0,0">
                                 <Canvas>
-                                    <Image x:Name="imgPeliculaPrincipal3" Source="{Binding fanart.fanart[2]}" Stretch="Fill" Margin="10,0,0,0" Width="427" Height="230" Canvas.ZIndex="0" />
-                                    <Image x:Name="imgVer3" Source="../Imagenes/ver-activo.png" Style="{StaticResource imagenVer}"  Canvas.Top="80" Canvas.ZIndex="1" Canvas.Left="188" Tag="{Binding id}" Tap="imgVer_Tap"></Image>
+                                    <Image x:Name="imgPeliculaPrincipal3" Source="{Binding fanart.fanart[2]}" Stretch="Fill" Margin="15,0,0,0" Width="427" Height="230" Canvas.ZIndex="0" />
+                                    <Image x:Name="imgVer3" Source="../Imagenes/ver-transparente.png" Style="{StaticResource imagenVer}"  Canvas.Top="80" Canvas.ZIndex="1" Canvas.Left="188" Tag="{Binding id}" Tap="imgVer_Tap"></Image>
                                 </Canvas>
-                            </phone:PivotItem>
+                            </phone:PivotItem>-->
                             </phone:Pivot>
                         
-                        <TextBlock x:Name="txtNombrePelicula" Text="{Binding title}" Foreground="#FF856D84" Margin="20,10,0,0"  HorizontalAlignment="Left" FontSize="36" Canvas.Top="220"/>
+                        <TextBlock x:Name="txtNombrePelicula" Text="¿Quién son los Miller?" Foreground="#FF856D84" Margin="20,10,0,0"  HorizontalAlignment="Left" FontSize="36" Canvas.Top="220"/>
                         <Controles:RatingControl x:Name="ratingControl" Margin="20,0,0,0"></Controles:RatingControl>
                         <Controles:PeliculasPorGenero x:Name="peliculasHome"/>
                     </StackPanel>
@@ -100,15 +105,24 @@
                             <RowDefinition Height="70"/>
                             <RowDefinition Height="1*"/>
                         </Grid.RowDefinitions>
-        			<TextBox x:Name="txtBuscar" HorizontalAlignment="Left" Foreground="#FFB28AAD"  Height="70" TextWrapping="Wrap" Text="Buscar" VerticalAlignment="Top" 
-        				Style="{StaticResource txtBoxLogin}" LostFocus="txtBuscar_Evento"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Margin="5,0,-7,0" >
-        				<TextBox.Background >
+                        <TextBox x:Name="txtBuscar" HorizontalAlignment="Left" Foreground="#ffffff"  
+                                 Height="70" TextWrapping="Wrap" Text="Buscar" VerticalAlignment="Top" 
+                                 KeyUp="txtBuscarConEnter_Evento"
+                                 InputScope="Search" AcceptsReturn="False"
+        				Style="{StaticResource txtBoxLogin}" GotFocus="txtSetearCampo_Evento" LostFocus="txtVolverBuscar_Evento" Background="#B2A3B1" BorderBrush="#B2A3B1" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Margin="5,0,-7,0" >
+        				<!--TextBox.Background >
                                 <ImageBrush ImageSource="/Imagenes/lupa.png" AlignmentX="Right" Stretch="Uniform" />
-                        </TextBox.Background>
+                        </TextBox.Background-->
 
         			</TextBox>
-                        <Image x:Name="imgLupa" Source="/Imagenes/lupa.png" Height="50" Grid.Column="1" Grid.Row="0" VerticalAlignment="Top" Margin="0,15,1,0" Tap="txtBuscar_Evento" Grid.ColumnSpan="2"/>
-                        <Controles:PeliculasPorGenero x:Name="controlBuscarPeliculas" Grid.ColumnSpan="2" Grid.Row="1"></Controles:PeliculasPorGenero>
+                        <Image x:Name="imgLupa" Source="/Imagenes/lupa.png" Height="55" Grid.Column="1" Grid.Row="0" VerticalAlignment="Top" Margin="0,17,7,0" Tap="txtBuscar_Evento" Grid.ColumnSpan="2"/>
+                    <StackPanel Orientation="Vertical" Grid.ColumnSpan="2" Grid.Row="1">
+                        <TextBlock x:Name="txtResultado" 
+                    Text="resultado"  FontFamily="Portable User Interface"
+                    TextWrapping="Wrap" FontSize="64" Margin="15,10" Visibility="Collapsed">
+                        </TextBlock>
+                        <Controles:PeliculasPorGenero x:Name="controlBuscarPeliculas"></Controles:PeliculasPorGenero>
+                    </StackPanel>
         		</Grid>
                 </ScrollViewer>
         	</phone:PivotItem>
@@ -117,26 +131,32 @@
                     <Controles:PeliculasPorGenero x:Name="recomendado" Height="auto" />
                 </ScrollViewer>
             </phone:PivotItem>
-            <phone:PivotItem x:Name="pivItemAlquiladas" Header="muy alquiladas" Background="White" Margin="10,10,0,0" >
+            <!--phone:PivotItem x:Name="pivItemAlquiladas" Header="muy alquiladas" Background="White" Margin="10,10,0,0" >
                 <ScrollViewer>
                     <Controles:PeliculasPorGenero x:Name="muyAlquiladas" />
                 </ScrollViewer>
-            </phone:PivotItem>
-            <phone:PivotItem x:Name="pivItemEstrenos" Header="estrenos" Background="White" Margin="10,10,0,0" >
+            </phone:PivotItem-->
+            <!--phone:PivotItem x:Name="pivItemEstrenos" Header="estrenos" Background="White" Margin="10,10,0,0" >
                 <ScrollViewer>
                     <Controles:PeliculasPorGenero x:Name="estrenos" />
                 </ScrollViewer>
-            </phone:PivotItem>
-            <phone:PivotItem x:Name="pivItemTodoCatalogo" Header="todo el catalogo" Background="White" Margin="10,10,0,0" >
+            </phone:PivotItem-->
+            <!--phone:PivotItem x:Name="pivItemTodoCatalogo" Header="todo el catalogo" Background="White" Margin="10,10,0,0" >
                 <ScrollViewer>
                     <Controles:PeliculasPorGenero x:Name="todoElCatalogo" />
                 </ScrollViewer>
-            </phone:PivotItem>
-            <phone:PivotItem Header="mi cuenta" Background="White" Margin="10,10,0,0" >
+            </phone:PivotItem-->
+            <phone:PivotItem x:Name="pivItemMiCuenta" Header="mi cuenta" Background="White" Margin="10,10,0,0" >
                 <StackPanel>
                 <ListBox>
-                    <TextBlock Text="iniciar sesión" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36" Tap="txtLogin_Tap"/>
-                    <TextBlock Text="entretenimiento y más" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>
+                    <TextBlock x:Name="miCuentaTexto1" Text="iniciar sesión" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36" Tap="txtLogin_Tap"/>
+                        <TextBlock x:Name="miCuentaTexto2" Text="perfil" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>
+                        <TextBlock x:Name="miCuentaTexto3" Text="activar suscripción" FontFamily="Portable User Interface" Foreground="#7D3D76" Margin="15,3,0,10" FontSize="36" FontWeight="Bold"/>
+                        <TextBlock x:Name="miCuentaTexto4" Text="favoritos" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>
+                        <TextBlock x:Name="miCuentaTexto5" Text="ya vistas" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>
+                        <TextBlock x:Name="miCuentaTexto6" Text="estoy viendo" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>
+                        <TextBlock x:Name="miCuentaTexto7" Text="activar control parental" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>
+                        <TextBlock Text="entretenimiento y más" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>
                     <TextBlock Text="más apps" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>
                     <TextBlock Text="términos y condiciones" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>
                 </ListBox>

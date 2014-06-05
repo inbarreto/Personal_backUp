@@ -4,8 +4,8 @@
   <Languages xmlns="">
     <Language code="es-AR" />
   </Languages>
-  <App xmlns="" ProductID="{ad4b9ab6-2631-4aa6-9927-b9b8fb6fb536}" Title="personal video" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Personal author" Description="Sample description" Publisher="Personal" PublisherID="{b184bddc-094b-4e0f-9810-3e5777933cbd}">
-    <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
+  <App xmlns="" ProductID="{ad4b9ab6-2631-4aa6-9927-b9b8fb6fb536}" Title="Personal Video" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Personal author" Description="Películas en tu celular" Publisher="Personal" PublisherID="{b184bddc-094b-4e0f-9810-3e5777933cbd}">
+    <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon01.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
@@ -22,7 +22,7 @@
           <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileSmall.png</SmallImageURI>
           <Count>0</Count>
           <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\FlipCycleTileMedium.png</BackgroundImageURI>
-          <Title>Personal</Title>
+          <Title>Personal Video</Title>
           <BackContent>
           </BackContent>
           <BackBackgroundImageURI>

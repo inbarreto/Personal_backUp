@@ -42,10 +42,8 @@ namespace Personal.Views
         {
             try
             {
-                txtClavePersonal.Text = string.Empty;
-                SolidColorBrush scb = ObtieneColorHexa("#FFB28AAD");
-                //applying the brush to the background of the existing Button btn:
-                txtClavePersonal.Foreground = scb;
+                txtClavePersonal.Password = "";
+                txtClavePersonal.Foreground = getColorFromHexa("#000000");
 
             }
             catch (Exception ex)
@@ -59,8 +57,7 @@ namespace Personal.Views
             try
             {
                 txtNroLinea.Text = string.Empty;
-                SolidColorBrush scb = ObtieneColorHexa("#FFB28AAD");
-                txtNroLinea.Foreground = scb;
+                txtNroLinea.Foreground = getColorFromHexa("#000000");
             }
             catch (Exception ex)
             {
@@ -69,17 +66,22 @@ namespace Personal.Views
 
         }
 
-        private void txtNroLinea_GotFocus(object sender, RoutedEventArgs e)
+        private void txtNroLinea_LostFocus(object sender, RoutedEventArgs e)
         {
-            txtNroLinea.Foreground = new SolidColorBrush(Colors.White);
-            txtNroLinea.Background = new SolidColorBrush(Colors.Black);
+            txtNroLinea.Foreground = getColorFromHexa("#ffffff");
         }
+
+        private void txtClavePersonal_LostFocus(object sender, RoutedEventArgs e)
+        {
+            txtClavePersonal.Foreground = getColorFromHexa("#ffffff");
+        }
+
         private void btnAceptar_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             try
             {
                 string numeroTelefono = txtNroLinea.Text;
-                string password = txtClavePersonal.Text;
+                string password = txtClavePersonal.Password;
                 if (numeroTelefono == string.Empty || password == string.Empty)
                 {
                     MessageBox.Show("Número de linea o clave personal incorrectos", "error", MessageBoxButton.OK);
@@ -129,7 +131,7 @@ namespace Personal.Views
                 if (usuarioObjeto.username != null)
                 {
                     StateModel.CargaKey("Usuario", usuarioObjeto);
-                    MessageBox.Show("Se ha logeado correctamente", "Estado Login", MessageBoxButton.OK);
+                    MessageBox.Show("Se ha logueado correctamente", "Estado Login", MessageBoxButton.OK);
                 }
                 else
                     MessageBox.Show("Usuario o contraseña incorrectos", "Estado Login", MessageBoxButton.OK);
@@ -144,15 +146,13 @@ namespace Personal.Views
         }
 
 
-        private static System.Windows.Media.SolidColorBrush ObtieneColorHexa(string colorHexa)
+        SolidColorBrush getColorFromHexa(string hexaColor)
         {
-
-            byte A = 255;
-            byte R = Convert.ToByte(colorHexa.Substring(1, 2), 16);
-            byte G = Convert.ToByte(colorHexa.Substring(3, 2), 16);
-            byte B = Convert.ToByte(colorHexa.Substring(5, 2), 16);
-            SolidColorBrush scb = new SolidColorBrush(Color.FromArgb(A, R, G, B));
-            return scb;
+            byte r = Convert.ToByte(hexaColor.Substring(1, 2), 16);
+            byte g = Convert.ToByte(hexaColor.Substring(3, 2), 16);
+            byte b = Convert.ToByte(hexaColor.Substring(5, 2), 16);
+            SolidColorBrush soliColorBrush = new SolidColorBrush(Color.FromArgb(0xFF, r, g, b));
+            return soliColorBrush;
         }
 
        

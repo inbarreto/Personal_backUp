@@ -24,11 +24,12 @@ namespace Personal.Model
                 PeliculaListas pelicula = new PeliculaListas();
                 
                 pelicula.title = (string)token["title"];
-                
-                
-                pelicula.viewed = (bool)token["paid_hd"];
-                pelicula.favorite = (bool)token["paid_hd"];
-                pelicula.percent_viewed = (bool)token["paid_hd"];
+
+
+                pelicula.viewed = (string)token["viewed"] != string.Empty && (string)token["viewed"] != null ? Convert.ToBoolean((int)token["viewed"]) : false;
+                pelicula.favorite =(string)token["favorite"] != string.Empty && (string)token["favorite"] != null ?  Convert.ToBoolean((int)token["favorite"]): false;
+                pelicula.current_time = (string)token["current_time"] != null && (string)token["current_time"] != string.Empty ? (int)token["current_time"] : 0;
+                pelicula.percent_viewed = (string)token["paid_hd"] != null && (string)token["paid_hd"] != string.Empty ? (bool)token["paid_hd"] : false;
                 JToken Item = token["tags"];
                 pelicula.tagItems[0] = (string)Item["item"][0];
                 pelicula.paid_hd = (bool)token["paid_hd"];
@@ -40,7 +41,7 @@ namespace Personal.Model
                 pelicula.price_sd = (decimal)token["price_sd"];
                 pelicula.price_hd = (decimal)token["price_hd"];
                 pelicula.available_in_hd = (int)token["available_in_hd"];
-                pelicula.available_for_mobiles = (string)token["available_for_mobiles"] != null ?  (int)token["available_for_mobiles"] :1 ;
+                pelicula.available_for_mobiles = (string)token["available_for_mobiles"] != null && (string)token["available_for_mobiles"] != string.Empty ? (int)token["available_for_mobiles"] : 1;
                 pelicula.ranking = ((int)token["ranking"] /2) / 10;
                 pelicula.classification = (string)token["classification"];
                 pelicula.status = (string)token["status"];

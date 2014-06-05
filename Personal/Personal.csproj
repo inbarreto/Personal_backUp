@@ -196,7 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
-    <Content Include="Assets\ApplicationIcon.png">
+    <Content Include="Assets\ApplicationIcon01.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
@@ -222,7 +222,10 @@
     <Content Include="Imagenes\fav-inactivo.png" />
     <Content Include="Imagenes\link-inactivo.png" />
     <Content Include="Imagenes\lupa.png" />
+    <Content Include="Imagenes\main_photo.jpg" />
     <Content Include="Imagenes\mas.png" />
+    <Content Include="Imagenes\personal-video-home.png" />
+    <Content Include="Imagenes\personal-video-login.png" />
     <Content Include="Imagenes\placa.png" />
     <Content Include="Imagenes\Rating\estrella_activa.png" />
     <Content Include="Imagenes\Rating\estrella_inactiva.png" />
@@ -234,6 +237,7 @@
     <Content Include="Imagenes\ver-activo.png" />
     <Content Include="Imagenes\ver-hover.png" />
     <Content Include="Imagenes\ver-inactivo.png" />
+    <Content Include="Imagenes\ver-transparente.png" />
     <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
