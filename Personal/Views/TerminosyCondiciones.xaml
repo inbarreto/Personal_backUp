@@ -1,0 +1,162 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Personal.Views.TerminosyCondiciones"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+    <phone:PhoneApplicationPage.Resources>
+        <Style TargetType="TextBlock" x:Name="subtitulo">
+            <Setter Property="FontSize" Value="24"></Setter>
+            <Setter Property="Margin" Value="20,10,20,10"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Foreground" Value="#FF856D84"></Setter>
+        </Style>
+        <Style TargetType="TextBlock" x:Name="regular">
+            <Setter Property="FontSize" Value="18"></Setter>
+            <Setter Property="Margin" Value="20,10,20,0"></Setter>
+            <Setter Property="Foreground" Value="#FF856D84"></Setter>
+        </Style>
+    </phone:PhoneApplicationPage.Resources>
+    <ListBox Background="White">
+        <TextBlock x:Name="txtNombre" 
+                       Text="términos y condiciones"  FontFamily="Portable User Interface"
+                       Margin="25,40,15,20" TextWrapping="Wrap" FontSize="42" Foreground="#FF856D84">
+        </TextBlock>
+        <TextBlock Text="1. TÉRMINOS Y CONDICIONES Y SU ACEPTACIÓN" Style="{StaticResource subtitulo}"
+                   TextWrapping="Wrap"> 
+        </TextBlock>
+        <TextBlock Text='1.1 Los presentes términos y condiciones  (en adelante, los "Términos y Condiciones ") regulan la utilización de la Aplicación "PERSONAL VIDEO" (en adelante, la "Aplicación y/o PERSONAL VIDEO, en forma indistinta") que TELECOM PERSONAL S.A. (en adelante "PERSONAL") pone a disposición de sus clientes. Para la utilización de la Aplicación, es condición necesaria y excluyente, la lectura y aceptación previa y sin reservas de las presentes Términos y Condiciones.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='1.2 La utilización por parte del cliente de PERSONAL de la Aplicación, le otorgará la condición de "Usuario" del mismo a dicho cliente.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='1.3 El Usuario manifiesta, en tal sentido, haber leído, entendido y aceptado los presentes Términos y Condiciones, puestos a su disposición, en todo momento, con carácter previo a la utilización de la Aplicación.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='1.4 La utilización de la Aplicación conlleva, asimismo, la aceptación por parte del Usuario de cuantos avisos, reglamentos de uso e instrucciones actualmente en vigencia y los que fueren puestos en su conocimiento por parte de PERSONAL con posterioridad a la aceptación de los presente Términos y Condiciones.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='1.5 El Usuario conoce y acepta que la Aplicación es otorgada por PERSONAL en forma accesoria al servicio de comunicaciones móviles solicitado  por el Usuario oportunamente. La baja del servicio de comunicaciones móviles implica la baja y/o cancelación de esta Aplicación.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='2. OBJETO'
+                   Style="{StaticResource subtitulo}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='Los presentes Términos y Condiciones regulan la puesta a disposición  de la Aplicación por parte de PERSONAL y la utilización de la misma por parte de los Usuarios. PERSONAL  se reserva el derecho a modificar en forma unilateral, en cualquier momento y sin previo aviso, la presentación, configuración y Términos y Condiciones de la Aplicación.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='3. LA APLICACIÓN'
+                   Style="{StaticResource subtitulo}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='PERSONAL VIDEO es una aplicación que permite al Usuario acceder a contenidos asociados a video (en adelante los "Contenido/s"), navegar y reproducir dichos Contenidos en su dispositivo móvil. El Servicio es válido para clientes Personal con Factura, Personal con Abono Fijo y Personal con Tarjeta.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='Los precios de cada Contenido, pack o suscripción disponibles, serán los publicados en el Sitio y se expresan IVA (impuesto al valor agregado) incluido consumidor final como así también la periodicidad y cantidad de Contenidos incluidos en los packs y suscripciones. El tráfico de datos que sea generado al navegar el sitio Móvil y durante la reproducción del Contenidos es sin cargo para el Usuario. El Usuario acepta y reconoce que muchos de los Contenidos no son aptos para menores de 13, menores de 16 o de 18 años, según sea el caso debidamente informado por Personal. El Usuario a su vez reconoce que es de su exclusiva responsabilidad el acceso de los menores de edad a los contenidos no recomendados, sin que Personal tenga la obligación de controlar dicho acceso.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='4. CONDICIONES DE ACCESO Y UTILIZACIÓN DE LA APLICACIÓN'
+                   Style="{StaticResource subtitulo}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='4.1 La Aplicación es válida en todo en todo el territorio de la República Argentina. Solo podrán acceder a esta Aplicación las terminales móviles con sistema operativo compatible.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='4.2 La descarga de la Aplicación es sin cargo. No obstante ello, el tráfico de datos correspondiente a la descarga de la misma es con cargo. El costo del tráfico de datos dependerá del plan contratado por el Usuario.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='4.3 La Aplicación contará con la siguiente modalidad de acceso: ' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='* Ejecutando el ícono una vez descargada la Aplicación en la terminal móvil del Usuario.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='4.4 El Usuario reconoce, en virtud de la utilización de la Aplicación, su mayoría de edad.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='4.5 PERSONAL podrá dar de baja la Aplicación sin causa, y sin que ello genere derecho a resarcimiento o indemnización alguna.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='4.6 El Usuario acepta y reconoce que PERSONAL no será responsable, contractual o extracontractualmente, por ningún daño o perjuicio, directo o indirecto, derivado de la utilización de la Aplicación.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='4.7 El Usuario asume total responsabilidad frente a PERSONAL y a terceros por los daños y perjuicios de toda clase que se generen como consecuencia del uso de la Aplicación, debiendo el Usuario indemnizar y mantener indemne a PERSONAL y a terceros ante cualquier reclamo (incluyendo honorarios profesionales) que pudiera corresponder.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='4.8 El Usuario acepta y reconoce que PERSONAL no será responsable, contractual o extracontractualmente, por ningún contenido al que se acceda mediante la generación y/o lectura de los códigos QR.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='5. USO CORRECTO DE LA APLICACIÓN'
+                   Style="{StaticResource subtitulo}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='5.1  El Usuario acepta y presta su conformidad y compromiso con la utilización de la Aplicación de forma correcta y diligente. Asimismo, con respetar la ley, la moral, las buenas costumbres y el orden público mediante el uso de la Aplicación. El Usuario se obliga a utilizar la Aplicación con fines lícitos y cumpliendo estrictamente con la normativa vigente, quedando prohibido el uso en actividades que directa e indirectamente afecten derechos individuales y/o colectivos de terceros.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='5.2 El Usuario se compromete a abstenerse de utilizar la Aplicación con fines o efectos ilícitos, prohibidos en los presentes Términos y Condiciones, lesivos de los derechos e intereses de terceros, o que de cualquier forma puedan dañar, inutilizar, sobrecargar o deteriorar la Aplicación. PERSONAL se reserva la facultad de adoptar las medidas que estime oportunas en caso de que existan indicios de uso fraudulento de la Aplicación, incluyendo la adopción de las acciones legales oportunas, sin perjuicio de las medidas que correspondan a las distintas operadoras.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='5.3 El Usuario se obliga a hacer un uso diligente, correcto y conforme a la ley, a la moral y a las buenas costumbres generalmente aceptadas y al orden publico de cualquier contenido y/o aplicación obtenida a través de la Aplicación. En particular, el Usuario se compromete a abstenerse de: i) reproducir, o copiar, distribuir, permitir el acceso del público a través de cualquier modalidad de comunicación pública, transformar o modificar el o los contenidos de la Aplicación, a menos que se cuente con la autorización del titular de los correspondientes derechos o ello resulte legalmente permitido, ii) suprimir, eludir o manipular el "copyright" y demás datos identificativos de los derechos de los titulares incorporados a los contenidos de la Aplicación, así como los dispositivos técnicos de protección, las huellas digitales o cualquiera mecanismo de información que pudiera contener los contenidos de la Aplicación, iii) utilizar la Aplicación de forma o con efectos contrarios a la ley, la moral y a la buenas costumbres o al orden público.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='5.4 El Usuario se compromete a abstenerse de obtener e incluso de intentar obtener, los contenidos de la Aplicación empleando para ello medios o procedimientos distintos de los que, en cada caso, se hayan proporcionado o se hayan indicado a tal efecto.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='6. DISPONIBILIDAD, MODIFICACIÓN, ACTUALIZACIÓN Y CANCELACIÓN DE LA APLICACIÓN'
+                   Style="{StaticResource subtitulo}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='6.2 PERSONAL no garantiza la disponibilidad, continuidad ni en general el normal funcionamiento de la Aplicación en el caso de incidencias e interrupciones en el normal funcionamiento de las redes involucradas en la Aplicación.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='6.3 PERSONAL podrá actualizar la Aplicación, en cualquier momento y sin previo aviso a los Usuarios.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='6.4 PERSONAL podrá modificar y/o cancelar la Aplicación, en cualquier momento y sin previo aviso a los Usuarios.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='7. RESPONSABILIDAD'
+                   Style="{StaticResource subtitulo}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='7.1 El Usuario acepta que el uso de la Aplicación se realiza bajo su propia, exclusiva y única responsabilidad.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='7.2 PERSONAL no tiene obligación de controlar y no controla la utilización que los Usuarios hacen de la Aplicación. En particular, PERSONAL no garantiza que los Usuarios utilicen la Aplicación de conformidad con estos Términos y Condiciones  ni que lo hagan de forma diligente y prudente. PERSONAL no se responsabiliza por toda acción ilícita que pudiera derivar del uso de la Aplicación.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='7.3 PERSONAL no garantiza la disponibilidad y continuidad del funcionamiento de la Aplicación. Cuando ello sea razonablemente posible, PERSONAL advertirá previamente las interrupciones en el funcionamiento de la Aplicación. PERSONAL tampoco garantiza la utilidad de la Aplicación para la realización de ninguna actividad en particular, ni su infalibilidad y, en particular, aunque no de modo exclusivo, que los Usuarios puedan efectivamente acceder a la Aplicación o ejecutar cualquiera de las prestaciones previstas en estos Términos y Condiciones.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='7.4 PERSONAL no garantiza la privacidad y la seguridad en la utilización de la Aplicación por parte de los Usuarios y, en particular, no garantiza que terceros no puedan acceder y en su caso interceptar, eliminar alterar y/o modificar o manipular cualquier material y/o información publicada. PERSONAL excluye toda responsabilidad por los daños y perjuicios de toda naturaleza que pudieran originarse en el conocimiento que puedan tener los terceros de los contenidos y/o de la Aplicación, datos, páginas y/o información utilizada y/o publicados a través de la Aplicación.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='7.5 PERSONAL no será responsable por ningún daño o perjuicio, directo o indirecto, y de toda naturaleza, incluyendo sin ningún tipo de limitación los daños producidos por las pérdidas o deterioros de la información, ni por las demoras, interrupciones y defectos que pudieran existir en las transmisiones durante la descarga de la Aplicación, mediante la utilización de la Aplicación, los virus o fallas del sistema o línea, por la falta de disponibilidad y/o continuidad de la Aplicación, la utilización que los Usuarios hacen del mismo y en especial pero de ningún modo  exclusivo a las fallas en el acceso, difusión, disposición, eliminación, alteración, modificación o manipulación de los datos, páginas, aplicaciones y/o contenidos que los Usuarios transmitan, difundan, almacenen, pongan a disposición, reciban, obtengan o accedan a través de la Aplicación.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='Asimismo PERSONAL no se responsabiliza por ningún daño o perjuicio directo o indirecto, incluyendo sin ningún tipo de limitación daños producidos por las perdidas, inexactitudes o deterioros de la información publicada.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='7.6 PERSONAL se reserva el derecho a denegar o retirar el acceso a la Aplicación, en cualquier momento y sin necesidad de preaviso a aquellos Usuarios que incumplan estos Términos y Condiciones.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='7.7 La prestación de la Aplicación tiene, en principio, una duración indefinida. PERSONAL, no obstante, está facultada para dar por terminada o suspender la prestación de la Aplicación en cualquier momento comunicándolo de un modo general a los Usuarios con al menos sesenta días de antelación. ' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+
+        <TextBlock Text='8. LEY APLICABLE'
+                   Style="{StaticResource subtitulo}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='8.1 La prestación y el uso de la Aplicación regulado mediante las presentes Términos y Condiciones  se regirán por la ley argentina.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+        <TextBlock Text='8.2 Para el caso de dudas o divergencias para la aplicación de las presentes Términos y Condiciones corresponderá la jurisdicción de los Tribunales Nacionales en lo Comercial sitos en la Ciudad de Buenos Aires, con expresa renuncia a cualquier otro fuero o jurisdicción que pudiera corresponder.' 
+                   Style="{StaticResource regular}" TextWrapping="Wrap">
+        </TextBlock>
+    </ListBox>
+
+</phone:PhoneApplicationPage>
