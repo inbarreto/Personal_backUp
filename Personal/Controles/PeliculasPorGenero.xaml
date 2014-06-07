@@ -23,7 +23,24 @@
                     <Canvas Style="{StaticResource canvas}" Grid.Column="1">
                         <TextBlock x:Name="txtTitle" Text="{Binding title}" FontFamily="Portable User Interface" Width="300" Foreground="#5B5B5B"  FontSize="28" Canvas.Left="14" Canvas.Top="40"  TextWrapping="Wrap" Tap="TextBlockIrAFicha_Tap" Tag="{Binding id}">
                         </TextBlock>
-                        <Controles:RatingControl x:Name="ratingControl" Canvas.Top="70" Canvas.Left="10" Tag="{Binding ranking}"></Controles:RatingControl>
+
+                        <Grid x:Name="gridRating" Background="Transparent" Height="30" Width="150" Canvas.Top="70" Canvas.Left="10" Tag="{Binding ranking}" Loaded="gridRating_Loaded">
+                           <Grid.RowDefinitions>
+                                <RowDefinition Height="30"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="30" />
+                                <ColumnDefinition Width="30" />
+                            </Grid.ColumnDefinitions>
+                            <Image  x:Name="estrella1" Source="../Imagenes/Rating/estrella_inactiva.png" Grid.Column="0"></Image>
+                            <Image  x:Name="estrella2" Source="../Imagenes/Rating/estrella_inactiva.png" Grid.Column="1"></Image>
+                            <Image  x:Name="estrella3" Source="../Imagenes/Rating/estrella_inactiva.png" Grid.Column="2"></Image>
+                            <Image  x:Name="estrella4" Source="../Imagenes/Rating/estrella_inactiva.png" Grid.Column="3"></Image>
+                            <Image  x:Name="estrella5" Source="../Imagenes/Rating/estrella_inactiva.png" Grid.Column="4"></Image>
+                        </Grid>                        
                         <Image x:Name="imgFavorito" Source="../Imagenes/fav.png" Style="{StaticResource Iconos2}"     Canvas.Top="95"  Canvas.Left="230" Tap="imgFavorito_Tap" Loaded="imgFavorito_Loaded" Tag="{Binding id}"></Image>
                         <Image x:Name="imgMas"  Source="../Imagenes/mas.png"   Style="{StaticResource Iconos2}"   Canvas.Top="160" Canvas.Left="230" Tap="ImagenIrAFicha_Tap" Tag="{Binding id}" ></Image>
                         <Image x:Name="imgVer" Source="../Imagenes/ver-inactivo.png" Style="{StaticResource imagenVer}" Canvas.Top="120" Canvas.Left="14" Tap="imgVer_Tap" Tag="{Binding id}"></Image>

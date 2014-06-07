@@ -351,26 +351,76 @@ namespace Personal.Controles
         public void handleResponseFavorito(object sender, EventArgs args)
         {
             JsonRequest responseObject = sender as JsonRequest;
-            string response = responseObject.ResponseTxt;            
-            //parse it
+            string response = responseObject.ResponseTxt;                        
         }
 
-        //private void ratingControl_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    RatingControl rating = sender as RatingControl;
+        private void gridRating_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Grid gdv = sender as Grid;
 
-        //    int estrellasPelicula = Convert.ToInt32(rating.Tag);
-            
-            
-            
+                int rating = Convert.ToInt16(gdv.Tag);
 
-        //}
+                this.EstrellasActivas(rating, gdv);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }        
+        }
 
 
+        public void EstrellasActivas(int cantidadEstrellas, Grid gridRating)
+        {
+            try
+            {
+                if (cantidadEstrellas <= 5)
+                {
+                    BitmapImage imag;
+                    imag = new System.Windows.Media.Imaging.BitmapImage(new Uri(@"../Imagenes/Rating/estrella_activa.png", UriKind.RelativeOrAbsolute));
+                    Image imagenEstrella = new Image();
+                    for (int i = 1; i <= cantidadEstrellas; i++)
+                    {
+                        imagenEstrella = FindFirstElementInVisualTree<Image>(gridRating, String.Format("estrella{0}", i));
+                        imagenEstrella.Source = imag;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
-
-
+        }
+        private T FindFirstElementInVisualTree<T>(DependencyObject parentElement,string nombreImagen) where T:DependencyObject
         
+        {
+            
+            var count = VisualTreeHelper.GetChildrenCount(parentElement);
+            if (count == 0)
+                return null;
+
+            for (int i = 0; i < count; i++)
+            {
+                var child = VisualTreeHelper.GetChild(parentElement, i);
+
+                if (child != null && child is T)
+                {
+                    Image imagen = child as Image;
+                    if(imagen.Name ==nombreImagen)
+                        return (T)child;
+                }
+                else
+                {
+                    var result = FindFirstElementInVisualTree<T>(child,nombreImagen) ;
+                    if (result != null)
+                       return result;
+                }
+            }
+            return null;
+        }
+             
     }
 }
 
