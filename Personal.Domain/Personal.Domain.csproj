@@ -94,9 +94,12 @@
     <Compile Include="Entities\Menu.cs" />
     <Compile Include="Entities\Pelicula.cs" />
     <Compile Include="Entities\PeliculaListas.cs" />
+    <Compile Include="Entities\Play.cs" />
     <Compile Include="Entities\Response.cs" />
     <Compile Include="Entities\Thumbnail.cs" />
+    <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Entities\Variables.cs" />
+    <Compile Include="Enums\Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />

@@ -4,17 +4,33 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone">
-    
-    
+
     <!--Application Resources-->
     <Application.Resources>
-        <local:LocalizedStrings xmlns:local="clr-namespace:Personal" x:Key="LocalizedStrings"/>
+
+      
+        <!--<local:LocalizedStrings xmlns:local="clr-namespace:Personal" x:Key="LocalizedStrings"/>-->
+        <!--<ResourceDictionary x:Key="Entradas">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/StylePeliculasPorGeneroGenero.xaml"/>
+                <ResourceDictionary Source="Styles/StylePeliculasPorGeneroHome.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>-->
         <Style x:Name="txtBoxLogin" 
                TargetType="TextBox" >
             <Setter Property="Background" Value="#FFB28AAD"></Setter>
             <Setter Property="BorderBrush" Value="#FFB28AAD"></Setter>
             <Setter Property="Foreground" Value="White" ></Setter>
-            <Setter Property="Width" Value="456" ></Setter> 
+            <Setter Property="Width" Value="458" ></Setter> 
+            <Setter Property="Margin" Value="5,0,0,0"></Setter>
+        </Style>
+
+        <Style x:Name="passwordBoxLogin" 
+               TargetType="PasswordBox" >
+            <Setter Property="Background" Value="#FFB28AAD"></Setter>
+            <Setter Property="BorderBrush" Value="#FFB28AAD"></Setter>
+            <Setter Property="Foreground" Value="White" ></Setter>
+            <Setter Property="Width" Value="458" ></Setter>
             <Setter Property="Margin" Value="5,0,0,0"></Setter>
         </Style>
 
@@ -24,7 +40,10 @@
             <Setter Property="FontSize" Value="60"></Setter>
             <Setter Property="TextAlignment" Value="Left" ></Setter>
         </Style>
-        
+
+
+      
+
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

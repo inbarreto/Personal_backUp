@@ -10,6 +10,8 @@ using Microsoft.Phone.Shell;
 using Newtonsoft.Json.Linq;
 using Personal.Domain.Entities;
 using Personal.Model;
+using Personal.JsonAccess.JsonClasses;
+using Newtonsoft.Json;
 
 
 namespace Personal.Views
@@ -26,19 +28,22 @@ namespace Personal.Views
         {
             try
             {
-                string genero = (string)PhoneApplicationService.Current.State["named_criteria"];
+            
+                string genero = (string)StateModel.ObtieneKey("named_criteria");
                 
-                txtGenero.Text = (string)PhoneApplicationService.Current.State["genero"];
+                txtGenero.Text = (string)StateModel.ObtieneKey("genero");
 
-                controlPeliculasPorGenero.CargaListaPeliculas(genero,6);
+                PeliculasPorGeneroJson peliPrincipal = new PeliculasPorGeneroJson();
+                peliPrincipal.named_criteria = genero;
+                string post_dataPeliculas = JsonConvert.SerializeObject(peliPrincipal);
 
-               
-                
+                controlPeliculasPorGenero.CargaPeliculasPost(post_dataPeliculas, "http://www.qubit.tv/business.php/json/search");
+     
                 
             }
-            catch (Exception ex)
+            catch (Exception )
             {                
-                throw ex;
+                throw ;
             }
             
         }

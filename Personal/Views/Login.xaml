@@ -23,41 +23,23 @@
         
         
     </phone:PhoneApplicationPage.Resources>
-    
-    <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot"  Background="#7e517A">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
 
-        <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel  Grid.Row="0" Margin="12,17,0,28" Background="#7e517a">
-            
-        </StackPanel>
-
-        <Grid x:Name="ContentPanel">
-            <TextBlock x:Name="lblNumeroLinea" TextWrapping="Wrap" Text="número de linea" Foreground="white" Width="160" Height="30" Margin="30,280,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <TextBlock  Foreground="White" FontSize="36"  TextAlignment="Center" Width="160" FontWeight="Normal" Text="personal " Height="55" x:Name="txtPersonal" Margin="110,195,0,505" HorizontalAlignment="Left" VerticalAlignment="Center"  />
-                <TextBlock  Foreground="White" FontSize="36"    TextAlignment="Center"  FontWeight="Bold" Height="55"  Text="video" x:Name="txtPersonalvideo" Margin="254,195,106,505" VerticalAlignment="Center" />
-            <Grid >
-                <TextBox x:Name="txtNroLinea" HorizontalAlignment="Left" Height="72" Margin="15,307,0,0" TextWrapping="Wrap" Text="ej.:1533537726" VerticalAlignment="Top" 
-             Style="{StaticResource txtBoxLogin}" Tap="txtNroLinea_Tap" GotFocus="txtNroLinea_GotFocus" />
-
-            </Grid>
-
-
-            <TextBlock TextWrapping="Wrap" Text="clave personal"  Margin="30,73,0,0" HorizontalAlignment="Left" Style="{StaticResource textosBlancos}"/>
-            <TextBox x:Name="txtClavePersonal" HorizontalAlignment="Left" Height="72" Margin="14,418,0,0" TextWrapping="Wrap" Text="codigo" VerticalAlignment="Top" Style="{StaticResource txtBoxLogin}" Tap="txtClavePersonal_Tap" />
-                <Button x:Name="btnAceptar" Content="aceptar" HorizontalAlignment="Left" Margin="15,495,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.421,-0.079" Background="#7e517a" BorderBrush="White" Foreground="White" Width="216"/>
-            <TextBlock  TextWrapping="Wrap" Text="clave provisoria por sms" Margin="30,73,0,0" Style="{StaticResource textosBlancos}" HorizontalAlignment="Left" VerticalAlignment="Bottom"  TextDecorations="Underline" Tap="TextBlock_Tap" />
-
-
-
-        </Grid>
-        
-
-        <!--ContentPanel - place additional content here-->
-    </Grid>
-
+    <StackPanel Orientation="Vertical" Background="#7e517a" Height="auto">
+        <Image Source="../Imagenes/personal-video-login.png" HorizontalAlignment="Center" Margin="0,100" Width="200"></Image>
+        <TextBlock x:Name="lblNumeroLinea" TextWrapping="Wrap" Text="número de linea" Foreground="white" Width="160" 
+                   Height="30" Margin="20,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNroLinea" HorizontalAlignment="Left" Height="72" Margin="10,5,0,0" TextWrapping="Wrap" 
+                 Text="ozcoidi@hotmail.com" VerticalAlignment="Top" 
+             Style="{StaticResource txtBoxLogin}" Tap="txtNroLinea_Tap" LostFocus="txtNroLinea_LostFocus" AcceptsReturn="False" />
+        <TextBlock TextWrapping="Wrap" Text="clave personal"  Margin="20,15,0,0" HorizontalAlignment="Left" 
+                   Style="{StaticResource textosBlancos}" />
+        <PasswordBox x:Name="txtClavePersonal" HorizontalAlignment="Left" Height="72" Margin="10,5,0,0" Foreground="Black" 
+                 VerticalAlignment="Top" Style="{StaticResource passwordBoxLogin}" Tap="txtClavePersonal_Tap" 
+                     LostFocus="txtClavePersonal_LostFocus"  />
+        <Button x:Name="btnAceptar" Content="aceptar" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" 
+                RenderTransformOrigin="-1.421,-0.079" Background="#7e517a" BorderBrush="White" Foreground="White" Width="216" 
+                Tap="btnAceptar_Tap"/>
+        <!--TextBlock  TextWrapping="Wrap" Text="clave provisoria por sms" Margin="15,0,0,0" Style="{StaticResource textosBlancos}" 
+                    HorizontalAlignment="Left" VerticalAlignment="Bottom"  TextDecorations="Underline" Tap="TextBlock_Tap" /-->
+    </StackPanel>
 </phone:PhoneApplicationPage>

@@ -20,20 +20,30 @@ namespace Personal
         public MainPage()
         {
             InitializeComponent();
-           
+
+            this.Loaded += MainPage_Loaded;
             
-          
             //NavigationService.Navigate(new Uri("//Login.xaml", UriKind.RelativeOrAbsolute));
             //NavigationService.Navigate(new Uri("Home.xaml",UriKind.Relative));
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
 
+        void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            for (int i = 0; i < 999999; i++)
+            {
+                
+            }
+            StateBehavior.Value = false;
+        }
+
+        
+
         private void loadingProgress_Loaded(object sender, RoutedEventArgs e)
         {
-            Thread.Sleep(1000);
-            NavigationService.Navigate(new Uri("/Views/Home.xaml", UriKind.RelativeOrAbsolute));
-            
+      
         }
 
         // Sample code for building a localized ApplicationBar

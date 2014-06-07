@@ -38,7 +38,8 @@ namespace Personal.Domain.Entities
         public string color { get; set; }
         public int ranking { get; set; }
         public Thumbnail fanart { get; set; }
-       
+
+        public List<string> Genre { get; set; }
         public List<Information> information { get; set; }
         public string countries { get; set; }
         public string trailer { get; set; }
@@ -76,7 +77,7 @@ namespace Personal.Domain.Entities
                 type ="Contenido";
                 color ="red_list_movies";
                 ranking =50;
-                fanart = new Thumbnail(true);
+                fanart = new Thumbnail();
        
                 information = new List<Information>(){new Information("Artista","Patrick Swayze"),new Information("Artista","Patrick Swayze"),new Information("Director","Kevin Hooks")};
                 countries = "Alemania, EE.UU., Francia, Japón, Reino Unido";
@@ -90,6 +91,9 @@ namespace Personal.Domain.Entities
         public Pelicula()
         {
             fanart = new Thumbnail();
+            information = new List<Information>();
+            categorie = new List<string>();
+            Genre = new List<string>();
         }
 
     }

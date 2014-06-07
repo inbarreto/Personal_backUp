@@ -7,6 +7,8 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using System.Windows.Controls.Primitives;
+
 
 namespace Personal.Controles
 {
@@ -15,12 +17,14 @@ namespace Personal.Controles
         public CustomMessegeBox()
         {
             InitializeComponent();
+           
         }
 
 
-        public void Visibilidad(bool estado)
+        public void CerrarPopUp(bool estado)
         {
-            
+            Popup customMessege = this.Parent as Popup;
+            customMessege.IsOpen = false;
         }
     }
 }

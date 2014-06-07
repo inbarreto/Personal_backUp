@@ -28,6 +28,7 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <ExpressionBlendVersion>12.0.41002.1</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -103,7 +104,12 @@
     <Compile Include="Controles\PeliculasPorGenero.xaml.cs">
       <DependentUpon>PeliculasPorGenero.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controles\RatingControl.xaml.cs">
+      <DependentUpon>RatingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\JsonModel.cs" />
     <Compile Include="Model\PeliculaModel.cs" />
+    <Compile Include="Model\StateModel.cs" />
     <Compile Include="Views\FichaTecnica.xaml.cs">
       <DependentUpon>FichaTecnica.xaml</DependentUpon>
     </Compile>
@@ -140,14 +146,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Styles\botonPlay.xaml">
+    <Page Include="Controles\RatingControl.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\StylePeliculasPorGeneroGenero.xaml">
+      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\StylePeliculasPorGeneroHome.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\FichaTecnica.xaml">
       <SubType>Designer</SubType>
@@ -180,16 +189,14 @@
     <None Include="packages.config" />
     <None Include="Personal_2014_03_21_13_57_35.sap" />
     <None Include="Personal_2014_03_21_13_58_06.sap" />
-    <None Include="Properties\AppManifest.xml">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
-    <Content Include="Assets\ApplicationIcon.png">
+    <Content Include="Assets\ApplicationIcon01.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
@@ -210,13 +217,18 @@
     <Content Include="Font\AdobeFnt11.lst" />
     <Content Include="Font\AdobeFnt13.lst" />
     <Content Include="Imagenes\atp.png" />
-    <Content Include="Imagenes\fav-activo-46.png" />
+    <Content Include="Imagenes\fav-activo.png" />
     <Content Include="Imagenes\fav-hover.png" />
-    <Content Include="Imagenes\fav.png" />
+    <Content Include="Imagenes\fav-inactivo.png" />
     <Content Include="Imagenes\link-inactivo.png" />
     <Content Include="Imagenes\lupa.png" />
+    <Content Include="Imagenes\main_photo.jpg" />
     <Content Include="Imagenes\mas.png" />
+    <Content Include="Imagenes\personal-video-home.png" />
+    <Content Include="Imagenes\personal-video-login.png" />
     <Content Include="Imagenes\placa.png" />
+    <Content Include="Imagenes\Rating\estrella_activa.png" />
+    <Content Include="Imagenes\Rating\estrella_inactiva.png" />
     <Content Include="Imagenes\sound.png" />
     <Content Include="Imagenes\sub.png" />
     <Content Include="Imagenes\timer.png" />
@@ -225,6 +237,7 @@
     <Content Include="Imagenes\ver-activo.png" />
     <Content Include="Imagenes\ver-hover.png" />
     <Content Include="Imagenes\ver-inactivo.png" />
+    <Content Include="Imagenes\ver-transparente.png" />
     <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
@@ -241,17 +254,24 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Expression.Drawing, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Interactions" />
+    <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
       <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.2\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Interactivity" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Personal.Domain\Personal.Domain.csproj">
       <Project>{35E2424F-2045-40D7-82CD-D93C06E7F78C}</Project>
       <Name>Personal.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Personal.JsonAccess\Personal.JsonAccess.csproj">
+      <Project>{113FDEE2-506A-4913-9DE9-B2A2F10E080A}</Project>
+      <Name>Personal.JsonAccess</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

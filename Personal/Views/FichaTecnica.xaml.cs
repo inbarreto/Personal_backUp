@@ -11,6 +11,11 @@ using Personal.Domain.Entities;
 using System.Windows.Media.Imaging;
 using Microsoft.Phone.Tasks;
 using System.Net.NetworkInformation;
+using Personal.Model;
+using Newtonsoft.Json.Linq;
+using Personal.JsonAccess;
+using Personal.JsonAccess.JsonClasses;
+using Newtonsoft.Json;
 
 
 namespace Personal.Views
@@ -20,27 +25,43 @@ namespace Personal.Views
         public FichaTecnica()
         {
             InitializeComponent();
-            CargaPagina();
+            this.Loaded += FichaTecnica_Loaded;                        
+        }
+        string peliculaID = string.Empty;
+        Usuario usuario = new Usuario();
+        Pelicula peliculaCargada = new Pelicula();                        
+        void FichaTecnica_Loaded(object sender, RoutedEventArgs e)
+        {
+                       
             
+            if (PhoneApplicationService.Current.State.ContainsKey("idPelicula"))
+                peliculaID = PhoneApplicationService.Current.State["idPelicula"].ToString();
+
+            if (PhoneApplicationService.Current.State.ContainsKey("Usuario"))
+                usuario= (Usuario)PhoneApplicationService.Current.State["Usuario"];
+
+            PeliculaJson peliculaJson = new PeliculaJson();
+            peliculaJson.element_id = peliculaID;
+           
+            
+            string postJsonPelicula = JsonConvert.SerializeObject(peliculaJson);
+            
+            string urlPelicula = "http://www.qubit.tv/business.php/json/Element";
+            CargaDatosPeliculaPost(postJsonPelicula, urlPelicula);
         }
 
-        public void CargaPagina()
+        public void CargaPeliculaObjetoConJson(string jsonPelicula)
         {
-            Pelicula peliculaCargada = new Pelicula(true);
+            
+            peliculaCargada  = JsonModel.ConvierteJsonAPelicula(jsonPelicula);
+
             datosPelicula.DataContext = peliculaCargada;
-            //imagenPeli.DataContext = peliculaCargada.fanart.fanart[0];
+            
             foreach (string item in peliculaCargada.categorie)
             {
                 catego.Text += item+" ";
             }        
-            cargaInformation(peliculaCargada.information);
-         //   BitmapImage imag;
-         //if (peliculaCargada.favorite)
-         //   imag = new System.Windows.Media.Imaging.BitmapImage(new Uri(@"/Imagenes/fav-activo-46.png", UriKind.RelativeOrAbsolute));
-         //else
-         //    imag = new System.Windows.Media.Imaging.BitmapImage(new Uri(@"/Imagenes/fav.png", UriKind.RelativeOrAbsolute));
-         //imgFavorito.Source = imag;            
-
+            cargaInformation(peliculaCargada.information);       
         }
 
 
@@ -63,19 +84,29 @@ namespace Personal.Views
 
         private void imgVerAhora_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
+            if (usuario.session_id == null)
+            {
+                NavigationService.Navigate(new Uri("/Views/Login.xaml", UriKind.Relative));
+                return;
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Estás por ver {0}" + Environment.NewLine + "calificación {1}" + Environment.NewLine + "costo $ {2}"+ Environment.NewLine , peliculaCargada.title, peliculaCargada.classification, peliculaCargada.price_sd), "error", MessageBoxButton.OK);
+            }
+
             BitmapImage imag = new System.Windows.Media.Imaging.BitmapImage(new Uri(@"/Imagenes/ver ahora-hover.png", UriKind.RelativeOrAbsolute));
             imgVerAhora.Source = imag;
 
             bool hayRed=NetworkInterface.GetIsNetworkAvailable();
             if (hayRed)
             {
-                MediaPlayerLauncher mediaPlayerLauncher = new MediaPlayerLauncher();
-                mediaPlayerLauncher.Media = new Uri(@"http://st.cdnar.net/qb_od_push/adc026935ab7ebaa167d8a24185615bb/536047f8/set01/b858cfe5-daa0-47d2-88b0-8e496b3150eb_BlackDog/media/BlackDog_SD_H_en_nosub.mp4?user=qubit", UriKind.Absolute);
-                mediaPlayerLauncher.Location = MediaLocationType.Data;
-                mediaPlayerLauncher.Controls = MediaPlaybackControls.Pause | MediaPlaybackControls.Stop;
-                mediaPlayerLauncher.Orientation = MediaPlayerOrientation.Landscape;
+                PlayJson playJson = new PlayJson();
+                playJson.content_id = peliculaID;
+                playJson.session_id = usuario.session_id;
+                string jsonPostPlay = JsonConvert.SerializeObject(playJson);
+                
 
-                mediaPlayerLauncher.Show();
+                CargaPlayPost(jsonPostPlay, "http://www.qubit.tv/business.php/json/play");
             }
             else
             {
@@ -85,5 +116,61 @@ namespace Personal.Views
             }
             
         }
+
+        #region JsonLoad
+        public void CargaDatosPeliculaPost(string postdata, string url)
+        {
+            JsonRequest PeliculaRequest = new JsonRequest();
+            PeliculaRequest.Completed += new EventHandler(handleResponsePelicula);
+            PeliculaRequest.beginRequest(postdata, url);
+        }
+        public void handleResponsePelicula(object sender, EventArgs args)
+        {
+            JsonRequest responseObject = sender as JsonRequest;
+            string response = responseObject.ResponseTxt;
+            CargaPeliculaObjetoConJson(response);
+            //parse it
+        }
+
+
+        public void CargaPlayPost(string postdata, string url)
+        {
+            JsonRequest loginRequest = new JsonRequest();
+            loginRequest.Completed += new EventHandler(handleResponsePlay);
+            loginRequest.beginRequest(postdata, url);
+        }
+        public void handleResponsePlay(object sender, EventArgs args)
+        {
+            JsonRequest responseObject = sender as JsonRequest;
+            string response = responseObject.ResponseTxt;
+            this.CargaPlayConJson(response);
+            //parse it
+        }
+        #endregion JsonLoad
+        private void CargaPlayConJson(string jsonString)
+        {
+            try
+            {
+                Play play = JsonModel.ConvierteJsonPlay(jsonString);
+                
+
+                MediaPlayerLauncher mediaPlayerLauncher = new MediaPlayerLauncher();
+                mediaPlayerLauncher.Media = new Uri(play.direct_url, UriKind.Absolute);
+                mediaPlayerLauncher.Location = MediaLocationType.Data;
+                mediaPlayerLauncher.Controls = MediaPlaybackControls.Pause | MediaPlaybackControls.Stop;
+                mediaPlayerLauncher.Orientation = MediaPlayerOrientation.Landscape;
+
+                mediaPlayerLauncher.Show();
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+
+
+        }
+
     }
 }

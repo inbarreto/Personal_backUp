@@ -1,4 +1,0 @@
-C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal.Domain\Bin\Release\Personal.Domain.dll
-C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal.Domain\Bin\Release\Personal.Domain.pdb
-C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal.Domain\obj\Release\Personal.Domain.dll
-C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal.Domain\obj\Release\Personal.Domain.pdb
