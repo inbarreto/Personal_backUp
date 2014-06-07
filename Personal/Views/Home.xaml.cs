@@ -472,6 +472,15 @@ namespace Personal
             {                
                 throw;
             }            
+<<<<<<< HEAD
+=======
+        }
+
+        private void txtTyC_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Views/TerminosyCondiciones.xaml", UriKind.Relative));
+            return;
+>>>>>>> 7d084ff59a463beb5ce65ea56ae3235d9135c8b4
         }        
     }
 }

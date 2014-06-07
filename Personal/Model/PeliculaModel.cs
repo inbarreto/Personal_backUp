@@ -42,7 +42,15 @@ namespace Personal.Model
                 pelicula.price_hd = (decimal)token["price_hd"];
                 pelicula.available_in_hd = (int)token["available_in_hd"];
                 pelicula.available_for_mobiles = (string)token["available_for_mobiles"] != null && (string)token["available_for_mobiles"] != string.Empty ? (int)token["available_for_mobiles"] : 1;
+<<<<<<< HEAD
                 pelicula.ranking = ((int)token["ranking"] /2) / 10;
+=======
+                int rating = ((int)token["ranking"] / 2) / 10;
+                int resto = ((int)token["ranking"] / 2) % 10;
+                if (resto > 5)
+                    rating += 1;
+                pelicula.ranking = rating;
+>>>>>>> 7d084ff59a463beb5ce65ea56ae3235d9135c8b4
                 pelicula.classification = (string)token["classification"];
                 pelicula.status = (string)token["status"];
                 pelicula.status_user = (string)token["status_user"];

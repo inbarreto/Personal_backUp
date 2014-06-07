@@ -30,6 +30,7 @@ namespace Personal.Model
         /// </summary>
         /// <param name="stringAConvertir"></param>
         /// <returns></returns>
+<<<<<<< HEAD
         public static PeliculaListas CompletaListadoPeliculasConJson(string stringAConvertir)
         {
             try
@@ -88,6 +89,70 @@ namespace Personal.Model
                 throw ex;
             }
         }
+=======
+        //public static PeliculaListas CompletaListadoPeliculasConJson(string stringAConvertir)
+        //{
+        //    try
+        //    {
+        //        JObject objetoJson = StringToJsonObject(stringAConvertir);
+        //        JToken tokenResponse = objetoJson["response"];
+
+        //        PeliculaListas pelicula = new PeliculaListas();
+
+        //        pelicula.title = (string)tokenResponse["title"];
+
+
+        //        pelicula.viewed = (bool)tokenResponse["paid_hd"];
+        //        pelicula.favorite = (bool)tokenResponse["paid_hd"];
+        //        pelicula.percent_viewed = (bool)tokenResponse["paid_hd"];
+        //        JToken Item = tokenResponse["tags"];
+        //        pelicula.tagItems[0] = (string)Item["item"][0];
+        //        pelicula.paid_hd = (bool)tokenResponse["paid_hd"];
+        //        pelicula.paid_sd = (bool)tokenResponse["paid_sd"];
+        //        pelicula.id = (string)tokenResponse["id"];
+        //        pelicula.ref_id = (int)tokenResponse["ref_id"];
+        //        pelicula.type = (string)tokenResponse["type"];
+        //        pelicula.color = (string)tokenResponse["color"];
+        //        pelicula.price_sd = (decimal)tokenResponse["price_sd"];
+        //        pelicula.price_hd = (decimal)tokenResponse["price_hd"];
+        //        pelicula.available_in_hd = (int)tokenResponse["available_in_hd"];
+        //        pelicula.available_for_mobiles = (string)tokenResponse["available_for_mobiles"] != null ? (int)tokenResponse["available_for_mobiles"] : 1;
+        //        int rating = ((int)tokenResponse["ranking"] / 2) / 10;
+        //        int resto = ((int)tokenResponse["ranking"] / 2) % 10;
+        //        if (resto > 5)
+        //            rating += 1;
+        //        pelicula.ranking = rating;
+        //        pelicula.classification = (string)tokenResponse["classification"];
+        //        pelicula.status = (string)tokenResponse["status"];
+        //        pelicula.status_user = (string)tokenResponse["status_user"];
+        //        JToken thumbnail = tokenResponse["thumbnail"];
+        //        pelicula.fanart.small = (string)thumbnail["small"];
+        //        pelicula.fanart.large = (string)thumbnail["large"];
+        //        pelicula.fanart.movil = (string)thumbnail["movil"];
+        //        pelicula.fanart.hd = (string)thumbnail["hd"];
+
+        //        if ((string)tokenResponse["descripcion"] != null && (string)tokenResponse["descipcion"] != string.Empty)
+        //            pelicula.descripcion = (string)tokenResponse["descripcion"];
+        //        for (int i = 0; i < 1; i++)
+        //        {
+        //            pelicula.fanart.fanart[i] = (string)thumbnail["fanart"][i];
+        //        }
+        //        pelicula.fanart.crt = (string)thumbnail["crt"];
+
+
+
+
+        //        return pelicula;
+
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+
+        //        throw ex;
+        //    }
+        //}
+>>>>>>> 7d084ff59a463beb5ce65ea56ae3235d9135c8b4
         /// <summary>
         /// Convierte un String de JSon en un Objeto Pelicula
         /// </summary>
@@ -112,10 +177,24 @@ namespace Personal.Model
                  pelicula.price_sd = (decimal)tokenResponse["price_sd"];
                  pelicula.price_hd = (decimal)tokenResponse["price_hd"];
                  pelicula.available_in_hd = (int)tokenResponse["available_in_hd"];
+<<<<<<< HEAD
                  pelicula.available_for_mobiles = (string)tokenResponse["available_for_mobiles"] != null ? (int)tokenResponse["available_for_mobiles"] : 1;
                  pelicula.ranking = (int)tokenResponse["ranking"];
                  pelicula.classification = (string)tokenResponse["classification"];
                  pelicula.status = (string)tokenResponse["status"];
+=======
+                 pelicula.subtitled = (int)tokenResponse["subtitled"];
+                 pelicula.available_for_mobiles = (string)tokenResponse["available_for_mobiles"] != null ? (int)tokenResponse["available_for_mobiles"] : 1;
+                 int rating = ((int)tokenResponse["ranking"] / 2) / 10;
+                 int resto = ((int)tokenResponse["ranking"] / 2) % 10;
+                 if (resto > 5)
+                     rating += 1;
+                 pelicula.ranking = rating;
+                 pelicula.duration = (int)tokenResponse["duration"];
+                 pelicula.classification = (string)tokenResponse["classification"];
+                 pelicula.status = (string)tokenResponse["status"];
+                 pelicula.default_language = (string)tokenResponse["default_language"];
+>>>>>>> 7d084ff59a463beb5ce65ea56ae3235d9135c8b4
                  pelicula.status_user = (string)tokenResponse["status_user"];
                  JToken thumbnail = tokenResponse["thumbnail"];
                  pelicula.fanart.small = (string)thumbnail["small"];
