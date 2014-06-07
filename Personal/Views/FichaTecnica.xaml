@@ -57,7 +57,7 @@
                    Width="427"
                    Source="{Binding fanart.fanart[0]}"
                    Height="250" 
-                   Stretch="None"
+                   Stretch="Fill"
                    Margin="25,0">
                 </Image>
                 <Image x:Name="imgVer" Source="../Imagenes/ver-transparente.png" 
@@ -67,15 +67,18 @@
             </Canvas>
             <StackPanel Orientation="Horizontal" Margin="25,35,0,20">
                 <StackPanel Orientation="Horizontal">
+                    <Image Source="/Imagenes/HD.png" x:Name="imgHD" Style="{StaticResource Iconos2}" Margin="0,0,10,0" Visibility="Collapsed" ></Image>
                     <Image Source="/Imagenes/placa.png" x:Name="imgPlaca" Style="{StaticResource Iconos2}" Margin="0,0,10,0" ></Image>
-                    <Image Source="/Imagenes/ATP.png" x:Name="imgATP" Style="{StaticResource Iconos2}" Margin="0,0,10,0" ></Image>
-                    <Image Source="/Imagenes/sub.png" x:Name="imgSubtitulo" Style="{StaticResource Iconos2}" Margin="0,0,10,0" ></Image>
+                    <Image x:Name="imgATP" Style="{StaticResource Iconos2}" Margin="0,0,10,0" ></Image>
+                    <Image Source="/Imagenes/sub.png" x:Name="imgSubtitulo" Style="{StaticResource Iconos2}" Margin="0,0,10,0" Visibility="Collapsed" ></Image>
                     <Image Source="/Imagenes/sound.png" x:Name="imgLenguaje" Style="{StaticResource Iconos2}" Margin="0,0,10,0" ></Image>
+                    <TextBlock x:Name="txtLenguaje" Style="{StaticResource TextosTitulo}" FontSize="24" Margin="-10,15,10,0" ></TextBlock>
                     <Image Source="/Imagenes/timer.png" x:Name="imgDuracion" Style="{StaticResource Iconos2}" Margin="0,0,10,0" ></Image>
+                    <TextBlock x:Name="txtTimer" Style="{StaticResource TextosTitulo}" FontSize="24" Margin="-5,15,10,0" ></TextBlock>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Image Source="/Imagenes/fav.png" x:Name="imgFavorito" Margin="87,0,10,0" ></Image>
+                    <Image Source="/Imagenes/fav.png" x:Name="imgFavorito" Margin="0,0,10,0" ></Image>
                     <Image Source="/Imagenes/link-inactivo.png" x:Name="imgCompartir" Margin="0,0,0,0" ></Image>
                 </StackPanel>
 
@@ -104,14 +107,9 @@
                            Style="{StaticResource Textos}" 
                            Canvas.Top="25"
                            Canvas.Left="90"
-                           
-                           >
-                </TextBlock>
-            <TextBlock x:Name="estrellasListas"  FontSize="27"                         
-                           Style="{StaticResource Textos}" 
-                           Text="{Binding estrellas}" TextWrapping="Wrap"
-                            Canvas.Top="25"
-                           Canvas.Left="140"
+                           Width="270"
+                           Height="Auto"
+                           TextWrapping="Wrap"
                            >
                 </TextBlock>
             </StackPanel>
@@ -137,7 +135,9 @@
                            Style="{StaticResource Textos}" 
                            Canvas.Top="75" 
                            Canvas.Left="90" FontSize="27"
-                           
+                           Width="270"
+                           Height="Auto"
+                           TextWrapping="Wrap"
                            ></TextBlock>
             </StackPanel>
             <TextBlock x:Name="descripcion" Style="{StaticResource DescripcionPelicula}"

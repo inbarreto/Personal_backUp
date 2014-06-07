@@ -132,6 +132,9 @@
     <Compile Include="Views\PeliculasGenero.xaml.cs">
       <DependentUpon>PeliculasGenero.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TerminosyCondiciones.xaml.cs">
+      <DependentUpon>TerminosyCondiciones.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -178,6 +181,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\TerminosyCondiciones.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="Font\SegoeWP-Black.ttf" />
@@ -216,14 +223,22 @@
     </Content>
     <Content Include="Font\AdobeFnt11.lst" />
     <Content Include="Font\AdobeFnt13.lst" />
+    <Content Include="Imagenes\+13.png" />
+    <Content Include="Imagenes\+16.png" />
+    <Content Include="Imagenes\+18.png" />
     <Content Include="Imagenes\atp.png" />
+    <Content Include="Imagenes\camera.png" />
+    <Content Include="Imagenes\cinta.png" />
     <Content Include="Imagenes\fav-activo.png" />
     <Content Include="Imagenes\fav-hover.png" />
     <Content Include="Imagenes\fav-inactivo.png" />
+    <Content Include="Imagenes\hd.png" />
     <Content Include="Imagenes\link-inactivo.png" />
     <Content Include="Imagenes\lupa.png" />
     <Content Include="Imagenes\main_photo.jpg" />
     <Content Include="Imagenes\mas.png" />
+    <Content Include="Imagenes\mobile.png" />
+    <Content Include="Imagenes\movie.png" />
     <Content Include="Imagenes\personal-video-home.png" />
     <Content Include="Imagenes\personal-video-login.png" />
     <Content Include="Imagenes\placa.png" />
@@ -238,6 +253,7 @@
     <Content Include="Imagenes\ver-hover.png" />
     <Content Include="Imagenes\ver-inactivo.png" />
     <Content Include="Imagenes\ver-transparente.png" />
+    <Content Include="Imagenes\xxx.png" />
     <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />

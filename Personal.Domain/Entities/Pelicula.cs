@@ -16,6 +16,7 @@ namespace Personal.Domain.Entities
         public int duration { get; set; }
         public string classification { get; set; }
         public int available_in_hd { get; set; }
+        public int subtitled { get; set; }
         public int available_for_mobiles { get; set; }
         public int rate { get; set; }
         public string descripcion { get; set; }
@@ -32,7 +33,7 @@ namespace Personal.Domain.Entities
         public string status { get; set; }
         public string status_user { get; set; }
         public string id { get; set; }
-        public string default_lenguage { get; set; }
+        public string default_language { get; set; }
         public int subtitle { get; set; }
         public string type { get; set; }
         public string color { get; set; }
@@ -72,7 +73,7 @@ namespace Personal.Domain.Entities
                 status ="registrate";
                 status_user ="registrate";
                 id ="b858cfe5-daa0-47d2-88b0-8e496b3150eb_BlackDog";
-                default_lenguage ="en";
+                default_language = "en";
                 subtitle=1;
                 type ="Contenido";
                 color ="red_list_movies";

@@ -351,8 +351,10 @@ namespace Personal.Controles
         public void handleResponseFavorito(object sender, EventArgs args)
         {
             JsonRequest responseObject = sender as JsonRequest;
-            string response = responseObject.ResponseTxt;                        
+            string response = responseObject.ResponseTxt;            
+            //parse it
         }
+      
 
         private void gridRating_Loaded(object sender, RoutedEventArgs e)
         {
@@ -367,7 +369,7 @@ namespace Personal.Controles
             catch (Exception ex)
             {
                 throw ex;
-            }        
+            }
         }
 
 
@@ -391,12 +393,10 @@ namespace Personal.Controles
             {
                 throw ex;
             }
-
         }
-        private T FindFirstElementInVisualTree<T>(DependencyObject parentElement,string nombreImagen) where T:DependencyObject
-        
+        private T FindFirstElementInVisualTree<T>(DependencyObject parentElement, string nombreImagen) where T : DependencyObject
         {
-            
+
             var count = VisualTreeHelper.GetChildrenCount(parentElement);
             if (count == 0)
                 return null;
@@ -408,19 +408,21 @@ namespace Personal.Controles
                 if (child != null && child is T)
                 {
                     Image imagen = child as Image;
-                    if(imagen.Name ==nombreImagen)
+                    if (imagen.Name == nombreImagen)
                         return (T)child;
                 }
                 else
                 {
-                    var result = FindFirstElementInVisualTree<T>(child,nombreImagen) ;
+                    var result = FindFirstElementInVisualTree<T>(child, nombreImagen);
                     if (result != null)
-                       return result;
+                        return result;
                 }
             }
             return null;
         }
-             
+
+
+        
     }
 }
 

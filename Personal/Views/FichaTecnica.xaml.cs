@@ -51,17 +51,58 @@ namespace Personal.Views
         }
 
         public void CargaPeliculaObjetoConJson(string jsonPelicula)
-        {
-            
+        {            
             peliculaCargada  = JsonModel.ConvierteJsonAPelicula(jsonPelicula);
-
+            ratingControl.EstrellasActivas(peliculaCargada.ranking);
             datosPelicula.DataContext = peliculaCargada;
             
             foreach (string item in peliculaCargada.categorie)
             {
                 catego.Text += item+" ";
             }        
-            cargaInformation(peliculaCargada.information);       
+            cargaInformation(peliculaCargada.information);
+
+            DescripcionPeliculaImagenes();
+        }
+
+        private void DescripcionPeliculaImagenes()
+        {
+            if (peliculaCargada.subtitled == 1)
+            {
+                imgSubtitulo.Visibility = System.Windows.Visibility.Visible;
+            }
+            else
+            {
+                imgSubtitulo.Visibility = System.Windows.Visibility.Collapsed;
+            }
+            if (peliculaCargada.available_in_hd == 1)
+            {
+                imgHD.Visibility = System.Windows.Visibility.Visible;
+            }
+            else
+            {
+                imgHD.Visibility = System.Windows.Visibility.Collapsed;
+            }
+
+            if (peliculaCargada.classification == "ATP")
+            {
+                imgATP.Source = new BitmapImage(new Uri(@"/Imagenes/ATP.png", UriKind.Relative));
+            }
+            else if (peliculaCargada.classification == "13")
+            {
+                imgATP.Source = new BitmapImage(new Uri(@"/Imagenes/+13.png", UriKind.Relative));
+            }
+            else if (peliculaCargada.classification == "16")
+            {
+                imgATP.Source = new BitmapImage(new Uri(@"/Imagenes/+16.png", UriKind.Relative));
+            }
+            else if (peliculaCargada.classification == "18")
+            {
+                imgATP.Source = new BitmapImage(new Uri(@"/Imagenes/+18.png", UriKind.Relative));
+            }
+
+            txtTimer.Text = peliculaCargada.duration.ToString();
+            txtLenguaje.Text = peliculaCargada.default_language.ToUpper();
         }
 
 
@@ -91,7 +132,7 @@ namespace Personal.Views
             }
             else
             {
-                MessageBox.Show(string.Format("Estás por ver {0}" + Environment.NewLine + "calificación {1}" + Environment.NewLine + "costo $ {2}"+ Environment.NewLine , peliculaCargada.title, peliculaCargada.classification, peliculaCargada.price_sd), "error", MessageBoxButton.OK);
+                MessageBox.Show(string.Format("Estás por ver {0}" + Environment.NewLine + "calificación {1}" + Environment.NewLine + "costo $ {2}"+ Environment.NewLine , peliculaCargada.title, peliculaCargada.classification, peliculaCargada.price_sd), "Atención", MessageBoxButton.OK);
             }
 
             BitmapImage imag = new System.Windows.Media.Imaging.BitmapImage(new Uri(@"/Imagenes/ver ahora-hover.png", UriKind.RelativeOrAbsolute));
