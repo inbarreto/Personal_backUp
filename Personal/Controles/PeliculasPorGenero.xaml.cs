@@ -354,22 +354,6 @@ namespace Personal.Controles
             string response = responseObject.ResponseTxt;            
             //parse it
         }
-<<<<<<< HEAD
-
-        //private void ratingControl_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    RatingControl rating = sender as RatingControl;
-
-        //    int estrellasPelicula = Convert.ToInt32(rating.Tag);
-            
-            
-            
-
-        //}
-
-
-
-=======
       
 
         private void gridRating_Loaded(object sender, RoutedEventArgs e)
@@ -436,7 +420,6 @@ namespace Personal.Controles
             }
             return null;
         }
->>>>>>> 7d084ff59a463beb5ce65ea56ae3235d9135c8b4
 
 
         

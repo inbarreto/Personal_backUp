@@ -19,16 +19,6 @@ namespace Personal.Domain.Entities
             {
                 field_name = name;
                 value = valor;
-            }
-
-        public Information(bool tru)
-        {
-            List<Information> lista = new List<Information>();
-            lista.Add(new Information("Artista", "Patrick Swayze"));
-            lista.Add(new Information("Artista", "Meat Loaf"));
-            lista.Add(new Information("Artista", "Randy Travis"));
-            lista.Add(new Information("Director", "Kevin Hooks"));
-            
-        }
+            }      
     }   
 }

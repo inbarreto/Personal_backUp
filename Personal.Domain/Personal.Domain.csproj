@@ -95,6 +95,7 @@
     <Compile Include="Entities\Pelicula.cs" />
     <Compile Include="Entities\PeliculaListas.cs" />
     <Compile Include="Entities\Play.cs" />
+    <Compile Include="Entities\Publicities.cs" />
     <Compile Include="Entities\Response.cs" />
     <Compile Include="Entities\Thumbnail.cs" />
     <Compile Include="Entities\Usuario.cs" />

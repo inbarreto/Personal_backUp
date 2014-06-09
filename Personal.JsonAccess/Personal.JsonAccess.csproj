@@ -94,9 +94,11 @@
     <Compile Include="JsonClasses\PeliculaJson.cs" />
     <Compile Include="JsonClasses\PeliculasPorGeneroJson.cs" />
     <Compile Include="JsonClasses\PlayJson.cs" />
+    <Compile Include="JsonClasses\PublicitiesJson.cs" />
     <Compile Include="JsonRequest.cs" />
     <Compile Include="ObtieneJsonRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="URL.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

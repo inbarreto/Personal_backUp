@@ -104,6 +104,9 @@
     <Compile Include="Controles\PeliculasPorGenero.xaml.cs">
       <DependentUpon>PeliculasPorGenero.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controles\PublcitiesControl.xaml.cs">
+      <DependentUpon>PublcitiesControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controles\RatingControl.xaml.cs">
       <DependentUpon>RatingControl.xaml</DependentUpon>
     </Compile>
@@ -146,6 +149,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controles\PeliculasPorGenero.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controles\PublcitiesControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -223,10 +230,6 @@
     </Content>
     <Content Include="Font\AdobeFnt11.lst" />
     <Content Include="Font\AdobeFnt13.lst" />
-    <Content Include="Imagenes\atp.png" />
-    <Content Include="Imagenes\fav-activo.png" />
-    <Content Include="Imagenes\fav-hover.png" />
-    <Content Include="Imagenes\fav-inactivo.png" />
     <Content Include="Imagenes\+13.png" />
     <Content Include="Imagenes\+16.png" />
     <Content Include="Imagenes\+18.png" />

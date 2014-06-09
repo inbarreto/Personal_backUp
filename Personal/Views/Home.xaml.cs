@@ -40,24 +40,19 @@ namespace Personal
         void Home_Loaded(object sender, RoutedEventArgs e)
         {
             try
-            {
-                //string postDataMenu = "{\"device\":\"windows_8\",\"name\":\"\"}";
-               
-                string genero = "genero_comedia";
 
+            {   
+                
+                Usuario usuario = (Usuario)StateModel.ObtieneKey("Usuario");
+
+                string genero = "genero_comedia";
                 StateModel.CargaKey("named_criteria", genero);
-                PeliculasPorGeneroJson peliPrincipal = new PeliculasPorGeneroJson();
-                
-                peliPrincipal.named_criteria = genero;
-                string post_dataPeliculas = JsonConvert.SerializeObject(peliPrincipal);                
-                peliPrincipal.named_criteria = "genero_comedia";                
-                
-                MenuJson postMenu = new MenuJson();                
+                CargaPeliculasHome(usuario);
+
+
+                MenuJson postMenu = new MenuJson();
                 string postDataMenu = JsonConvert.SerializeObject(postMenu);
-                string urlMenu = "http://www.qubit.tv/business.php/json/menus";
-                CargaMenusPost(postDataMenu, urlMenu, post_dataPeliculas, "http://www.qubit.tv/business.php/json/search");
-                ratingControl.EstrellasActivas(4);
-                peliculasHome.CargaPeliculasPost(post_dataPeliculas, "http://www.qubit.tv/business.php/json/search");
+                CargaMenusPost(postDataMenu, URL.Menus);
                 
             }
             catch (Exception )
@@ -66,14 +61,30 @@ namespace Personal
             }
         }
 
-        public void CargaMenusPost(string postdataMenu,string urlMenu,string postdataPelicula, string urlPelicula)
+        private void CargaPeliculasHome(Usuario usuario)
+        {
+            PeliculasPorGeneroJson peliPrincipal = new PeliculasPorGeneroJson();
+                        
+            string post_dataPeliculas = JsonConvert.SerializeObject(peliPrincipal);
+            peliPrincipal.named_criteria = "genero_comedia";
+
+
+            //ratingControl.EstrellasActivas(4);
+            peliculasHome.CargaPeliculasPost(post_dataPeliculas, URL.MenuCategoria);
+
+
+            PublicitiesJson publi = new PublicitiesJson();
+            publi.session_id = usuario != null ? usuario.session_id : string.Empty;
+            publi.device = "PC";
+            string jsonPublicities = JsonConvert.SerializeObject(publi);
+            CargaPublicitiesPost(jsonPublicities, URL.Publicities);
+        }
+
+        public void CargaMenusPost(string postdataMenu,string urlMenu)
         {           
-            JsonRequest MenusRequest = new JsonRequest();
-            //JsonRequest PeliculaRequest = new JsonRequest();
-            //PeliculaRequest.Completed += new EventHandler(handleResponsePelicula);
+            JsonRequest MenusRequest = new JsonRequest();            
             MenusRequest.Completed += new EventHandler(handleResponseMenus);
-            MenusRequest.beginRequest(postdataMenu, urlMenu);
-            //PeliculaRequest.beginRequest(postdataPelicula, urlPelicula);
+            MenusRequest.beginRequest(postdataMenu, urlMenu);            
         }
 
 
@@ -151,24 +162,7 @@ namespace Personal
 
         }
 
-        /*private void txtClavePersonal_Tap(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            try
-            {
-                txtClavePersonal.Text = string.Empty;
-
-
-
-                SolidColorBrush scb = ObtieneColorHexa("#FFB28AAD");
-        //applying the brush to the background of the existing Button btn:
-            txtClavePersonal.Foreground = scb;
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }*/
+        
 
         private static System.Windows.Media.SolidColorBrush ObtieneColorHexa(string colorHexa)
         {
@@ -181,17 +175,7 @@ namespace Personal
             return scb;
         }
 
-        /*private void txtNroLinea_Tap(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            txtNroLinea.Text = string.Empty;
-            SolidColorBrush scb = ObtieneColorHexa("#FFB28AAD");            
-            txtNroLinea.Foreground = scb;
-
-            
-        }*/
-
-        
-       
+               
         private void txtGenero_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
 
@@ -283,6 +267,13 @@ namespace Personal
                     }
                     break;
 
+                case "pivItemPersonalVideo":
+
+                    usuario = StateModel.ObtieneKey("Usuario") as Usuario;
+                     if(usuario !=null)
+                            this.CargaPeliculasHome(usuario);
+                           
+                    break;
                 /*case "pivItemAlquiladas":
                     PeliculasPorGeneroJson muyAlquiladasData = new PeliculasPorGeneroJson();
                     muyAlquiladasData.named_criteria = "genero_accion";
@@ -361,10 +352,9 @@ namespace Personal
         {
             try
             {
-                 Image img = sender as Image;
-            string idPelicula = Convert.ToString(img.Tag);
-            img.Source = PeliculaModel.BotonVer(true);
-
+                Image img = sender as Image;
+                string idPelicula = Convert.ToString(img.Tag);
+                img.Source = PeliculaModel.BotonVer(true);
             }
             catch (Exception)
             {
@@ -397,7 +387,7 @@ namespace Personal
         {
             try
             {
-                txtBuscar.Text = "";
+                txtBuscar.Text = string.Empty;
                 txtBuscar.Foreground = getColorFromHexa("#000000");
             }
             catch (Exception)
@@ -472,15 +462,60 @@ namespace Personal
             {                
                 throw;
             }            
-<<<<<<< HEAD
-=======
         }
 
         private void txtTyC_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Views/TerminosyCondiciones.xaml", UriKind.Relative));
             return;
->>>>>>> 7d084ff59a463beb5ce65ea56ae3235d9135c8b4
-        }        
+        }
+
+        public void CargaPublicitiesPost(string postdata, string url)
+        {
+            JsonRequest PeliculaRequest = new JsonRequest();
+            PeliculaRequest.Completed += new EventHandler(handleResponsePublicities);
+            PeliculaRequest.beginRequest(postdata, url);
+        }
+        public void handleResponsePublicities(object sender, EventArgs args)
+        {
+            JsonRequest responseObject = sender as JsonRequest;
+            string response = responseObject.ResponseTxt;
+            this.CargaPublicities(response);    
+            //parse it
+        }
+
+
+        private void CargaPublicities(string response)
+        {
+            try
+            {
+                List<Publicities> listaPublicities = new List<Publicities>();
+                listaPublicities = JsonModel.ConvierteJsonPublicities(response);                
+                PivotItem pivotItem;
+                PublcitiesControl publicitiesControl = new PublcitiesControl();
+                publicitiesControl.DataContext = listaPublicities[0];
+                pivotItem1.Content = publicitiesControl;                                            
+                int i = 0;
+                foreach (Publicities item in listaPublicities)
+                {
+                    if (i != 0)
+                    {
+                        pivotItem = new PivotItem();
+                        pivotItem.Margin = new Thickness(0,-6,0, 0);
+                        publicitiesControl = new PublcitiesControl();
+                        publicitiesControl.DataContext = item;
+                        pivotItem.Content = publicitiesControl;
+                        pivotImagenPrincipal.Items.Add(pivotItem);
+                       
+                    }
+                    i++;
+                }            
+            }
+            catch (Exception ex)
+            {                
+                throw;
+            }        
+        }
+
     }
 }
