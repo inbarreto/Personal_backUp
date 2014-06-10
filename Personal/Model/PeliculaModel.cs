@@ -28,7 +28,7 @@ namespace Personal.Model
 
                 pelicula.viewed = (string)token["viewed"] != string.Empty && (string)token["viewed"] != null ? Convert.ToBoolean((int)token["viewed"]) : false;
                 pelicula.favorite =(string)token["favorite"] != string.Empty && (string)token["favorite"] != null ?  Convert.ToBoolean((int)token["favorite"]): false;
-                pelicula.current_time = (string)token["current_time"] != null && (string)token["current_time"] != string.Empty ? (int)token["current_time"] : 0;
+                pelicula.current_time = (string)token["current_time"] != null && (string)token["current_time"] != string.Empty ? (double)token["current_time"] : 0;
                 pelicula.percent_viewed = (string)token["paid_hd"] != null && (string)token["paid_hd"] != string.Empty ? (bool)token["paid_hd"] : false;
                 JToken Item = token["tags"];
                 pelicula.tagItems[0] = (string)Item["item"][0];

@@ -2,3 +2,7 @@ C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal.Domain\
 C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal.Domain\Bin\Debug\Personal.Domain.pdb
 C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal.Domain\obj\Debug\Personal.Domain.dll
 C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal.Domain\obj\Debug\Personal.Domain.pdb
+E:\Proyects\Personal\Personal.Domain\Bin\Debug\Personal.Domain.dll
+E:\Proyects\Personal\Personal.Domain\Bin\Debug\Personal.Domain.pdb
+E:\Proyects\Personal\Personal.Domain\obj\Debug\Personal.Domain.dll
+E:\Proyects\Personal\Personal.Domain\obj\Debug\Personal.Domain.pdb

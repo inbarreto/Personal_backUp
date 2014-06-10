@@ -104,8 +104,8 @@
     <Compile Include="Controles\PeliculasPorGenero.xaml.cs">
       <DependentUpon>PeliculasPorGenero.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controles\PublcitiesControl.xaml.cs">
-      <DependentUpon>PublcitiesControl.xaml</DependentUpon>
+    <Compile Include="Controles\PublicitiesControl.xaml.cs">
+      <DependentUpon>PublicitiesControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controles\RatingControl.xaml.cs">
       <DependentUpon>RatingControl.xaml</DependentUpon>
@@ -152,7 +152,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controles\PublcitiesControl.xaml">
+    <Page Include="Controles\PublicitiesControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -17,6 +17,8 @@ using Microsoft.Phone.Tasks;
 using System.Windows.Media.Imaging;
 using System.Net.NetworkInformation;
 using System.Windows.Media;
+using Personal.Domain.Utils;
+using Personal.Domain;
 
 namespace Personal.Controles
 {
@@ -28,8 +30,9 @@ namespace Personal.Controles
             this.Loaded += PeliculasGenero_Loaded;
         }
         Variables variables = new Variables();
-        List<Pelicula> listadoDePeliculas = new List<Pelicula>();
+        List<Pelicula> listadoDePeliculas ;
         Usuario usuario = new Usuario();
+        int paginado = 1;
         void PeliculasGenero_Loaded(object sender, RoutedEventArgs e)
         {
             try
@@ -57,6 +60,15 @@ namespace Personal.Controles
                         item.title = item.title.Substring(0, 19) + "...";
                 }
                 //lista.Remove(peliculaUnica);
+                if (!StateModel.ExisteKey("VieneDeBuscar"))
+                {
+                    btnVerMas.Visibility = System.Windows.Visibility.Visible;
+                    btnVerMas.Foreground = Utils.getColorFromHexa("#7E517A");
+                    btnVerMas.BorderBrush = Utils.getColorFromHexa("#7E517A");
+                    
+                }
+                StateModel.BorrarKey("VieneDeBuscar");
+                listaPeliculas.ItemsSource = null;
                 listaPeliculas.ItemsSource = lista;                            
             }
             catch (Exception)
@@ -75,11 +87,13 @@ namespace Personal.Controles
                 JToken element = ExtraigoElementJson(jsonPeliculas);
                 if (element.Count() < cantidadPeliculas)
                     cantidadPeliculas = element.Count();
-                listadoDePeliculas = new List<Pelicula>();
+                if (!StateModel.ExisteKey("esmas"))
+                    listadoDePeliculas = new List<Pelicula>();
                 for (int i = 0; i < cantidadPeliculas; i++)
                 {
                     listadoDePeliculas.Add(PeliculaModel.CompletaPeliculaConJson(element[i]));
                 }
+                StateModel.BorrarKey("esmas");
                 return listadoDePeliculas;
             }
             catch (Exception ex)
@@ -170,7 +184,7 @@ namespace Personal.Controles
                         favoritos.session_id = usuario.session_id;
                         string jsonFavoritos = JsonConvert.SerializeObject(favoritos);
 
-                        this.CargaFavoritoPost(jsonFavoritos, "http://www.qubit.tv/business.php/json/AddToFavorites");                        
+                        this.CargaFavoritoPost(jsonFavoritos, URL.AddFavoritos);                        
                     }
                 }
                 else {
@@ -226,39 +240,39 @@ namespace Personal.Controles
             }
             else
             {
-                MessageBox.Show("Para poder ver la película necesita acceso a internet.");
+                MessageBox.Show("Para poder ver la película necesitas acceso a internet.");
             }
         }
 
-        public void CargaPlayPost(string postdata, string url)
-        {
-            JsonRequest loginRequest = new JsonRequest();
-            loginRequest.Completed += new EventHandler(handleResponsePlay);
-            loginRequest.beginRequest(postdata, url);
-        }
-        public void handleResponsePlay(object sender, EventArgs args)
-        {
-            JsonRequest responseObject = sender as JsonRequest;
-            string response = responseObject.ResponseTxt;
-            this.CargaPlayConJson(response);
-            //parse it
-        }
+        //public void CargaPlayPost(string postdata, string url)
+        //{
+        //    JsonRequest loginRequest = new JsonRequest();
+        //    loginRequest.Completed += new EventHandler(handleResponsePlay);
+        //    loginRequest.beginRequest(postdata, url);
+        //}
+        //public void handleResponsePlay(object sender, EventArgs args)
+        //{
+        //    JsonRequest responseObject = sender as JsonRequest;
+        //    string response = responseObject.ResponseTxt;
+        //    this.CargaPlayConJson(response);
+        //    //parse it
+        //}
 
         
 
-        private void CargaPlayConJson(string jsonString)
-        {
-            try
-            {
-                //PeliculaModel peliculaModel = new PeliculaModel();
-                //peliculaModel.EjecutaMultimediaPelicula(jsonString);
+        //private void CargaPlayConJson(string jsonString)
+        //{
+        //    try
+        //    {
+        //        //PeliculaModel peliculaModel = new PeliculaModel();
+        //        //peliculaModel.EjecutaMultimediaPelicula(jsonString);
 
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
 
 
         public void CargaDatosPeliculaPost(string postdata, string url)
@@ -421,7 +435,31 @@ namespace Personal.Controles
             return null;
         }
 
+        private void verMas_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            try
+            {
+                usuario = StateModel.ObtieneKey("Usuario") as Usuario;
+                StateModel.CargaKey("esmas", true);
+                PeliculasPorGeneroJson verMasParametro = StateModel.ObtieneKey("vermas") as PeliculasPorGeneroJson;                
+                verMasParametro.page = (Convert.ToInt16(verMasParametro.page) + 1).ToString();
+                
+                if (usuario != null)
+                    verMasParametro.session_id = usuario.session_id;
+                string jsonString = JsonConvert.SerializeObject(verMasParametro);
 
+                CargaPeliculasPost(jsonString, URL.MenuCategoria);
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+
+     
         
     }
 }

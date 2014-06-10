@@ -8,11 +8,10 @@ namespace Personal.Domain.Enums
 {
     public class Enums
     {
-        public enum EnumJsonURLS
+        public enum Enumsuscripcion
         {
-            //menu = "http://www.qubit.tv/business.php/json/menus",
-            //pelicula = "http://www.qubit.tv/business.php/json/Element",
-            //peliculasGenero = "http://www.qubit.tv/business.php/json/search"
+            Activar =3,
+            Desactivar =1
 
         }
 

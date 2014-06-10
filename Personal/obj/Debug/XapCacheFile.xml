@@ -1,61 +1,66 @@
-﻿<xapCache source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Bin\Debug\Personal_Debug_AnyCPU.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="09/06/2014 12:39:47 a.m.">
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\obj\Debug\Personal.dll" archivePath="Personal.dll" lastWriteTime="09/06/2014 12:39:42 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\obj\Debug\es-AR\Personal.resources.dll" archivePath="es-AR\Personal.resources.dll" lastWriteTime="09/06/2014 12:39:42 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Assets\AlignmentGrid.png" archivePath="Assets\AlignmentGrid.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Assets\Tiles\FlipCycleTileLarge.png" archivePath="Assets\Tiles\FlipCycleTileLarge.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Assets\Tiles\FlipCycleTileSmall.png" archivePath="Assets\Tiles\FlipCycleTileSmall.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Assets\Tiles\IconicTileMediumLarge.png" archivePath="Assets\Tiles\IconicTileMediumLarge.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Assets\Tiles\IconicTileSmall.png" archivePath="Assets\Tiles\IconicTileSmall.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Font\AdobeFnt11.lst" archivePath="Font\AdobeFnt11.lst" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Font\AdobeFnt13.lst" archivePath="Font\AdobeFnt13.lst" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\+13.png" archivePath="Imagenes\+13.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\+16.png" archivePath="Imagenes\+16.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\+18.png" archivePath="Imagenes\+18.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\atp.png" archivePath="Imagenes\atp.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\camera.png" archivePath="Imagenes\camera.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\cinta.png" archivePath="Imagenes\cinta.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\fav-activo.png" archivePath="Imagenes\fav-activo.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\fav-hover.png" archivePath="Imagenes\fav-hover.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\fav-inactivo.png" archivePath="Imagenes\fav-inactivo.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\hd.png" archivePath="Imagenes\hd.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\link-inactivo.png" archivePath="Imagenes\link-inactivo.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\lupa.png" archivePath="Imagenes\lupa.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\main_photo.jpg" archivePath="Imagenes\main_photo.jpg" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\mas.png" archivePath="Imagenes\mas.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\mobile.png" archivePath="Imagenes\mobile.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\movie.png" archivePath="Imagenes\movie.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\personal-video-home.png" archivePath="Imagenes\personal-video-home.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\personal-video-login.png" archivePath="Imagenes\personal-video-login.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\placa.png" archivePath="Imagenes\placa.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\Rating\estrella_activa.png" archivePath="Imagenes\Rating\estrella_activa.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\Rating\estrella_inactiva.png" archivePath="Imagenes\Rating\estrella_inactiva.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\sound.png" archivePath="Imagenes\sound.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\sub.png" archivePath="Imagenes\sub.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\timer.png" archivePath="Imagenes\timer.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\ver ahora-hover.png" archivePath="Imagenes\ver ahora-hover.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\ver ahora-inactivo.png" archivePath="Imagenes\ver ahora-inactivo.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\ver-activo.png" archivePath="Imagenes\ver-activo.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\ver-hover.png" archivePath="Imagenes\ver-hover.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\ver-inactivo.png" archivePath="Imagenes\ver-inactivo.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\ver-transparente.png" archivePath="Imagenes\ver-transparente.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Imagenes\xxx.png" archivePath="Imagenes\xxx.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\README_FIRST.txt" archivePath="README_FIRST.txt" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Toolkit.Content\ApplicationBar.Add.png" archivePath="Toolkit.Content\ApplicationBar.Add.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Toolkit.Content\ApplicationBar.Cancel.png" archivePath="Toolkit.Content\ApplicationBar.Cancel.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Toolkit.Content\ApplicationBar.Check.png" archivePath="Toolkit.Content\ApplicationBar.Check.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Toolkit.Content\ApplicationBar.Delete.png" archivePath="Toolkit.Content\ApplicationBar.Delete.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Toolkit.Content\ApplicationBar.Select.png" archivePath="Toolkit.Content\ApplicationBar.Select.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="07/06/2014 04:50:12 p.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Bin\Debug\Assets\ApplicationIcon01.png" archivePath="Assets\ApplicationIcon01.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Bin\Debug\Assets\Tiles\FlipCycleTileMedium.png" archivePath="Assets\Tiles\FlipCycleTileMedium.png" lastWriteTime="07/06/2014 11:14:30 a.m." />
+﻿<xapCache source="E:\Proyects\Personal\Personal\Bin\Debug\Personal_Debug_AnyCPU.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="10/06/2014 12:32:01 a.m.">
+  <file source="E:\Proyects\Personal\Personal\obj\Debug\Personal.dll" archivePath="Personal.dll" lastWriteTime="10/06/2014 12:32:00 a.m." />
+  <file source="E:\Proyects\Personal\Personal\obj\Debug\es-AR\Personal.resources.dll" archivePath="es-AR\Personal.resources.dll" lastWriteTime="10/06/2014 12:32:00 a.m." />
+  <file source="E:\Proyects\Personal\Personal\Assets\AlignmentGrid.png" archivePath="Assets\AlignmentGrid.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Assets\Tiles\FlipCycleTileLarge.png" archivePath="Assets\Tiles\FlipCycleTileLarge.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Assets\Tiles\FlipCycleTileSmall.png" archivePath="Assets\Tiles\FlipCycleTileSmall.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Assets\Tiles\IconicTileMediumLarge.png" archivePath="Assets\Tiles\IconicTileMediumLarge.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Assets\Tiles\IconicTileSmall.png" archivePath="Assets\Tiles\IconicTileSmall.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Font\AdobeFnt11.lst" archivePath="Font\AdobeFnt11.lst" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Font\AdobeFnt13.lst" archivePath="Font\AdobeFnt13.lst" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\+13.png" archivePath="Imagenes\+13.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\+16.png" archivePath="Imagenes\+16.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\+18.png" archivePath="Imagenes\+18.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\atp.png" archivePath="Imagenes\atp.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\camera.png" archivePath="Imagenes\camera.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\cinta.png" archivePath="Imagenes\cinta.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\fav-activo.png" archivePath="Imagenes\fav-activo.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\fav-hover.png" archivePath="Imagenes\fav-hover.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\fav-inactivo.png" archivePath="Imagenes\fav-inactivo.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\hd.png" archivePath="Imagenes\hd.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\link-inactivo.png" archivePath="Imagenes\link-inactivo.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\lupa.png" archivePath="Imagenes\lupa.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\main_photo.jpg" archivePath="Imagenes\main_photo.jpg" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\mas.png" archivePath="Imagenes\mas.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\mobile.png" archivePath="Imagenes\mobile.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\movie.png" archivePath="Imagenes\movie.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\personal-video-home.png" archivePath="Imagenes\personal-video-home.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\personal-video-login.png" archivePath="Imagenes\personal-video-login.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\placa.png" archivePath="Imagenes\placa.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\Rating\estrella_activa.png" archivePath="Imagenes\Rating\estrella_activa.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\Rating\estrella_inactiva.png" archivePath="Imagenes\Rating\estrella_inactiva.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\sound.png" archivePath="Imagenes\sound.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\sub.png" archivePath="Imagenes\sub.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\timer.png" archivePath="Imagenes\timer.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\ver ahora-hover.png" archivePath="Imagenes\ver ahora-hover.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\ver ahora-inactivo.png" archivePath="Imagenes\ver ahora-inactivo.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\ver-activo.png" archivePath="Imagenes\ver-activo.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\ver-hover.png" archivePath="Imagenes\ver-hover.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\ver-inactivo.png" archivePath="Imagenes\ver-inactivo.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\ver-transparente.png" archivePath="Imagenes\ver-transparente.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Imagenes\xxx.png" archivePath="Imagenes\xxx.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\README_FIRST.txt" archivePath="README_FIRST.txt" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Toolkit.Content\ApplicationBar.Add.png" archivePath="Toolkit.Content\ApplicationBar.Add.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Toolkit.Content\ApplicationBar.Cancel.png" archivePath="Toolkit.Content\ApplicationBar.Cancel.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Toolkit.Content\ApplicationBar.Check.png" archivePath="Toolkit.Content\ApplicationBar.Check.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Toolkit.Content\ApplicationBar.Delete.png" archivePath="Toolkit.Content\ApplicationBar.Delete.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Toolkit.Content\ApplicationBar.Select.png" archivePath="Toolkit.Content\ApplicationBar.Select.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="09/06/2014 07:21:39 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Bin\Debug\Assets\ApplicationIcon01.png" archivePath="Assets\ApplicationIcon01.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Bin\Debug\Assets\Tiles\FlipCycleTileLarge.png" archivePath="Assets\Tiles\FlipCycleTileLarge.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Bin\Debug\Assets\Tiles\FlipCycleTileMedium.png" archivePath="Assets\Tiles\FlipCycleTileMedium.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Bin\Debug\Assets\Tiles\FlipCycleTileSmall.png" archivePath="Assets\Tiles\FlipCycleTileSmall.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Bin\Debug\Assets\Tiles\IconicTileMediumLarge.png" archivePath="Assets\Tiles\IconicTileMediumLarge.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Bin\Debug\Assets\Tiles\IconicTileSmall.png" archivePath="Assets\Tiles\IconicTileSmall.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
   <file source="C:\Program Files (x86)\Microsoft SDKs\Expression\Blend\Windows Phone\v8.0\Libraries\Microsoft.Expression.Drawing.dll" archivePath="Microsoft.Expression.Drawing.dll" lastWriteTime="25/09/2012 01:41:02 a.m." />
   <file source="C:\Program Files (x86)\Microsoft SDKs\Expression\Blend\Windows Phone\v8.0\Libraries\Microsoft.Expression.Interactions.dll" archivePath="Microsoft.Expression.Interactions.dll" lastWriteTime="25/09/2012 01:41:02 a.m." />
-  <file source="C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v8.0\Libraries\Microsoft.Phone.Controls.dll" archivePath="Microsoft.Phone.Controls.dll" lastWriteTime="03/03/2013 07:40:38 p.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll" archivePath="Microsoft.Phone.Controls.Toolkit.dll" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\packages\Newtonsoft.Json.6.0.2\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll" archivePath="Newtonsoft.Json.dll" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal.Domain\Bin\Debug\Personal.Domain.dll" archivePath="Personal.Domain.dll" lastWriteTime="07/06/2014 07:14:37 p.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal.JsonAccess\Bin\Debug\Personal.JsonAccess.dll" archivePath="Personal.JsonAccess.dll" lastWriteTime="07/06/2014 06:06:11 p.m." />
+  <file source="C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v8.0\Libraries\Microsoft.Phone.Controls.dll" archivePath="Microsoft.Phone.Controls.dll" lastWriteTime="01/01/2013 06:57:00 p.m." />
+  <file source="E:\Proyects\Personal\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll" archivePath="Microsoft.Phone.Controls.Toolkit.dll" lastWriteTime="09/06/2014 07:20:46 p.m." />
+  <file source="E:\Proyects\Personal\packages\Newtonsoft.Json.6.0.2\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll" archivePath="Newtonsoft.Json.dll" lastWriteTime="09/06/2014 07:20:46 p.m." />
+  <file source="E:\Proyects\Personal\Personal.Domain\Bin\Debug\Personal.Domain.dll" archivePath="Personal.Domain.dll" lastWriteTime="09/06/2014 11:51:08 p.m." />
+  <file source="E:\Proyects\Personal\Personal.JsonAccess\Bin\Debug\Personal.JsonAccess.dll" archivePath="Personal.JsonAccess.dll" lastWriteTime="09/06/2014 11:15:43 p.m." />
   <file source="C:\Program Files (x86)\Microsoft SDKs\Expression\Blend\Windows Phone\v8.0\Libraries\System.Windows.Interactivity.dll" archivePath="System.Windows.Interactivity.dll" lastWriteTime="25/09/2012 01:41:02 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\packages\Newtonsoft.Json.6.0.2\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.xml" archivePath="Newtonsoft.Json.xml" lastWriteTime="07/06/2014 11:14:30 a.m." />
-  <file source="C:\Users\Ignacio\Documents\Visual Studio 2012\Projects\Personal\Personal\Bin\Debug\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="07/06/2014 04:50:13 p.m." />
+  <file source="E:\Proyects\Personal\packages\Newtonsoft.Json.6.0.2\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.xml" archivePath="Newtonsoft.Json.xml" lastWriteTime="09/06/2014 07:20:46 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Assets\Tiles\FlipCycleTileMedium.png" archivePath="Assets\Tiles\FlipCycleTileMedium.png" lastWriteTime="09/06/2014 07:20:45 p.m." />
+  <file source="E:\Proyects\Personal\Personal\Bin\Debug\Properties\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="09/06/2014 07:20:45 p.m." />
 </xapCache>

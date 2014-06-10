@@ -95,6 +95,7 @@
     <Compile Include="JsonClasses\PeliculasPorGeneroJson.cs" />
     <Compile Include="JsonClasses\PlayJson.cs" />
     <Compile Include="JsonClasses\PublicitiesJson.cs" />
+    <Compile Include="JsonClasses\SuscripcionJson.cs" />
     <Compile Include="JsonRequest.cs" />
     <Compile Include="ObtieneJsonRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

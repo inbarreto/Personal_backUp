@@ -9,7 +9,7 @@ namespace Personal.Domain.Entities
     public class PeliculaListas : Pelicula
     {
         private string[] tagitems = new string[1]; 
-        public int current_time { get; set; }
+        public double current_time { get; set; }
         public bool percent_viewed { get; set; }
         public string[] tagItems 
         {

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Personal.Controles.PublcitiesControl"
+﻿<UserControl x:Class="Personal.Controles.PublicitiesControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -8,7 +8,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    d:DesignHeight="330" d:DesignWidth="480">
+    d:DesignHeight="295" d:DesignWidth="480">
     <UserControl.Resources>
     
     <Style TargetType="Image" x:Key="imagenVer">
@@ -17,15 +17,15 @@
     </Style>
     </UserControl.Resources>
     
-        <StackPanel Orientation="Vertical" Height="330">
+        <StackPanel Orientation="Vertical" Height="295">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="230"></RowDefinition>
-                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition Height="245"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
             </Grid.RowDefinitions>
-            <Image x:Name="imgPeliculaPrincipal" Source="{Binding image}" Stretch="Fill" Margin="15,0,0,0" Width="427" Height="230" Canvas.ZIndex="0" />                
-            <Image x:Name="imgVer" Source="../Imagenes/ver-transparente.png" Height="92" Width="81" Tag="{Binding id}" ></Image>            
-            <TextBlock x:Name="txtNombrePelicula" Text="{Binding title}" Foreground="#FF856D84" Margin="20,10,0,0"  HorizontalAlignment="Left" FontSize="36" Grid.Row="1"/>    
+            <Image x:Name="imgPeliculaPrincipal" Source="{Binding image}" Stretch="Fill" Margin="10,0,0,0" Width="450" Height="240" Canvas.ZIndex="0" />                
+            <!--<Image x:Name="imgVer" Source="../Imagenes/ver-transparente.png" Height="92" Width="81" Tag="{Binding id}" ></Image>-->            
+            <TextBlock x:Name="txtNombrePelicula" Text="{Binding title}" Foreground="#FF856D84" Margin="20,0,0,0"  HorizontalAlignment="Left" FontSize="36" Grid.Row="1"/>    
         </Grid>
     </StackPanel>
     

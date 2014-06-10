@@ -51,9 +51,9 @@
                 </phone:PivotItem.Header>
                 <ScrollViewer>
                     <StackPanel x:Name="grillaPersonalVideo" Orientation="Vertical" Height="auto">
-                        <phone:Pivot x:Name="pivotImagenPrincipal" Height="330" Margin="0,0,0,0">                                    
+                        <phone:Pivot x:Name="pivotImagenPrincipal" Height="auto" Margin="0,0,0,0">                                    
                                 <phone:PivotItem Margin="0,-6,0,0" x:Name="pivotItem1">
-                                <Controles:PublcitiesControl x:Name="controlPublicities" />                                    
+                                <Controles:PublicitiesControl x:Name="controlPublicities" />                                    
                             </phone:PivotItem>                                                                                               
                             </phone:Pivot>
                         <Controles:PeliculasPorGenero x:Name="peliculasHome"/>
@@ -106,7 +106,7 @@
         		</Grid>
                 </ScrollViewer>
         	</phone:PivotItem>
-            <phone:PivotItem x:Name="pivItemRecomendado" Header="recomendado" Background="White" Margin="10,10,0,0" >
+            <phone:PivotItem x:Name="pivItemRecomendado" Header="recomendado" Background="White" Margin="10,10,0,0"  Height="auto">
                 <ScrollViewer>
                     <Controles:PeliculasPorGenero x:Name="recomendado" Height="auto" />
                 </ScrollViewer>
@@ -131,7 +131,7 @@
                 <ListBox>
                     <TextBlock x:Name="miCuentaTexto1" Text="iniciar sesión" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36" Tap="txtLogin_Tap"/>
                         <TextBlock x:Name="miCuentaTexto2" Text="perfil" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>
-                        <TextBlock x:Name="miCuentaTexto3" Text="activar suscripción" FontFamily="Portable User Interface" Foreground="#7D3D76" Margin="15,3,0,10" FontSize="36" FontWeight="Bold"/>
+                        <TextBlock x:Name="txtSuscripcion" Text="activar suscripción" FontFamily="Portable User Interface" Foreground="#7D3D76" Margin="15,3,0,10" FontSize="36" FontWeight="Bold" Tap="txtSuscripcion_Tap"/>
                         <TextBlock x:Name="miCuentaTexto4" Text="favoritos" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>
                         <TextBlock x:Name="miCuentaTexto5" Text="ya vistas" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>
                         <TextBlock x:Name="miCuentaTexto6" Text="estoy viendo" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>

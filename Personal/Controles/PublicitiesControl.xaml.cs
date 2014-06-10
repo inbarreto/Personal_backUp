@@ -10,9 +10,9 @@ using Microsoft.Phone.Shell;
 
 namespace Personal.Controles
 {
-    public partial class PublcitiesControl : UserControl
+    public partial class PublicitiesControl : UserControl
     {
-        public PublcitiesControl()
+        public PublicitiesControl()
         {
             InitializeComponent();
         }

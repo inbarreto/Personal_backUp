@@ -20,6 +20,7 @@ using Personal.JsonAccess.JsonClasses;
 using Newtonsoft.Json;
 using Personal.Domain.Enums;
 using Microsoft.Phone.Net.NetworkInformation;
+using Personal.Domain.Utils;
 
 namespace Personal
 {   
@@ -64,10 +65,12 @@ namespace Personal
         private void CargaPeliculasHome(Usuario usuario)
         {
             PeliculasPorGeneroJson peliPrincipal = new PeliculasPorGeneroJson();
-                        
+            if(usuario !=null)                  
+                peliPrincipal.session_id = usuario.session_id;     
+            
             string post_dataPeliculas = JsonConvert.SerializeObject(peliPrincipal);
             peliPrincipal.named_criteria = "genero_comedia";
-
+            StateModel.CargaKey("vermas", peliPrincipal);
 
             //ratingControl.EstrellasActivas(4);
             peliculasHome.CargaPeliculasPost(post_dataPeliculas, URL.MenuCategoria);
@@ -240,15 +243,16 @@ namespace Personal
                     PeliculasPorGeneroJson recomendadoData = new PeliculasPorGeneroJson();
                     recomendadoData.session_id = usuario != null ? usuario.session_id : string.Empty;
                     recomendadoData.named_criteria = "recomendadas";
+                    StateModel.CargaKey("vermas", recomendadoData);
                     string post_recomendado = JsonConvert.SerializeObject(recomendadoData);
-                    recomendado.CargaPeliculasPost(post_recomendado, "http://www.qubit.tv/business.php/json/search");
+                    recomendado.CargaPeliculasPost(post_recomendado,URL.MenuCategoria);
                     break;
 
                 case "pivItemMiCuenta":
                     if (!StateModel.ExisteKey("Usuario"))
                     {
                         miCuentaTexto2.Visibility = System.Windows.Visibility.Collapsed;
-                        miCuentaTexto3.Visibility = System.Windows.Visibility.Collapsed;
+                        txtSuscripcion.Visibility = System.Windows.Visibility.Collapsed;
                         miCuentaTexto4.Visibility = System.Windows.Visibility.Collapsed;
                         miCuentaTexto5.Visibility = System.Windows.Visibility.Collapsed;
                         miCuentaTexto6.Visibility = System.Windows.Visibility.Collapsed;
@@ -259,7 +263,7 @@ namespace Personal
                     {
                         miCuentaTexto1.Visibility = System.Windows.Visibility.Collapsed;
                         miCuentaTexto2.Visibility = System.Windows.Visibility.Visible;
-                        miCuentaTexto3.Visibility = System.Windows.Visibility.Visible;
+                        txtSuscripcion.Visibility = System.Windows.Visibility.Visible;
                         miCuentaTexto4.Visibility = System.Windows.Visibility.Visible;
                         miCuentaTexto5.Visibility = System.Windows.Visibility.Visible;
                         miCuentaTexto6.Visibility = System.Windows.Visibility.Visible;
@@ -345,7 +349,8 @@ namespace Personal
             controlBuscarPeliculas.VaciaListaPeliculas();
             BuscarJson buscarJson = new BuscarJson(session, textoBusqueda);
             string postBuscarPeliculas = JsonConvert.SerializeObject(buscarJson);
-            controlBuscarPeliculas.CargaPeliculasPost(postBuscarPeliculas, "http://www.qubit.tv/business.php/json/search");
+            controlBuscarPeliculas.CargaPeliculasPost(postBuscarPeliculas,URL.MenuCategoria);
+            StateModel.CargaKey("VieneDeBuscar", true);
             txtResultado.Visibility = System.Windows.Visibility.Visible;
         }
         private void imgVer_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -370,7 +375,7 @@ namespace Personal
             try
             {
                 txtBuscar.Text = "Buscar";
-                txtBuscar.Foreground = getColorFromHexa("#ffffff");
+                txtBuscar.Foreground = Utils.getColorFromHexa("#ffffff");
                 //txtResultado.Visibility = System.Windows.Visibility.Collapsed;
 
             }
@@ -388,7 +393,7 @@ namespace Personal
             try
             {
                 txtBuscar.Text = string.Empty;
-                txtBuscar.Foreground = getColorFromHexa("#000000");
+                txtBuscar.Foreground = Utils.getColorFromHexa("#000000");
             }
             catch (Exception)
             {
@@ -399,14 +404,7 @@ namespace Personal
 
         }
 
-        SolidColorBrush getColorFromHexa(string hexaColor)
-        {
-            byte r = Convert.ToByte(hexaColor.Substring(1, 2), 16);
-            byte g = Convert.ToByte(hexaColor.Substring(3, 2), 16);
-            byte b = Convert.ToByte(hexaColor.Substring(5, 2), 16);
-            SolidColorBrush soliColorBrush = new SolidColorBrush(Color.FromArgb(0xFF, r, g, b));
-            return soliColorBrush;
-        }
+      
 
         private void imgFav_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
@@ -492,7 +490,7 @@ namespace Personal
                 List<Publicities> listaPublicities = new List<Publicities>();
                 listaPublicities = JsonModel.ConvierteJsonPublicities(response);                
                 PivotItem pivotItem;
-                PublcitiesControl publicitiesControl = new PublcitiesControl();
+                PublicitiesControl publicitiesControl = new PublicitiesControl();
                 publicitiesControl.DataContext = listaPublicities[0];
                 pivotItem1.Content = publicitiesControl;                                            
                 int i = 0;
@@ -502,7 +500,7 @@ namespace Personal
                     {
                         pivotItem = new PivotItem();
                         pivotItem.Margin = new Thickness(0,-6,0, 0);
-                        publicitiesControl = new PublcitiesControl();
+                        publicitiesControl = new PublicitiesControl();
                         publicitiesControl.DataContext = item;
                         pivotItem.Content = publicitiesControl;
                         pivotImagenPrincipal.Items.Add(pivotItem);
@@ -515,6 +513,57 @@ namespace Personal
             {                
                 throw;
             }        
+        }
+
+        private void txtSuscripcion_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            try
+            {
+                usuario = StateModel.ObtieneKey("Usuario") as Usuario;
+
+                if (usuario == null)
+                {
+                    MessageBox.Show("Para poder modificar la suscripcion debe estar logeado.", "error", MessageBoxButton.OK);
+                    return;
+                }
+
+                usuario.suscription_id = usuario.suscription_id == ((int)Enums.Enumsuscripcion.Activar).ToString() ? ((int)Enums.Enumsuscripcion.Desactivar).ToString() : ((int)Enums.Enumsuscripcion.Activar).ToString();
+
+                SuscripcionJson suscripcionJson = new SuscripcionJson(usuario.username, usuario.suscription_id);
+
+                string jsonSuscripcion = JsonConvert.SerializeObject(suscripcionJson);
+
+                this.CargaSuscripcionPost(jsonSuscripcion, URL.Suscripcion);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ah ocurrido un error. La aplicación se cerrará.");                
+                throw;
+            }
+            
+
+
+        }
+
+        public void CargaSuscripcionPost(string postdata, string url)
+        {
+            JsonRequest PeliculaRequest = new JsonRequest();
+            PeliculaRequest.Completed += new EventHandler(handleResponseSuscripcion);
+            PeliculaRequest.beginRequest(postdata, url);
+        }
+        public void handleResponseSuscripcion(object sender, EventArgs args)
+        {
+            JsonRequest responseObject = sender as JsonRequest;
+            string response = responseObject.ResponseTxt;
+            this.CargaSuscripcion(response);
+            //parse it
+        }
+
+        private void CargaSuscripcion(string response)
+        {
+            if (response.Trim() == "dominio incorrecto!")
+                MessageBox.Show("el email ingresado no es correcto.", "error", MessageBoxButton.OK);
+            
         }
 
     }

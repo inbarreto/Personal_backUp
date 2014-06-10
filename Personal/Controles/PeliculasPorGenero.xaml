@@ -7,18 +7,21 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    d:DesignHeight="480" d:DesignWidth="480">
+    d:DesignHeight="550" d:DesignWidth="480">
 
 
     <UserControl.Resources>
 
         <ResourceDictionary Source="../Styles/StylePeliculasPorGeneroGenero.xaml"></ResourceDictionary>
 
-    </UserControl.Resources>        
-    <ListBox x:Name="listaPeliculas" Height="auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+    </UserControl.Resources>       
+    <StackPanel>
+    <ListBox x:Name="listaPeliculas" Height="Auto" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                <StackPanel Orientation="Horizontal">
+                
+                    <StackPanel Orientation="Horizontal">
+                    
                     <Image x:Name="imgPelicula" Source="{Binding fanart.small}" Style="{StaticResource pelicula}" Margin="20,15,0,0" HorizontalAlignment="Left" Tap="ImagenIrAFicha_Tap" Tag="{Binding id}" ></Image>
                     <Canvas Style="{StaticResource canvas}" Grid.Column="1">
                         <TextBlock x:Name="txtTitle" Text="{Binding title}" FontFamily="Portable User Interface" Width="300" Foreground="#5B5B5B"  FontSize="28" Canvas.Left="14" Canvas.Top="40"  TextWrapping="Wrap" Tap="TextBlockIrAFicha_Tap" Tag="{Binding id}">
@@ -47,8 +50,14 @@
                     <Line  X1="20" Y1="0" X2="444" Y2="0" Grid.ColumnSpan="2" 
                           VerticalAlignment="Bottom" Stroke="#F4F4F4" 
                           StrokeThickness="4" Height="4"/>
+                    
                 </StackPanel>
+                
             </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+
+        <Button x:Name="btnVerMas" Content="Ver Mas" Tap="verMas_Tap" Visibility="Collapsed" Height="70"/>
+    
+    </StackPanel>
 </UserControl>

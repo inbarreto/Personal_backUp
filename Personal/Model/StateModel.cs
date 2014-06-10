@@ -32,5 +32,10 @@ namespace Personal.Model
         {
             return PhoneApplicationService.Current.State.ContainsKey(key);
         }
+
+        public static void BorrarKey(string key)
+        {
+            PhoneApplicationService.Current.State.Remove(key);
+        }
     }
 }
