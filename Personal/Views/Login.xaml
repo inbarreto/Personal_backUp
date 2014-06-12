@@ -25,11 +25,11 @@
     </phone:PhoneApplicationPage.Resources>
 
     <StackPanel Orientation="Vertical" Background="#7e517a" Height="auto">
-        <Image Source="../Imagenes/personal-video-login.png" HorizontalAlignment="Center" Margin="0,100" Width="200"></Image>
+        <Image Source="../Imagenes/personal-video-login.png" HorizontalAlignment="Center" Margin="0,60" Width="200"></Image>
         <TextBlock x:Name="lblNumeroLinea" TextWrapping="Wrap" Text="número de linea" Foreground="white" Width="160" 
-                   Height="30" Margin="20,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                   Height="30" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBox x:Name="txtNroLinea" HorizontalAlignment="Left" Height="72" Margin="10,5,0,0" TextWrapping="Wrap" 
-                 Text="ozcoidi@hotmail.com" VerticalAlignment="Top" 
+                 Text="1166049473" VerticalAlignment="Top" InputScope="Number"
              Style="{StaticResource txtBoxLogin}" Tap="txtNroLinea_Tap" LostFocus="txtNroLinea_LostFocus" AcceptsReturn="False" />
         <TextBlock TextWrapping="Wrap" Text="clave personal"  Margin="20,15,0,0" HorizontalAlignment="Left" 
                    Style="{StaticResource textosBlancos}" />

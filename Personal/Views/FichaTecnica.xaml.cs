@@ -16,6 +16,7 @@ using Newtonsoft.Json.Linq;
 using Personal.JsonAccess;
 using Personal.JsonAccess.JsonClasses;
 using Newtonsoft.Json;
+using Personal.Domain.Enums;
 
 
 namespace Personal.Views
@@ -45,8 +46,8 @@ namespace Personal.Views
            
             
             string postJsonPelicula = JsonConvert.SerializeObject(peliculaJson);
-            
-            string urlPelicula = "http://www.qubit.tv/business.php/json/Element";
+
+            string urlPelicula = "http://www.video.personal.com.ar/business.php/json/Element";
             CargaDatosPeliculaPost(postJsonPelicula, urlPelicula);
         }
 
@@ -107,7 +108,8 @@ namespace Personal.Views
 
 
         private void cargaInformation(List<Information> information)
-        {            
+        {
+            txtEstrellas.Text = "Estrellas: ";
             foreach (Information item in information)
 	        {
                 if (item.field_name == "Director")
@@ -115,7 +117,7 @@ namespace Personal.Views
                 else
                     if (item.field_name == "Artista")
                     {
-                        if (txtEstrellas.Text == string.Empty)                        
+                        if (txtEstrellas.Text == "Estrellas: ")                        
                             txtEstrellas.Text += item.value;
                         else
                             txtEstrellas.Text +=", "+item.value;
@@ -132,7 +134,10 @@ namespace Personal.Views
             }
             else
             {
-                MessageBox.Show(string.Format("Estás por ver {0}" + Environment.NewLine + "calificación {1}" + Environment.NewLine + "costo $ {2}"+ Environment.NewLine , peliculaCargada.title, peliculaCargada.classification, peliculaCargada.price_sd), "Atención", MessageBoxButton.OK);
+                if (usuario.suscription_id == ((int)Enums.Enumsuscripcion.Activar).ToString())
+                {
+                    MessageBox.Show(string.Format("Estás por ver {0}" + Environment.NewLine + "calificación {1}" + Environment.NewLine + "costo $ {2}" + Environment.NewLine, peliculaCargada.title, peliculaCargada.classification, peliculaCargada.price_sd), "Atención", MessageBoxButton.OK);
+                }
             }
 
             BitmapImage imag = new System.Windows.Media.Imaging.BitmapImage(new Uri(@"/Imagenes/ver ahora-hover.png", UriKind.RelativeOrAbsolute));
@@ -145,9 +150,9 @@ namespace Personal.Views
                 playJson.content_id = peliculaID;
                 playJson.session_id = usuario.session_id;
                 string jsonPostPlay = JsonConvert.SerializeObject(playJson);
-                
 
-                CargaPlayPost(jsonPostPlay, "http://www.qubit.tv/business.php/json/play");
+
+                CargaPlayPost(jsonPostPlay, "http://www.video.personal.com.ar/business.php/json/play");
             }
             else
             {

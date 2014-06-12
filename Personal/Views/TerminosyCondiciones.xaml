@@ -25,11 +25,20 @@
             <Setter Property="Foreground" Value="#FF856D84"></Setter>
         </Style>
     </phone:PhoneApplicationPage.Resources>
-    <ListBox Background="White">
-        <TextBlock x:Name="txtNombre" 
-                       Text="términos y condiciones"  FontFamily="Portable User Interface"
-                       Margin="25,40,15,20" TextWrapping="Wrap" FontSize="42" Foreground="#FF856D84">
-        </TextBlock>
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="15,10,0,0">
+            <TextBlock x:Name="txtNombre" 
+                       Text="términos y condiciones"  Style="{StaticResource PhoneTextTitle1Style}"
+                       Foreground="#FF856D84">
+            </TextBlock>
+        </StackPanel>
+        <ListBox Grid.Row="1" Height="auto" Margin="10,0">
         <TextBlock Text="1. TÉRMINOS Y CONDICIONES Y SU ACEPTACIÓN" Style="{StaticResource subtitulo}"
                    TextWrapping="Wrap"> 
         </TextBlock>
@@ -157,6 +166,7 @@
         <TextBlock Text='8.2 Para el caso de dudas o divergencias para la aplicación de las presentes Términos y Condiciones corresponderá la jurisdicción de los Tribunales Nacionales en lo Comercial sitos en la Ciudad de Buenos Aires, con expresa renuncia a cualquier otro fuero o jurisdicción que pudiera corresponder.' 
                    Style="{StaticResource regular}" TextWrapping="Wrap">
         </TextBlock>
-    </ListBox>
+        </ListBox>
+    </Grid>
 
 </phone:PhoneApplicationPage>

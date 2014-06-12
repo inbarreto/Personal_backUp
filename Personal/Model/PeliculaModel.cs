@@ -115,7 +115,7 @@ namespace Personal.Model
         public void EjecutaMultimediaPelicula(PlayJson playJson)
         {
             string jsonPostPlay = JsonConvert.SerializeObject(playJson);
-            string url = "http://www.qubit.tv/business.php/json/play";
+            string url = "http://www.video.personal.com.ar/business.php/json/play";
             JsonRequest loginRequest = new JsonRequest();
             loginRequest.Completed += new EventHandler(handleResponsePlay);
             loginRequest.beginRequest(jsonPostPlay, url);

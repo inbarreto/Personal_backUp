@@ -29,7 +29,7 @@ namespace Personal.Views
 
         private void TextBlock_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            MessageBoxResult mensaje = MessageBox.Show("número de linea o clave incorrecta", "error", MessageBoxButton.OK);
+            MessageBoxResult mensaje = MessageBox.Show("número de línea o clave personal incorrecta.", "Error", MessageBoxButton.OK);
 
 
             //Controles.CustomMessegeBox cm = new Controles.CustomMessegeBox();
@@ -84,7 +84,7 @@ namespace Personal.Views
                 string password = txtClavePersonal.Password;
                 if (numeroTelefono == string.Empty || password == string.Empty)
                 {
-                    MessageBox.Show("Número de linea o clave personal incorrectos", "error", MessageBoxButton.OK);
+                    MessageBox.Show("número de línea o clave personal incorrecta.", "Error", MessageBoxButton.OK);
                     return;
                 }
 
@@ -93,7 +93,8 @@ namespace Personal.Views
                 loginJsonPost.username = numeroTelefono;
                 string postUsuario = JsonConvert.SerializeObject(loginJsonPost);
 
-                CargaUsuarioPost(postUsuario, "http://secure.qubit.tv/json/login");
+                //CargaUsuarioPost(postUsuario, "http://secure.qubit.tv/json/login");
+                CargaUsuarioPost(postUsuario, "https://secure.qubit.tv/json/personal/login");
 
             }
             catch (Exception)
@@ -131,11 +132,13 @@ namespace Personal.Views
                 if (usuarioObjeto.username != null)
                 {
                     StateModel.CargaKey("Usuario", usuarioObjeto);
-                    MessageBox.Show("Se ha logueado correctamente", "Estado Login", MessageBoxButton.OK);
+                    MessageBox.Show("se ha logueado correctamente.", "Estado Login", MessageBoxButton.OK);
+                    NavigationService.Navigate(new Uri("/Views/Home.xaml", UriKind.Relative));
                 }
                 else
-                    MessageBox.Show("Usuario o contraseña incorrectos", "Estado Login", MessageBoxButton.OK);
-                NavigationService.Navigate(new Uri("/Views/Home.xaml", UriKind.Relative));
+                {
+                    MessageBox.Show("número de línea o clave personal incorrecta.", "Error", MessageBoxButton.OK);
+                }
             }
             catch (Exception)
             {

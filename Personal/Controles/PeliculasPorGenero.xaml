@@ -57,7 +57,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-        <Button x:Name="btnVerMas" Content="Ver Mas" Tap="verMas_Tap" Visibility="Collapsed" Height="70"/>
+        <Button x:Name="btnVerMas" Content="ver más" Tap="verMas_Tap" Visibility="Visible" Height="70"/>
     
     </StackPanel>
 </UserControl>

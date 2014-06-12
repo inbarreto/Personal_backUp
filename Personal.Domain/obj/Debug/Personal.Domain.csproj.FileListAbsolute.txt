@@ -6,3 +6,7 @@ E:\Proyects\Personal\Personal.Domain\Bin\Debug\Personal.Domain.dll
 E:\Proyects\Personal\Personal.Domain\Bin\Debug\Personal.Domain.pdb
 E:\Proyects\Personal\Personal.Domain\obj\Debug\Personal.Domain.dll
 E:\Proyects\Personal\Personal.Domain\obj\Debug\Personal.Domain.pdb
+C:\Users\Juan\Documents\SVNs\Qubit Windows Phone\Desarrollo\trunk\Personal.Domain\Bin\Debug\Personal.Domain.dll
+C:\Users\Juan\Documents\SVNs\Qubit Windows Phone\Desarrollo\trunk\Personal.Domain\Bin\Debug\Personal.Domain.pdb
+C:\Users\Juan\Documents\SVNs\Qubit Windows Phone\Desarrollo\trunk\Personal.Domain\obj\Debug\Personal.Domain.dll
+C:\Users\Juan\Documents\SVNs\Qubit Windows Phone\Desarrollo\trunk\Personal.Domain\obj\Debug\Personal.Domain.pdb

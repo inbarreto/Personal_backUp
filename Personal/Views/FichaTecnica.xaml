@@ -97,22 +97,19 @@
                            TextWrapping="Wrap"
                            ></TextBlock>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="20,0">
-            <TextBlock Text="Estrellas:" FontSize="27"
+            <!--TextBlock Text="Estrellas:" FontSize="27"
                            Style="{StaticResource TextosTitulo}" 
                            Canvas.Top="25" 
                            >
-                </TextBlock>
+                </TextBlock-->
             <TextBlock x:Name="txtEstrellas" FontSize="27"
                            Style="{StaticResource Textos}" 
-                           Canvas.Top="25"
-                           Canvas.Left="90"
-                           Width="270"
+                           Width="Auto"
                            Height="Auto"
                            TextWrapping="Wrap"
+                           Margin="25,0" VerticalAlignment="Top"
                            >
                 </TextBlock>
-            </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="20,0">
             <TextBlock Text="Genero:"    FontSize="27"                        
                            Style="{StaticResource TextosTitulo}"                            

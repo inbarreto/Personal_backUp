@@ -19,6 +19,7 @@ using System.Net.NetworkInformation;
 using System.Windows.Media;
 using Personal.Domain.Utils;
 using Personal.Domain;
+using Personal.Domain.Enums;
 
 namespace Personal.Controles
 {
@@ -32,7 +33,7 @@ namespace Personal.Controles
         Variables variables = new Variables();
         List<Pelicula> listadoDePeliculas ;
         Usuario usuario = new Usuario();
-        int paginado = 1;
+        
         void PeliculasGenero_Loaded(object sender, RoutedEventArgs e)
         {
             try
@@ -62,7 +63,7 @@ namespace Personal.Controles
                 //lista.Remove(peliculaUnica);
                 if (!StateModel.ExisteKey("VieneDeBuscar"))
                 {
-                    btnVerMas.Visibility = System.Windows.Visibility.Visible;
+                    btnVerMas.Visibility = System.Windows.Visibility.Collapsed;
                     btnVerMas.Foreground = Utils.getColorFromHexa("#7E517A");
                     btnVerMas.BorderBrush = Utils.getColorFromHexa("#7E517A");
                     
@@ -138,19 +139,11 @@ namespace Personal.Controles
 
             string postJsonPelicula = JsonConvert.SerializeObject(peliculaJson);
 
-            string urlPelicula = "http://www.qubit.tv/business.php/json/Element";
-            CargaDatosPeliculaPost(postJsonPelicula, urlPelicula);
+           
+            CargaDatosPeliculaPost(postJsonPelicula, URL.ElementPelicula);
 
         }
-
-
-
-        public Pelicula ObtienePeliculaHome()
-        {
-            Pelicula pelicula = new Pelicula();
-
-            return pelicula;
-        }
+       
 
         private void imgFavorito_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
@@ -220,12 +213,16 @@ namespace Personal.Controles
             Pelicula peliculaCargada = JsonModel.ConvierteJsonAPelicula(jsonPelicula);
             if (!StateModel.ExisteKey("Usuario"))
             {
-                MessageBox.Show("Primero tenés que iniciar sesion.", "error", MessageBoxButton.OK);
+                (Application.Current.RootVisual as PhoneApplicationFrame).Navigate(new Uri(@"/Views/Login.xaml", UriKind.Relative)); 
                 return;
             }
             else
             {
-                MessageBox.Show(string.Format("Estás por ver {0}" + Environment.NewLine + "calificación {1}" + Environment.NewLine + "costo $ {2}" + Environment.NewLine, peliculaCargada.title, peliculaCargada.classification, peliculaCargada.price_sd), "", MessageBoxButton.OK);
+                Usuario usuario = (Usuario)StateModel.ObtieneKey("Usuario");
+                if (usuario.suscription_id == ((int)Enums.Enumsuscripcion.Activar).ToString())
+                {
+                    MessageBox.Show(string.Format("Estás por ver {0}" + Environment.NewLine + "calificación {1}" + Environment.NewLine + "costo $ {2}" + Environment.NewLine, peliculaCargada.title, peliculaCargada.classification, peliculaCargada.price_sd), "", MessageBoxButton.OK);
+                }
             }
             bool hayRed = NetworkInterface.GetIsNetworkAvailable();
             if (hayRed)

@@ -132,7 +132,7 @@
                     <TextBlock x:Name="miCuentaTexto1" Text="iniciar sesión" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36" Tap="txtLogin_Tap"/>
                         <TextBlock x:Name="miCuentaTexto2" Text="perfil" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>
                         <TextBlock x:Name="txtSuscripcion" Text="activar suscripción" FontFamily="Portable User Interface" Foreground="#7D3D76" Margin="15,3,0,10" FontSize="36" FontWeight="Bold" Tap="txtSuscripcion_Tap"/>
-                        <TextBlock x:Name="miCuentaTexto4" Text="favoritos" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>
+                        <TextBlock x:Name="miCuentaTexto4" Text="favoritos" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36" Tap="txtFavoritos_Tap" />
                         <TextBlock x:Name="miCuentaTexto5" Text="ya vistas" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>
                         <TextBlock x:Name="miCuentaTexto6" Text="estoy viendo" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>
                         <TextBlock x:Name="miCuentaTexto7" Text="activar control parental" FontFamily="Portable User Interface" Foreground="#FF856D84" Margin="15,3,0,10" FontSize="36"/>

@@ -113,6 +113,9 @@
     <Compile Include="Model\JsonModel.cs" />
     <Compile Include="Model\PeliculaModel.cs" />
     <Compile Include="Model\StateModel.cs" />
+    <Compile Include="Views\Favoritos.xaml.cs">
+      <DependentUpon>Favoritos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\FichaTecnica.xaml.cs">
       <DependentUpon>FichaTecnica.xaml</DependentUpon>
     </Compile>
@@ -167,6 +170,9 @@
     <Page Include="Styles\StylePeliculasPorGeneroHome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Favoritos.xaml">
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\FichaTecnica.xaml">
       <SubType>Designer</SubType>

@@ -33,6 +33,7 @@ namespace Personal.Domain.Entities
         public string status { get; set; }
         public string status_user { get; set; }
         public string id { get; set; }
+        public string default_lenguage { get; set; }
         public string default_language { get; set; }
         public int subtitle { get; set; }
         public string type { get; set; }
@@ -73,6 +74,7 @@ namespace Personal.Domain.Entities
                 status ="registrate";
                 status_user ="registrate";
                 id ="b858cfe5-daa0-47d2-88b0-8e496b3150eb_BlackDog";
+                default_lenguage ="en";
                 default_language = "en";
                 subtitle=1;
                 type ="Contenido";

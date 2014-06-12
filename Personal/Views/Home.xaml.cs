@@ -268,6 +268,14 @@ namespace Personal
                         miCuentaTexto5.Visibility = System.Windows.Visibility.Visible;
                         miCuentaTexto6.Visibility = System.Windows.Visibility.Visible;
                         miCuentaTexto7.Visibility = System.Windows.Visibility.Visible;
+                        if (usuario.suscription_id == ((int)Enums.Enumsuscripcion.Activar).ToString())
+                        {
+                            txtSuscripcion.Text = "activar suscripción";
+                        }
+                        else if (usuario.suscription_id == ((int)Enums.Enumsuscripcion.Desactivar).ToString())
+                        {
+                            txtSuscripcion.Text = "desactivar suscripción";
+                        }
                     }
                     break;
 
@@ -523,7 +531,7 @@ namespace Personal
 
                 if (usuario == null)
                 {
-                    MessageBox.Show("Para poder modificar la suscripcion debe estar logeado.", "error", MessageBoxButton.OK);
+                    MessageBox.Show("Para poder modificar la suscripcion debe estar logueado.", "error", MessageBoxButton.OK);
                     return;
                 }
 
@@ -556,6 +564,16 @@ namespace Personal
             JsonRequest responseObject = sender as JsonRequest;
             string response = responseObject.ResponseTxt;
             this.CargaSuscripcion(response);
+            if (usuario.suscription_id == ((int)Enums.Enumsuscripcion.Desactivar).ToString())
+            {
+                MessageBox.Show("suscripción satisfactoria.", "OK", MessageBoxButton.OK);
+                txtSuscripcion.Text = "desactivar suscripción";
+            }
+            else if (usuario.suscription_id == ((int)Enums.Enumsuscripcion.Activar).ToString())
+            {
+                MessageBox.Show("desuscripción satisfactoria.", "OK", MessageBoxButton.OK);
+                txtSuscripcion.Text = "activar suscripción";
+            }
             //parse it
         }
 
@@ -564,6 +582,12 @@ namespace Personal
             if (response.Trim() == "dominio incorrecto!")
                 MessageBox.Show("el email ingresado no es correcto.", "error", MessageBoxButton.OK);
             
+        }
+
+        private void txtFavoritos_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Views/Favoritos.xaml", UriKind.Relative));
+            return;
         }
 
     }
